@@ -16,6 +16,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Login extends AppCompatActivity {
@@ -29,11 +31,20 @@ public class Login extends AppCompatActivity {
         //execute selectOption() only if the login is valid otherwise display error
         String username = usernameText.getText().toString();
         String password = passwordText.getText().toString();
+        UserAccount compareAccount = new UserAccount();
+        compareAccount.setUserName(username);
 
-        for (UserAccount userAccount : userAccountList) {
-            if (userAccount.getUserName().equals(username) && userAccount.getPassword().equals(password))
+        Comparator<UserAccount> compareUsername = new Comparator<UserAccount>() {
+            @Override
+            public int compare(UserAccount o1, UserAccount o2) {
+                return o1.getUserName().compareTo(o2.getUserName());
+            }
+        };
+
+        int index = Collections.binarySearch(userAccountList, compareAccount, compareUsername);
+        if (index >= 0)
+            if (userAccountList.get(index).getPassword().equals(password))
                 selectOption();
-        }
         //display username & password do not match
     }
 
