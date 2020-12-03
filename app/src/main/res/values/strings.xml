@@ -1,3 +1,36 @@
 <resources>
     <string name="app_name">rentalApplication</string>
+
+    <string-array name="Numbers">
+        <item>Select</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6+</item>
+    </string-array>
+
+    <string-array name="Yes_No">
+        <item>Select</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="Rating">
+        <item>Select</item>
+        <item>1 - 2 stars</item>
+        <item>2 - 3 stars</item>
+        <item>3 - 4 stars</item>
+        <item>4 - 5 stars</item>
+    </string-array>
+
+    <string-array name="Price">
+        <item>Select</item>
+        <item>$50 - $150</item>
+        <item>$150 - $250</item>
+        <item>$250 - $500</item>
+        <item>$500 +</item>
+    </string-array>
+
 </resources>
