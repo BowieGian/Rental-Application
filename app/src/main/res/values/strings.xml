@@ -33,4 +33,12 @@
         <item>$500 +</item>
     </string-array>
 
+    <string-array name="RentalType">
+        <item>Select</item>
+        <item>House</item>
+        <item>Apartment</item>
+        <item>Room</item>
+    </string-array>
+
+
 </resources>
