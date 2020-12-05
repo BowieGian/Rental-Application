@@ -8,7 +8,6 @@ public class UserAccount {
     String imageUrl;
 
 
-
     public UserAccount(){};
 
     public UserAccount(int ID, String userName, String email, String password, String imageUrl) {

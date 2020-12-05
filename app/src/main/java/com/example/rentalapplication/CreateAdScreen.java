@@ -153,11 +153,6 @@ public class CreateAdScreen extends AppCompatActivity {
         myAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         rating.setAdapter(myAdaptor3);
 
-        ArrayAdapter<String> myAdaptor4 = new ArrayAdapter<>(CreateAdScreen.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Price));
-        myAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        price.setAdapter(myAdaptor4);
-
         ArrayAdapter<String> myAdaptor5 = new ArrayAdapter<>(CreateAdScreen.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.RentalType));
         myAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
