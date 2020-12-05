@@ -24,7 +24,7 @@ public void SignUponclick(View view){
     reference = rootNode.getReference("Seller"); // get the child node named Seller
     Random rand = new Random();
     ID = 301326234; //+ rand.nextInt(100);
-    imageUrl = "https://thefederal.com/file/2020/07/image-32.png";
+    imageUrl = "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/suburban-house-royalty-free-image-1584972559.jpg";
 
     String UserName = username.getText().toString();
     String Email = email.getText().toString();

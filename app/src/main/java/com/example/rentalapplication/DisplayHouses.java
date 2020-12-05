@@ -34,7 +34,7 @@ public class DisplayHouses extends AppCompatActivity {
 
     public void displayOnClick(View view){
         // display the data from database
-
+        /*
         reference.child("301326234").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -47,7 +47,7 @@ public class DisplayHouses extends AppCompatActivity {
         });
         imageView = findViewById(R.id.googleImageId);
         Glide.with(this).load(userAccount.getImageUrl()).into(imageView);
-
+        */
     }
 
     @Override

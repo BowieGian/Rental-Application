@@ -6,23 +6,45 @@
     android:layout_height="match_parent"
     tools:context=".SelectionScreen">
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="586dp"
+        android:layout_height="820dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.617"
+        app:srcCompat="@drawable/base" />
+
     <Button
         android:id="@+id/HouseID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="165dp"
+        android:layout_marginTop="196dp"
+        android:background="#6C7ECF"
+        android:fontFamily="sans-serif-medium"
         android:onClick="HousesOnClick"
-        android:text="Houses"
+        android:text="House"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/PrivateRoomID"
-        android:layout_width="wrap_content"
+        android:layout_width="118dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="240dp"
+        android:layout_marginBottom="68dp"
+        android:background="#6C7ECF"
         android:text="PrivateRoom"
+        android:textColor="@android:color/white"
+        android:textSize="16dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -30,11 +52,54 @@
 
     <Button
         android:id="@+id/AptID"
-        android:layout_width="wrap_content"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
-        android:text="Apt"
+        android:background="#6C7ECF"
+        android:text="Apartment"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/PrivateRoomID"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/HouseID" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.719" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="154dp"
+        android:layout_height="102dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.138"
+        app:srcCompat="@drawable/house0" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="117dp"
+        android:layout_height="101dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.8"
+        app:srcCompat="@drawable/room0" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="134dp"
+        android:layout_height="109dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.442"
+        app:srcCompat="@drawable/apartment0" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
