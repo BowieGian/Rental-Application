@@ -2,7 +2,7 @@ package com.example.rentalapplication;
 
 public class UserAccount {
     int ID;
-    String userName;
+    String username;
     String email;
     String password;
     String imageUrl;
@@ -11,9 +11,9 @@ public class UserAccount {
 
     public UserAccount(){};
 
-    public UserAccount(int ID, String userName, String email, String password, String imageUrl) {
+    public UserAccount(int ID, String username, String email, String password, String imageUrl) {
         this.ID = ID;
-        this.userName = userName;
+        this.username = username;
         this.email = email;
         this.password = password;
         this.imageUrl = imageUrl;
@@ -27,12 +27,12 @@ public class UserAccount {
         this.ID = ID;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {

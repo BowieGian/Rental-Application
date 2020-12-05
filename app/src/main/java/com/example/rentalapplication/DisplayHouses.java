@@ -88,6 +88,37 @@ public class DisplayHouses extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
+        rentalType = APARTMENT;
+
+        switch(rentalType) {
+            case APARTMENT:
+                apartListener = new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        rentalList.clear();
+
+                        for(DataSnapshot apartmentSnapshot : dataSnapshot.getChildren()) {
+                            Apartment apartment = apartmentSnapshot.getValue(Apartment.class);
+                            rentalList.add(apartment);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                };
+
+                apartRef.orderByChild("location").addValueEventListener(apartListener);
+                break;
+            case HOUSE:
+
+                break;
+            case PRIVATE_ROOM:
+
+                break;
+        }
     }
 
     @Override
