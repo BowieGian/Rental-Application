@@ -6,6 +6,14 @@ public class House extends Rental {
     private int numBathrooms;
     private int numBeds;
 
+    public House() {
+
+    }
+
+    public House(String address, String location, String availability, boolean petFriendly, boolean smoke, boolean parking, String hostContact, boolean wifi) {
+        super(address, location, availability, petFriendly, smoke, parking, hostContact, wifi);
+    }
+
     public int getNumRooms() {
         return numRooms;
     }

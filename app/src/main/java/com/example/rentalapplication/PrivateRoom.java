@@ -6,6 +6,13 @@ public class PrivateRoom extends Rental {
     private int numBathrooms;
     private int numBeds;
 
+    public PrivateRoom() {
+
+    }
+
+    public PrivateRoom(String address, String location, String availability, boolean petFriendly, boolean smoke, boolean parking, String hostContact, boolean wifi) {
+        super(address, location, availability, petFriendly, smoke, parking, hostContact, wifi);
+    }
 
     public int getNumGuests() {
         return numGuests;
