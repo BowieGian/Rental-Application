@@ -129,7 +129,7 @@
         android:id="@+id/SignUpID"
         android:layout_width="164dp"
         android:layout_height="49dp"
-        android:onClick="SignUponclick"
+        android:onClick="SignUpOnclick"
         android:text="Sign Up"
         android:textSize="16sp"
         android:textStyle="bold"
