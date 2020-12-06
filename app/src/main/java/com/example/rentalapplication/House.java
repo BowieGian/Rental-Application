@@ -10,8 +10,9 @@ public class House extends Rental {
 
     }
 
-    public House(String address, String location, String availability, boolean petFriendly, boolean smoke, boolean parking, String hostContact, boolean wifi) {
-        super(address, location, availability, petFriendly, smoke, parking, hostContact, wifi);
+    public House(String inDate, String outDate,
+                     boolean petFriendly, boolean smokeFree, String location) {
+        super(inDate, outDate, petFriendly, smokeFree, location);
     }
 
     public int getNumRooms() {

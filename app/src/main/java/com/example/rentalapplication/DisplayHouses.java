@@ -77,9 +77,9 @@ public class DisplayHouses extends AppCompatActivity {
         houseRef = rootNode.getReference("House");
         pRoomRef = rootNode.getReference("PrivateRoom");
 
-        tempApartment = new Apartment("Address", "Location", "Availability", true, true, true, "Contact", true);
-        tempHouse = new House("Address", "Location", "Availability", true, true, true, "Contact", true);
-        tempPrivateRoom = new PrivateRoom("Address", "Location", "Availability", true, true, true, "Contact", true);
+        //tempApartment = new Apartment("Address", "Location", "Availability", true, true, true, "Contact", true);
+        //tempHouse = new House("Address", "Location", "Availability", true, true, true, "Contact", true);
+        //tempPrivateRoom = new PrivateRoom("Address", "Location", "Availability", true, true, true, "Contact", true);
         //addApartment(tempApartment);
         //addHouse(tempHouse);
         //addPrivateRoom(tempPrivateRoom);

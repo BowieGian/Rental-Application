@@ -1,7 +1,6 @@
 package com.example.rentalapplication;
 
 public class PrivateRoom extends Rental {
-
     private int numGuests;
     private int numBathrooms;
     private int numBeds;
@@ -10,8 +9,9 @@ public class PrivateRoom extends Rental {
 
     }
 
-    public PrivateRoom(String address, String location, String availability, boolean petFriendly, boolean smoke, boolean parking, String hostContact, boolean wifi) {
-        super(address, location, availability, petFriendly, smoke, parking, hostContact, wifi);
+    public PrivateRoom(String inDate, String outDate,
+                     boolean petFriendly, boolean smokeFree, String location) {
+        super(inDate, outDate, petFriendly, smokeFree, location);
     }
 
     public int getNumGuests() {

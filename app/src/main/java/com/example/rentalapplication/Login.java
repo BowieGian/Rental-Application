@@ -15,17 +15,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
 public class Login extends AppCompatActivity {
     private FirebaseDatabase rootNode;
-    private DatabaseReference reference;
-    List<UserAccount> userAccountList;
+    private DatabaseReference userRef;
     private TextView usernameText;
     private TextView passwordText;
+    private UserAccount currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +28,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         signUp();
         rootNode = FirebaseDatabase.getInstance();
-        reference = rootNode.getReference("User");
-        userAccountList = new ArrayList<>();
+        userRef = rootNode.getReference("User");
         usernameText = (EditText)findViewById(R.id.editTextTextPersonName);
         passwordText = (EditText)findViewById(R.id.editTextTextPassword);
     }
@@ -44,19 +38,19 @@ public class Login extends AppCompatActivity {
         String username = usernameText.getText().toString();
         final String password = passwordText.getText().toString();
 
-        reference.orderByChild("username").equalTo(username).addListenerForSingleValueEvent(new ValueEventListener() {
+        userRef.orderByChild("username").equalTo(username).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.getValue() == null)
                     return;
 
                 for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
-                    UserAccount userAccount = userSnapshot.getValue(UserAccount.class);
+                    currentUser = userSnapshot.getValue(UserAccount.class);
 
-                    if (userAccount == null)
+                    if (currentUser == null)
                         return;
 
-                    if (userAccount.getPassword().equals(password))
+                    if (currentUser.getPassword().equals(password))
                         selectOption();
 
                     //display username & password do not match
@@ -72,6 +66,7 @@ public class Login extends AppCompatActivity {
 
     public void selectOption(){
         Intent intent = new Intent (this, SelectionScreen.class ); // intent opens a new window
+        intent.putExtra("User ID", currentUser.getId());
         startActivity(intent);
     }
 

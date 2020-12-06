@@ -1,5 +1,6 @@
 package com.example.rentalapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
@@ -15,16 +16,19 @@ import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Calendar;
 import java.util.Date;
 
 public class SelectionFilterScreen extends AppCompatActivity {
     private FirebaseDatabase rootNode;
-    private DatabaseReference reference;
-
+    private DatabaseReference userRef;
+    private UserAccount currentUser;
 
     public void loginOnClick(View view) {
         //execute selectOption() only if the login is valid otherwise display error
@@ -71,6 +75,22 @@ public class SelectionFilterScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         signUp();
+
+        String userID = getIntent().getDataString();
+        rootNode = FirebaseDatabase.getInstance();
+        userRef = rootNode.getReference("User");
+
+        userRef.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                currentUser = dataSnapshot.getValue(UserAccount.class);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         mDisplayDate = (TextView) findViewById(R.id.tvDate);
         mDisplayDate.setOnClickListener(new View.OnClickListener() {

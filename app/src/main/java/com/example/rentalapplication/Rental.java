@@ -1,33 +1,33 @@
 package com.example.rentalapplication;
 
 public class Rental {
-    private int sellerID;
+    private String inDate;
+    private String outDate;
+
+    private boolean petFriendly;
+    private boolean smokeFree;
+    private double rating;
+    private double price;
     private String address;
     private String location;
-    private String availability;
-    private boolean petFriendly;
-    private boolean smoke;
-    private boolean parking;
-    private double price;
-    private double rating;
-    private String hostContact;
-    private boolean wifi;
-    // photos?
+
+    private int sellerID;
+    private String photoLink;
 
     public Rental() {
 
     }
 
     // set everything but price and rating
-    public Rental(String address, String location, String availability, boolean petFriendly, boolean smoke, boolean parking, String hostContact, boolean wifi) {
-        this.address = address;
-        this.location = location;
-        this.availability = availability;
+
+
+    public Rental(String inDate, String outDate,
+                  boolean petFriendly, boolean smokeFree, String location) {
+        this.inDate = inDate;
+        this.outDate = outDate;
         this.petFriendly = petFriendly;
-        this.smoke = smoke;
-        this.parking = parking;
-        this.hostContact = hostContact;
-        this.wifi = wifi;
+        this.smokeFree = smokeFree;
+        this.location = location;
     }
 
     public int getSellerID() {
@@ -54,12 +54,20 @@ public class Rental {
         this.location = location;
     }
 
-    public String getAvailability() {
-        return availability;
+    public String getInDate() {
+        return inDate;
     }
 
-    public void setAvailability(String availability) {
-        this.availability = availability;
+    public void setInDate(String inDate) {
+        this.inDate = inDate;
+    }
+
+    public String getOutDate() {
+        return outDate;
+    }
+
+    public void setOutDate(String outDate) {
+        this.outDate = outDate;
     }
 
     public boolean isPetFriendly() {
@@ -70,20 +78,12 @@ public class Rental {
         this.petFriendly = petFriendly;
     }
 
-    public boolean isSmoke() {
-        return smoke;
+    public boolean isSmokeFree() {
+        return smokeFree;
     }
 
-    public void setSmoke(boolean smoke) {
-        this.smoke = smoke;
-    }
-
-    public boolean isParking() {
-        return parking;
-    }
-
-    public void setParking(boolean parking) {
-        this.parking = parking;
+    public void setSmokeFree(boolean smokeFree) {
+        this.smokeFree = smokeFree;
     }
 
     public double getPrice() {
@@ -108,19 +108,11 @@ public class Rental {
         return true;
     }
 
-    public String getHostContact() {
-        return hostContact;
+    public String getPhotoLink() {
+        return photoLink;
     }
 
-    public void setHostContact(String hostContact) {
-        this.hostContact = hostContact;
-    }
-
-    public boolean isWifi() {
-        return wifi;
-    }
-
-    public void setWifi(boolean wifi) {
-        this.wifi = wifi;
+    public void setPhotoLink(String photoLink) {
+        this.photoLink = photoLink;
     }
 }

@@ -7,6 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 
 public class SelectionScreen extends AppCompatActivity {
+    private String userID;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_selection_screen);
+        userID = getIntent().getDataString();
+    }
 
     public void HousesOnClick(View view){
         displayHouses();
@@ -15,11 +23,5 @@ public class SelectionScreen extends AppCompatActivity {
     public void displayHouses(){
         Intent intent = new Intent (this, DisplayHouses.class );
         startActivity(intent);
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_selection_screen);
     }
 }
