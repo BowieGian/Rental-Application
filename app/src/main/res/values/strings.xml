@@ -40,5 +40,11 @@
         <item>Room</item>
     </string-array>
 
+    <string-array name="PaymentType">
+        <item>Select</item>
+        <item>Visa</item>
+        <item>Mastercard</item>
+        <item>American Express</item>
+    </string-array>
 
 </resources>

@@ -143,18 +143,18 @@ public class SelectionFilterScreen extends AppCompatActivity {
 
         ArrayAdapter<String> myAdaptor2 = new ArrayAdapter<>(SelectionFilterScreen.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Yes_No));
-        myAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        myAdaptor2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         pet.setAdapter(myAdaptor2);
         smoke.setAdapter(myAdaptor2);
 
         ArrayAdapter<String> myAdaptor3 = new ArrayAdapter<>(SelectionFilterScreen.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Rating));
-        myAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        myAdaptor3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         rating.setAdapter(myAdaptor3);
 
         ArrayAdapter<String> myAdaptor4 = new ArrayAdapter<>(SelectionFilterScreen.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Price));
-        myAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        myAdaptor4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         price.setAdapter(myAdaptor4);
     }
 }

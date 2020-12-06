@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -157,5 +158,9 @@ public class CreateAdScreen extends AppCompatActivity {
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.RentalType));
         myAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         rentalType.setAdapter(myAdaptor5);
+    }
+
+    public void displayToast2(View V) {
+        Toast.makeText(CreateAdScreen.this, "Ad has been successfully posted", Toast.LENGTH_SHORT).show();
     }
 }
