@@ -8,8 +8,13 @@
 
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -51,7 +56,7 @@
                 android:id="@+id/usernameID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/imageView"
+                android:layout_above="@+id/House1ImageID"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentEnd="true"
@@ -76,7 +81,7 @@
                 app:layout_constraintVertical_bias="0.052" />
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/House1ImageID"
                 android:layout_width="293dp"
                 android:layout_height="241dp"
                 android:layout_above="@+id/textView"
@@ -97,7 +102,7 @@
                 app:srcCompat="@drawable/house0" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/SelectHousebuttonID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/imageView8"
@@ -105,11 +110,12 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:layout_marginStart="128dp"
-                android:layout_marginLeft="128dp"
-                android:layout_marginEnd="128dp"
-                android:layout_marginRight="128dp"
-                android:layout_marginBottom="39dp"
+                android:layout_marginStart="119dp"
+                android:layout_marginLeft="119dp"
+                android:layout_marginEnd="137dp"
+                android:layout_marginRight="137dp"
+                android:layout_marginBottom="50dp"
+                android:onClick="SelectHouseOnClick"
                 android:text="Select this house"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView8"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -117,18 +123,18 @@
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="371dp"
-                android:layout_height="266dp"
+                android:layout_width="wrap_content"
+                android:layout_height="267dp"
                 android:layout_alignBottom="@+id/imageView8"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:layout_marginStart="19dp"
-                android:layout_marginLeft="19dp"
-                android:layout_marginEnd="21dp"
-                android:layout_marginRight="21dp"
-                android:layout_marginBottom="95dp"
+                android:layout_marginStart="23dp"
+                android:layout_marginLeft="23dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="89dp"
                 android:text="Location: \nNumber of guests: \nNumber of rooms: \nNumber of beds:
         \nNumber of baths: \nSmoke free: \nPet friendly: \nWIFI available: \nParking available:
         \nRating average: \nPrice per night: \nHost contact:
@@ -136,10 +142,10 @@
                 android:textColor="@android:color/white"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/button2"
+                app:layout_constraintBottom_toTopOf="@+id/SelectHousebuttonID"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                app:layout_constraintTop_toBottomOf="@+id/House1ImageID" />
 
         </RelativeLayout>
 

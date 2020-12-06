@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SelectionScreen">
+    tools:context=".UserType">
 
     <ImageView
         android:id="@+id/imageView2"
@@ -12,13 +12,14 @@
         android:layout_height="820dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.434"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.617"
+        app:layout_constraintVertical_bias="0.022"
         app:srcCompat="@drawable/base" />
 
     <TextView
+        android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="I want to....."
@@ -36,32 +37,34 @@
         android:id="@+id/HouseID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="260dp"
         android:background="@android:color/white"
         android:fontFamily="sans-serif-medium"
-        android:onClick="HousesOnClick"
+        android:onClick="RentOnClick"
         android:text="Rent"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.386" />
 
     <Button
         android:id="@+id/AptID"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="396dp"
         android:background="@android:color/white"
+        android:onClick="AdOnClick"
         android:text="post an ad"
         android:textSize="16sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.587" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
