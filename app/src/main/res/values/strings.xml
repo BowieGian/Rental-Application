@@ -33,4 +33,18 @@
         <item>$500 +</item>
     </string-array>
 
+    <string-array name="RentalType">
+        <item>Select</item>
+        <item>House</item>
+        <item>Apartment</item>
+        <item>Room</item>
+    </string-array>
+
+    <string-array name="PaymentType">
+        <item>Select</item>
+        <item>Visa</item>
+        <item>Mastercard</item>
+        <item>American Express</item>
+    </string-array>
+
 </resources>

@@ -8,11 +8,13 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="560dp"
-        android:layout_height="778dp"
+        android:layout_width="457dp"
+        android:layout_height="754dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/base"
-        tools:layout_editor_absoluteX="-75dp"
-        tools:layout_editor_absoluteY="-24dp"
         tools:ignore="MissingConstraints" />
 
     <TextView
