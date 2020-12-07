@@ -25,7 +25,7 @@
         android:text="I want to....."
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
-        android:textSize="35sp"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.158"
         app:layout_constraintLeft_toLeftOf="parent"
