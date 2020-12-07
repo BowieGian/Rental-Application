@@ -81,7 +81,7 @@ public class Login extends AppCompatActivity {
     }
 
     public void selectOption(){
-        Intent intent = new Intent (Login.this, TotalHousesButtons.class ); // intent opens a new window
+        Intent intent = new Intent (Login.this, UserType.class ); // intent opens a new window
         intent.putExtra("User ID", currentUser.getId());
         startActivity(intent);
     }
