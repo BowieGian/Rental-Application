@@ -22,7 +22,6 @@ public class Login extends AppCompatActivity {
     private TextView usernameText;
     private TextView passwordText;
     private UserAccount currentUser;
-
     private DatabaseReference apartRef;
 
     @Override

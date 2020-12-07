@@ -144,7 +144,7 @@
         android:layout_height="wrap_content"
         android:background="@android:color/white"
         android:onClick="displayToast"
-        android:text="Reserve my booking now"
+        android:text="Another booking"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.088"
