@@ -12,7 +12,7 @@ public class Rental {
     private String location;
 
     private int sellerID;
-    private String photoLink;
+    private String imageUrl;
 
     public Rental() {
 
@@ -108,11 +108,11 @@ public class Rental {
         return true;
     }
 
-    public String getPhotoLink() {
-        return photoLink;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setPhotoLink(String photoLink) {
-        this.photoLink = photoLink;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

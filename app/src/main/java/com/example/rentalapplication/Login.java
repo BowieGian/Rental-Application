@@ -23,6 +23,8 @@ public class Login extends AppCompatActivity {
     private TextView passwordText;
     private UserAccount currentUser;
 
+    private DatabaseReference apartRef;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,8 +32,13 @@ public class Login extends AppCompatActivity {
         signUp();
         rootNode = FirebaseDatabase.getInstance();
         userRef = rootNode.getReference("User");
+        apartRef = rootNode.getReference("Apartment");
         usernameText = (EditText)findViewById(R.id.editTextTextPersonName);
         passwordText = (EditText)findViewById(R.id.editTextTextPassword);
+
+        currentUser = new UserAccount();
+        //currentUser.addApart(apartRef, "inDate", "outDate", 1, 1, 1, 1, true, true, "loc",
+        //        "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/suburban-house-royalty-free-image-1584972559.jpg");
     }
 
     public void loginOnClick(View view){
@@ -42,21 +49,25 @@ public class Login extends AppCompatActivity {
         userRef.orderByChild("username").equalTo(username).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.getValue() == null)
+                if (dataSnapshot.getValue() == null) {
+                    invalidCredentials();
                     return;
+                }
 
                 for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
                     currentUser = userSnapshot.getValue(UserAccount.class);
 
-                    if (currentUser == null)
+                    if (currentUser == null) {
+                        invalidCredentials();
                         return;
+                    }
 
-                    if (currentUser.getPassword().equals(password))
+                    if (currentUser.getPassword().equals(password)) {
                         selectOption();
-
-                    //display username & password do not match
-                    Toast.makeText(Login.this,"Invalid credentials", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
                 }
+                invalidCredentials();
             }
 
             @Override
@@ -64,6 +75,10 @@ public class Login extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void invalidCredentials() {
+        Toast.makeText(Login.this,"Invalid credentials", Toast.LENGTH_SHORT).show();
     }
 
     public void selectOption(){

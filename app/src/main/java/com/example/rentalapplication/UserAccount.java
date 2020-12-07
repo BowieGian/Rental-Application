@@ -52,12 +52,13 @@ public class UserAccount {
 
     public void addApart(DatabaseReference apartRef, String inDate, String outDate,
                          int numRooms, int numGuests, int numBathrooms, int numBeds,
-                         boolean petFriendly, boolean smokeFree, String location) {
+                         boolean petFriendly, boolean smokeFree, String location, String imageUrl) {
         Apartment newApart = new Apartment(inDate, outDate, petFriendly, smokeFree, location);
         newApart.setNumRooms(numRooms);
         newApart.setNumGuests(numGuests);
         newApart.setNumBathrooms(numBathrooms);
         newApart.setNumBeds(numBeds);
+        newApart.setImageUrl(imageUrl);
 
         apartRef.push().setValue(newApart);
     }

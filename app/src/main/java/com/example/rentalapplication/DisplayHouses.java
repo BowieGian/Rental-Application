@@ -31,6 +31,7 @@ public class DisplayHouses extends AppCompatActivity {
     private DatabaseReference apartRef;
     private DatabaseReference houseRef;
     private DatabaseReference pRoomRef;
+    private DatabaseReference userRef;
     private ValueEventListener apartListener;
     private ValueEventListener houseListener;
     private ValueEventListener pRoomListener;
@@ -46,56 +47,28 @@ public class DisplayHouses extends AppCompatActivity {
     private int rentalType = 0;
     private List<Rental> rentalList;
 
-    private Apartment tempApartment;
-    private House tempHouse;
-    private PrivateRoom tempPrivateRoom;
     private UserAccount userAccount = new UserAccount();
     private String intVal;
 
-    public void displayHousesAndProperties(){
-        // display the data from database
-
-
-
-
-
-    }
-    public void SelectHouseOnClick(View view ){
-
-        reference.child(intVal).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                userAccount = dataSnapshot.getValue(UserAccount.class);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {}
-
-        });
-        imageView = findViewById(R.id.House1ImageID);
-        Glide.with(this).load(userAccount.getImageUrl()).into(imageView);
-    }
+    private Apartment tempApartment;
+    private House tempHouse;
+    private PrivateRoom tempPrivateRoom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_houses);
         rootNode = FirebaseDatabase.getInstance();
-        reference = rootNode.getReference("Seller");
+        userRef = rootNode.getReference("Seller");
         displayHousesAndProperties();
         Intent mIntent = getIntent();
         intVal = mIntent.getStringExtra("intIndex");
         System.out.println("----------------index----------"+intVal);
+
         apartRef = rootNode.getReference("Apartment");
         houseRef = rootNode.getReference("House");
         pRoomRef = rootNode.getReference("PrivateRoom");
-
-        //tempApartment = new Apartment("Address", "Location", "Availability", true, true, true, "Contact", true);
-        //tempHouse = new House("Address", "Location", "Availability", true, true, true, "Contact", true);
-        //tempPrivateRoom = new PrivateRoom("Address", "Location", "Availability", true, true, true, "Contact", true);
-        //addApartment(tempApartment);
-        //addHouse(tempHouse);
-        //addPrivateRoom(tempPrivateRoom);
+        rentalList = new ArrayList<>();
     }
 
     @Override
@@ -134,24 +107,39 @@ public class DisplayHouses extends AppCompatActivity {
         }
     }
 
+    public void displayHousesAndProperties(){
+        // display the data from database
+
+
+
+
+
+    }
+
+    public void SelectHouseOnClick(View view) {
+        apartRef.child("-MNuXZzHdZrqlT3Eam5y").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                tempApartment = dataSnapshot.getValue(Apartment.class);
+                displayImage();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {}
+
+        });
+    }
+
+    private void displayImage() {
+        imageView = findViewById(R.id.House1ImageID);
+        Glide.with(this).load(tempApartment.getImageUrl()).into(imageView);
+    }
+
     @Override
     protected void onStop() {
         super.onStop();
 
         if (apartListener != null)
             apartRef.removeEventListener(apartListener);
-    }
-
-    // move to post ad screen
-    public void addApartment(Apartment apartment) {
-        apartRef.push().setValue(apartment);
-    }
-
-    public void addHouse(House house) {
-        houseRef.push().setValue(house);
-    }
-
-    public void addPrivateRoom(PrivateRoom privateRoom) {
-        pRoomRef.push().setValue(privateRoom);
     }
 }
