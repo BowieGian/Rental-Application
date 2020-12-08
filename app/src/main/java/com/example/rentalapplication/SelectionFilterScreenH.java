@@ -23,13 +23,20 @@ import java.util.Calendar;
 import java.util.List;
 
 public class SelectionFilterScreenH extends AppCompatActivity {
-
     private static final String TAG = "SelectionFilterScreen";
     private TextView mDisplayDate1;
     private DatePickerDialog.OnDateSetListener mDateSetListener1;
     private TextView mDisplayDate2;
     private DatePickerDialog.OnDateSetListener mDateSetListener2;
 
+    public void housesOnClick(View view) {
+        displayHouses();
+    }
+
+    public void displayHouses() {
+        Intent intent = new Intent(this, TotalHousesButtons.class);
+        startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,8 +71,6 @@ public class SelectionFilterScreenH extends AppCompatActivity {
             }
         };
 
-
-
         mDisplayDate2 = (TextView) findViewById(R.id.tvDate2);
         mDisplayDate2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,8 +98,6 @@ public class SelectionFilterScreenH extends AppCompatActivity {
                 mDisplayDate2.setText(date);
             }
         };
-
-
 
         Spinner guests = (Spinner) findViewById(R.id.spinner3);
         Spinner rooms = (Spinner) findViewById(R.id.spinner4);

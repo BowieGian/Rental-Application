@@ -23,58 +23,20 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class CreateAdScreen extends AppCompatActivity {
-    private FirebaseDatabase rootNode;
-    private DatabaseReference reference;
-
-
-    public void loginOnClick(View view) {
-        //execute selectOption() only if the login is valid otherwise display error
-        selectOption();
-    }
-
-    public void selectOption() {
-        Intent intent = new Intent(this, CreateAdScreen.class); // intent opens a new window
-        startActivity(intent);
-    }
-
-    public void openNewUserScreen() {
-        Intent intent = new Intent(this, NewUserScreen.class);
-        startActivity(intent);
-    }
-
-    public void signUp() {
-        TextView tv = (TextView) findViewById(R.id.NewUserID);
-
-        tv.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                openNewUserScreen();
-            }
-        });
-    }
-
-    public void HousesOnClick(View view) {
-        displayHouses();
-    }
-
-    public void displayHouses() {
-        Intent intent = new Intent(this, DisplayHouses.class);
-        startActivity(intent);
-    }
-
-    //////////////////////////////
     private static final String TAG = "CreateAdScreen";
-    private TextView mDisplayDate;
-    private DatePickerDialog.OnDateSetListener mDateSetListener;
+    private TextView mDisplayDate1;
+    private DatePickerDialog.OnDateSetListener mDateSetListener1;
+    private TextView mDisplayDate2;
+    private DatePickerDialog.OnDateSetListener mDateSetListener2;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        signUp();
+        setContentView(R.layout.activity_create_ad_screen);
 
-        mDisplayDate = (TextView) findViewById(R.id.tvDate);
-        mDisplayDate.setOnClickListener(new View.OnClickListener() {
+        mDisplayDate1 = (TextView) findViewById(R.id.tvDate);
+        mDisplayDate1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Calendar cal = Calendar.getInstance();
@@ -83,25 +45,26 @@ public class CreateAdScreen extends AppCompatActivity {
                 int day = cal.get(Calendar.DAY_OF_MONTH);
 
                 DatePickerDialog dialog = new DatePickerDialog(CreateAdScreen.this,
-                        android.R.style.Theme_Holo_Light_Dialog_MinWidth, mDateSetListener,
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth, mDateSetListener1,
                         year, month, day);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
             }
         });
 
-        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+        mDateSetListener1 = new DatePickerDialog.OnDateSetListener() {
             @Override
-            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-                Log.d(TAG, "onDateSet: date: " + i + "/" + i1 + "/" + i2);
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                month = month + 1;
+                Log.d(TAG, "onDateSet: mm/dd/yyyy: " + month + "/" + day + "/" + year);
+
+                String date = month + "/" + day + "/" + year;
+                mDisplayDate1.setText(date);
             }
         };
 
-
-
-
-
-        mDisplayDate = (TextView) findViewById(R.id.tvDate2);
-        mDisplayDate.setOnClickListener(new View.OnClickListener() {
+        mDisplayDate2 = (TextView) findViewById(R.id.tvDate2);
+        mDisplayDate2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Calendar cal = Calendar.getInstance();
@@ -110,20 +73,23 @@ public class CreateAdScreen extends AppCompatActivity {
                 int day = cal.get(Calendar.DAY_OF_MONTH);
 
                 DatePickerDialog dialog = new DatePickerDialog(CreateAdScreen.this,
-                        android.R.style.Theme_Holo_Light_Dialog_MinWidth, mDateSetListener,
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth, mDateSetListener2,
                         year, month, day);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
             }
         });
 
-        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+        mDateSetListener2 = new DatePickerDialog.OnDateSetListener() {
             @Override
-            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-                Log.d(TAG, "onDateSet: date: " + i + "/" + i1 + "/" + i2);
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                month = month + 1;
+                Log.d(TAG, "onDateSet: mm/dd/yyyy: " + month + "/" + day + "/" + year);
+
+                String date = month + "/" + day + "/" + year;
+                mDisplayDate2.setText(date);
             }
         };
-
-
 
         Spinner guests = (Spinner) findViewById(R.id.spinner3);
         Spinner rooms = (Spinner) findViewById(R.id.spinner4);
@@ -153,6 +119,11 @@ public class CreateAdScreen extends AppCompatActivity {
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Rating));
         myAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         rating.setAdapter(myAdaptor3);
+
+        ArrayAdapter<String> myAdaptor4 = new ArrayAdapter<>(CreateAdScreen.this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Price));
+        myAdaptor4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        price.setAdapter(myAdaptor4);
 
         ArrayAdapter<String> myAdaptor5 = new ArrayAdapter<>(CreateAdScreen.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.RentalType));
