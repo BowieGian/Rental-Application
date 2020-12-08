@@ -22,33 +22,13 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class SelectionFilterScreenAP extends AppCompatActivity {
-    private FirebaseDatabase rootNode;
-    private DatabaseReference reference;
-
-
     public void loginOnClick(View view) {
-        //execute selectOption() only if the login is valid otherwise display error
         selectOption();
     }
 
     public void selectOption() {
         Intent intent = new Intent(this, SelectionScreen.class); // intent opens a new window
         startActivity(intent);
-    }
-
-    public void openNewUserScreen() {
-        Intent intent = new Intent(this, NewUserScreen.class);
-        startActivity(intent);
-    }
-
-    public void signUp() {
-        TextView tv = (TextView) findViewById(R.id.NewUserID);
-
-        tv.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                openNewUserScreen();
-            }
-        });
     }
 
     public void HousesOnClick(View view) {
@@ -69,8 +49,7 @@ public class SelectionFilterScreenAP extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        signUp();
+        setContentView(R.layout.activity_selection_filter_screen_a_p);
 
         mDisplayDate = (TextView) findViewById(R.id.tvDate);
         mDisplayDate.setOnClickListener(new View.OnClickListener() {

@@ -34,10 +34,6 @@ public class Login extends AppCompatActivity {
         apartRef = rootNode.getReference("Apartment");
         usernameText = (EditText)findViewById(R.id.editTextTextPersonName);
         passwordText = (EditText)findViewById(R.id.editTextTextPassword);
-
-        currentUser = new UserAccount();
-        //currentUser.addApart(apartRef, "inDate", "outDate", 1, 1, 1, 1, true, true, "loc",
-        //        "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/suburban-house-royalty-free-image-1584972559.jpg");
     }
 
     public void loginOnClick(View view){
@@ -82,7 +78,6 @@ public class Login extends AppCompatActivity {
 
     public void selectOption(){
         Intent intent = new Intent (Login.this, UserType.class ); // intent opens a new window
-        intent.putExtra("User ID", currentUser.getId());
         startActivity(intent);
     }
 

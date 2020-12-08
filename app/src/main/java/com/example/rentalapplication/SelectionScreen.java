@@ -57,7 +57,7 @@ public class SelectionScreen extends AppCompatActivity {
 
     //////Siavash
     public void displayHouses() {
-        Intent intent = new Intent(this, SelectionFilterScreen.class);
+        Intent intent = new Intent(this, SelectionFilterScreenH.class);
         startActivity(intent);
     }
 
