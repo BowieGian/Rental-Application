@@ -4,18 +4,26 @@ import java.io.Serializable;
 import java.util.Calendar;
 
 public class Apartment extends Rental implements Serializable {
-    private int numRooms;
     private int numGuests;
-    private int numBathrooms;
+    private int numRooms;
     private int numBeds;
+    private int numBaths;
 
     public Apartment() {
 
     }
 
-    public Apartment(Calendar inDate, Calendar outDate,
-                     boolean petFriendly, boolean smokeFree, String location) {
-        super(inDate, outDate, petFriendly, smokeFree, location);
+    public Apartment(int inYear, int inMonth, int inDay,
+                     int outYear, int outMonth, int outDay,
+                     int numGuests, int numRooms, int numBeds, int numBaths,
+                     boolean petFriendly, boolean smokeFree, String location,
+                     double rating, double price, String imageUrl) {
+        super(inYear, inMonth, inDay, outYear, outMonth, outDay,
+                petFriendly, smokeFree, location, rating, price, imageUrl);
+        this.numGuests = numGuests;
+        this.numRooms = numRooms;
+        this.numBeds = numBeds;
+        this.numBaths = numBaths;
     }
 
     public int getNumRooms() {
@@ -40,14 +48,14 @@ public class Apartment extends Rental implements Serializable {
         return true;
     }
 
-    public int getNumBathrooms() {
-        return numBathrooms;
+    public int getNumBaths() {
+        return numBaths;
     }
 
     public boolean setNumBathrooms(int numBathrooms) {
         if (numBathrooms < 1)
             return false;
-        this.numBathrooms = numBathrooms;
+        this.numBaths = numBathrooms;
         return true;
     }
 

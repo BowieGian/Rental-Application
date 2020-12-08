@@ -189,24 +189,36 @@ public class SelectionFilterScreenH extends AppCompatActivity implements Adapter
                     smoke = false;
                 break;
             case R.id.spinnerRating:
-                if (selectedString.equals("1 - 2 stars"))
-                    rating = 1;
-                else if (selectedString.equals("2 - 3 stars"))
-                    rating = 2;
-                else if (selectedString.equals("3 - 4 stars"))
-                    rating = 3;
-                else if (selectedString.equals("4 - 5 stars"))
-                    rating = 4;
+                switch (selectedString) {
+                    case "1 - 2 stars":
+                        rating = 1;
+                        break;
+                    case "2 - 3 stars":
+                        rating = 2;
+                        break;
+                    case "3 - 4 stars":
+                        rating = 3;
+                        break;
+                    case "4 - 5 stars":
+                        rating = 4;
+                        break;
+                }
                 break;
             case R.id.spinnerPrice:
-                if (selectedString.equals("$50 - $150"))
-                    price = 1;
-                else if (selectedString.equals("$150 - $250"))
-                    price = 2;
-                else if (selectedString.equals("$250 - $500"))
-                    price = 3;
-                else if (selectedString.equals("$500 +"))
-                    price = 4;
+                switch (selectedString) {
+                    case "$50 - $150":
+                        price = 1;
+                        break;
+                    case "$150 - $250":
+                        price = 2;
+                        break;
+                    case "$250 - $500":
+                        price = 3;
+                        break;
+                    case "$500 +":
+                        price = 4;
+                        break;
+                }
                 break;
         }
     }

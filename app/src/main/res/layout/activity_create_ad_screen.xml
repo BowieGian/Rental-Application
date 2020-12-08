@@ -15,6 +15,34 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
 
+    <EditText
+        android:id="@+id/editTextLocation"
+        android:layout_width="93dp"
+        android:layout_height="25dp"
+        android:alpha=".6"
+        android:background="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:layout_constraintVertical_bias="0.050000012"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/editTextImageUrl"
+        android:layout_width="178dp"
+        android:layout_height="25dp"
+        android:alpha=".6"
+        android:background="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.78"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:layout_constraintVertical_bias="0.41000003"
+        tools:ignore="MissingConstraints" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -150,32 +178,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.393" />
 
-    <Spinner
-        android:id="@+id/spinnerRating"
-        android:layout_width="93dp"
-        android:layout_height="26dp"
-        android:alpha="0.6"
-        android:background="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.213"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9"
-        app:layout_constraintVertical_bias="0.059" />
-
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="178dp"
-        android:layout_height="25dp"
-        android:alpha="0.6"
-        android:background="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.785"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9"
-        app:layout_constraintVertical_bias="0.419" />
-
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
@@ -214,10 +216,10 @@
         android:background="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toEndOf="@+id/spinnerRating"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toEndOf="@+id/editTextLocation"
         app:layout_constraintTop_toBottomOf="@+id/textView8"
-        app:layout_constraintVertical_bias="0.069" />
+        app:layout_constraintVertical_bias="0.050000012" />
 
     <TextView
         android:id="@+id/textView8"
@@ -291,7 +293,7 @@
         app:layout_constraintVertical_bias="0.112" />
 
     <Spinner
-        android:id="@+id/spinner11"
+        android:id="@+id/spinnerRentalType"
         android:layout_width="94dp"
         android:layout_height="24dp"
         android:alpha="0.6"
@@ -362,7 +364,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:drawable/editbox_dropdown_light_frame"
-        android:onClick="displayToast2"
+        android:onClick="postAd"
         android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
