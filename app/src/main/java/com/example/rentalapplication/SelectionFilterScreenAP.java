@@ -22,28 +22,11 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class SelectionFilterScreenAP extends AppCompatActivity {
-    public void loginOnClick(View view) {
-        selectOption();
-    }
-
-    public void selectOption() {
-        Intent intent = new Intent(this, SelectionScreen.class); // intent opens a new window
-        startActivity(intent);
-    }
-
-    public void HousesOnClick(View view) {
-        displayHouses();
-    }
-
-    public void displayHouses() {
-        Intent intent = new Intent(this, DisplayHouses.class);
-        startActivity(intent);
-    }
-
-    //////////////////////////////
     private static final String TAG = "SelectionFilterScreenAP";
-    private TextView mDisplayDate;
-    private DatePickerDialog.OnDateSetListener mDateSetListener;
+    private TextView mDisplayDate1;
+    private DatePickerDialog.OnDateSetListener mDateSetListener1;
+    private TextView mDisplayDate2;
+    private DatePickerDialog.OnDateSetListener mDateSetListener2;
 
 
     @Override
@@ -51,8 +34,8 @@ public class SelectionFilterScreenAP extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selection_filter_screen_a_p);
 
-        mDisplayDate = (TextView) findViewById(R.id.tvDate);
-        mDisplayDate.setOnClickListener(new View.OnClickListener() {
+        mDisplayDate1 = (TextView) findViewById(R.id.tvDate);
+        mDisplayDate1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Calendar cal = Calendar.getInstance();
@@ -61,25 +44,27 @@ public class SelectionFilterScreenAP extends AppCompatActivity {
                 int day = cal.get(Calendar.DAY_OF_MONTH);
 
                 DatePickerDialog dialog = new DatePickerDialog(SelectionFilterScreenAP.this,
-                        android.R.style.Theme_Holo_Light_Dialog_MinWidth, mDateSetListener,
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth, mDateSetListener1,
                         year, month, day);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
             }
         });
 
-        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+        mDateSetListener1 = new DatePickerDialog.OnDateSetListener() {
             @Override
-            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-                Log.d(TAG, "onDateSet: date: " + i + "/" + i1 + "/" + i2);
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                month = month + 1;
+                Log.d(TAG, "onDateSet: mm/dd/yyyy: " + month + "/" + day + "/" + year);
+
+                String date = month + "/" + day + "/" + year;
+                mDisplayDate2.setText(date);
             }
         };
 
 
-
-
-
-        mDisplayDate = (TextView) findViewById(R.id.tvDate2);
-        mDisplayDate.setOnClickListener(new View.OnClickListener() {
+        mDisplayDate2 = (TextView) findViewById(R.id.tvDate2);
+        mDisplayDate2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Calendar cal = Calendar.getInstance();
@@ -88,16 +73,21 @@ public class SelectionFilterScreenAP extends AppCompatActivity {
                 int day = cal.get(Calendar.DAY_OF_MONTH);
 
                 DatePickerDialog dialog = new DatePickerDialog(SelectionFilterScreenAP.this,
-                        android.R.style.Theme_Holo_Light_Dialog_MinWidth, mDateSetListener,
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth, mDateSetListener2,
                         year, month, day);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
             }
         });
 
-        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+        mDateSetListener2 = new DatePickerDialog.OnDateSetListener() {
             @Override
-            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-                Log.d(TAG, "onDateSet: date: " + i + "/" + i1 + "/" + i2);
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                month = month + 1;
+                Log.d(TAG, "onDateSet: mm/dd/yyyy: " + month + "/" + day + "/" + year);
+
+                String date = month + "/" + day + "/" + year;
+                mDisplayDate2.setText(date);
             }
         };
 

@@ -35,12 +35,12 @@ public class UserType extends AppCompatActivity {
     }
 
     public void openSelectionScreen() {
-        Intent intent = new Intent(this, SelectionScreen.class);
-        startActivity(intent);
+        Intent intenta = new Intent(this, SelectionScreen.class);
+        startActivity(intenta);
     }
 
     public void openCreateAdScreen() {
-        Intent intent = new Intent(this, CreateAdScreen.class);
-        startActivity(intent);
+        Intent intentb = new Intent(this, CreateAdScreen.class);
+        startActivity(intentb);
     }
 }

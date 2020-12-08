@@ -16,14 +16,13 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.617"
+        app:layout_constraintVertical_bias="0.505"
         app:srcCompat="@drawable/base" />
 
     <Button
         android:id="@+id/HouseID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="196dp"
         android:alpha="0.9"
         android:background="#6C7ECF"
         android:fontFamily="sans-serif-medium"
@@ -32,10 +31,12 @@
         android:textColor="@android:color/white"
         android:textSize="16sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imageView7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:layout_constraintVertical_bias="0.155" />
 
     <Button
         android:id="@+id/PrivateRoomID"
@@ -50,13 +51,16 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/AptID"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="136dp"
         android:background="#6C7ECF"
         android:text="Apartment"
         android:textColor="@android:color/white"
@@ -66,8 +70,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.719" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView7"
+        app:layout_constraintVertical_bias="0.314" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -87,9 +91,10 @@
         android:layout_height="101dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7"
+        app:layout_constraintVertical_bias="0.461"
         app:srcCompat="@drawable/room0" />
 
     <ImageView
@@ -100,8 +105,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.442"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:layout_constraintVertical_bias="0.205"
         app:srcCompat="@drawable/apartment0" />
 
 

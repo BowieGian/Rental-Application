@@ -49,12 +49,6 @@ public class SelectionScreen extends AppCompatActivity {
         });
     }
 
-    public void HousesOnClick(View view){
-        displayHouses();
-    }
-
-
-
     //////Siavash
     public void displayHouses() {
         Intent intent = new Intent(this, SelectionFilterScreenH.class);
