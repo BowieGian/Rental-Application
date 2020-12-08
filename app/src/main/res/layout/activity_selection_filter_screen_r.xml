@@ -92,7 +92,7 @@
         app:layout_constraintVertical_bias="0.704" />
 
     <Spinner
-        android:id="@+id/spinner5"
+        android:id="@+id/spinnerBeds"
         android:layout_width="55dp"
         android:layout_height="25dp"
         android:alpha="0.8"
@@ -120,7 +120,7 @@
         app:layout_constraintVertical_bias="0.432" />
 
     <Spinner
-        android:id="@+id/spinner7"
+        android:id="@+id/spinnerPet"
         android:layout_width="55dp"
         android:layout_height="25dp"
         android:alpha="0.8"
@@ -133,7 +133,7 @@
         app:layout_constraintVertical_bias="0.2" />
 
     <Spinner
-        android:id="@+id/spinner9"
+        android:id="@+id/spinnerRating"
         android:layout_width="55dp"
         android:layout_height="25dp"
         android:alpha="0.8"
@@ -206,7 +206,7 @@
         app:layout_constraintVertical_bias="0.281" />
 
     <Spinner
-        android:id="@+id/spinner6"
+        android:id="@+id/spinnerBaths"
         android:layout_width="55dp"
         android:layout_height="25dp"
         android:alpha="0.8"
@@ -214,7 +214,7 @@
         app:layout_constraintBottom_toTopOf="@+id/textView10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.519"
-        app:layout_constraintStart_toEndOf="@+id/spinner5"
+        app:layout_constraintStart_toEndOf="@+id/spinnerBeds"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
         app:layout_constraintVertical_bias="0.131" />
 
@@ -234,7 +234,7 @@
         app:layout_constraintVertical_bias="0.432" />
 
     <Spinner
-        android:id="@+id/spinner8"
+        android:id="@+id/spinnerSmoke"
         android:layout_width="55dp"
         android:layout_height="25dp"
         android:alpha="0.8"
@@ -242,12 +242,12 @@
         app:layout_constraintBottom_toTopOf="@+id/textView8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.533"
-        app:layout_constraintStart_toEndOf="@+id/spinner7"
+        app:layout_constraintStart_toEndOf="@+id/spinnerPet"
         app:layout_constraintTop_toBottomOf="@+id/textView10"
         app:layout_constraintVertical_bias="0.213" />
 
     <Spinner
-        android:id="@+id/spinner10"
+        android:id="@+id/spinnerPrice"
         android:layout_width="55dp"
         android:layout_height="25dp"
         android:alpha="0.8"
@@ -255,7 +255,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.533"
-        app:layout_constraintStart_toEndOf="@+id/spinner9"
+        app:layout_constraintStart_toEndOf="@+id/spinnerRating"
         app:layout_constraintTop_toBottomOf="@+id/textView8"
         app:layout_constraintVertical_bias="0.057" />
 

@@ -1,6 +1,9 @@
 package com.example.rentalapplication;
 
-public class House extends Rental {
+import java.io.Serializable;
+import java.util.Calendar;
+
+public class House extends Rental implements Serializable {
     private int numRooms;
     private int numGuests;
     private int numBathrooms;
@@ -10,8 +13,8 @@ public class House extends Rental {
 
     }
 
-    public House(String inDate, String outDate,
-                     boolean petFriendly, boolean smokeFree, String location) {
+    public House(Calendar inDate, Calendar outDate,
+                 boolean petFriendly, boolean smokeFree, String location) {
         super(inDate, outDate, petFriendly, smokeFree, location);
     }
 

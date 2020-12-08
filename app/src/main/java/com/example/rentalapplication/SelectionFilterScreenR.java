@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
-import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -15,11 +14,7 @@ import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.Calendar;
-import java.util.Date;
 
 public class SelectionFilterScreenR extends AppCompatActivity {
     private static final String TAG = "SelectionFilterScreenR";
@@ -93,14 +88,14 @@ public class SelectionFilterScreenR extends AppCompatActivity {
 
 
 
-        Spinner guests = (Spinner) findViewById(R.id.spinner3);
-        Spinner rooms = (Spinner) findViewById(R.id.spinner4);
-        Spinner beds = (Spinner) findViewById(R.id.spinner5);
-        Spinner baths = (Spinner) findViewById(R.id.spinner6);
-        Spinner pet = (Spinner) findViewById(R.id.spinner7);
-        Spinner smoke = (Spinner) findViewById(R.id.spinner8);
-        Spinner rating = (Spinner) findViewById(R.id.spinner9);
-        Spinner price  = (Spinner) findViewById(R.id.spinner10);
+        Spinner guests = (Spinner) findViewById(R.id.spinnerGuests);
+        Spinner rooms = (Spinner) findViewById(R.id.spinnerRooms);
+        Spinner beds = (Spinner) findViewById(R.id.spinnerBeds);
+        Spinner baths = (Spinner) findViewById(R.id.spinnerBaths);
+        Spinner pet = (Spinner) findViewById(R.id.spinnerPet);
+        Spinner smoke = (Spinner) findViewById(R.id.spinnerSmoke);
+        Spinner rating = (Spinner) findViewById(R.id.spinnerRating);
+        Spinner price  = (Spinner) findViewById(R.id.spinnerPrice);
 
         ArrayAdapter<String> myAdaptor = new ArrayAdapter<>(SelectionFilterScreenR.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Numbers));

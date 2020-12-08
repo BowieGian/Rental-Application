@@ -1,14 +1,16 @@
 package com.example.rentalapplication;
 
-public class Rental {
-    private String inDate;
-    private String outDate;
+import java.io.Serializable;
+import java.util.Calendar;
+
+public class Rental implements Serializable {
+    private Calendar inDate;
+    private Calendar outDate;
 
     private boolean petFriendly;
     private boolean smokeFree;
     private double rating;
     private double price;
-    private String address;
     private String location;
 
     private int sellerID;
@@ -21,7 +23,7 @@ public class Rental {
     // set everything but price and rating
 
 
-    public Rental(String inDate, String outDate,
+    public Rental(Calendar inDate, Calendar outDate,
                   boolean petFriendly, boolean smokeFree, String location) {
         this.inDate = inDate;
         this.outDate = outDate;
@@ -38,14 +40,6 @@ public class Rental {
         this.sellerID = sellerID;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     public String getLocation() {
         return location;
     }
@@ -54,19 +48,19 @@ public class Rental {
         this.location = location;
     }
 
-    public String getInDate() {
+    public Calendar getInDate() {
         return inDate;
     }
 
-    public void setInDate(String inDate) {
+    public void setInDate(Calendar inDate) {
         this.inDate = inDate;
     }
 
-    public String getOutDate() {
+    public Calendar getOutDate() {
         return outDate;
     }
 
-    public void setOutDate(String outDate) {
+    public void setOutDate(Calendar outDate) {
         this.outDate = outDate;
     }
 

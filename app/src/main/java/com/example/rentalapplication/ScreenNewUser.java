@@ -14,7 +14,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class NewUserScreen extends AppCompatActivity {
+public class ScreenNewUser extends AppCompatActivity {
     private EditText usernameText;
     private EditText emailText;
     private EditText passwordText;

@@ -40,7 +40,7 @@ public class UserType extends AppCompatActivity {
     }
 
     public void openCreateAdScreen() {
-        Intent intentb = new Intent(this, CreateAdScreen.class);
+        Intent intentb = new Intent(this, ScreenCreateAd.class);
         startActivity(intentb);
     }
 }

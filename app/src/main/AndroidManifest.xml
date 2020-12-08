@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.rentalapplication">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,18 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TotalHousesButtons"></activity>
+        <activity android:name=".ScreenHouseButtons" />
         <activity android:name=".UserType" />
         <activity android:name=".DisplayHouses" />
-        <activity android:name=".PaymentScreen"/>
-        <activity android:name=".CreateAdScreen" />
+        <activity android:name=".ScreenPayment" />
+        <activity android:name=".ScreenCreateAd" />
         <activity android:name=".DisplayRooms" />
         <activity android:name=".DisplayApartment" />
         <activity android:name=".SelectionFilterScreenH" />
         <activity android:name=".SelectionFilterScreenAP" />
         <activity android:name=".SelectionFilterScreenR" />
         <activity android:name=".SelectionScreen" />
-        <activity android:name=".NewUserScreen" />
+        <activity android:name=".ScreenNewUser" />
         <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,5 +29,7 @@
             </intent-filter>
         </activity>
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
-import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -16,14 +15,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.Calendar;
-import java.util.Date;
 
-public class CreateAdScreen extends AppCompatActivity {
-    private static final String TAG = "CreateAdScreen";
+public class ScreenCreateAd extends AppCompatActivity {
+    private static final String TAG = "ScreenCreateAd";
     private TextView mDisplayDate1;
     private DatePickerDialog.OnDateSetListener mDateSetListener1;
     private TextView mDisplayDate2;
@@ -44,7 +39,7 @@ public class CreateAdScreen extends AppCompatActivity {
                 int month = cal.get(Calendar.MONTH);
                 int day = cal.get(Calendar.DAY_OF_MONTH);
 
-                DatePickerDialog dialog = new DatePickerDialog(CreateAdScreen.this,
+                DatePickerDialog dialog = new DatePickerDialog(ScreenCreateAd.this,
                         android.R.style.Theme_Holo_Light_Dialog_MinWidth, mDateSetListener1,
                         year, month, day);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -72,7 +67,7 @@ public class CreateAdScreen extends AppCompatActivity {
                 int month = cal.get(Calendar.MONTH);
                 int day = cal.get(Calendar.DAY_OF_MONTH);
 
-                DatePickerDialog dialog = new DatePickerDialog(CreateAdScreen.this,
+                DatePickerDialog dialog = new DatePickerDialog(ScreenCreateAd.this,
                         android.R.style.Theme_Holo_Light_Dialog_MinWidth, mDateSetListener2,
                         year, month, day);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -91,17 +86,17 @@ public class CreateAdScreen extends AppCompatActivity {
             }
         };
 
-        Spinner guests = (Spinner) findViewById(R.id.spinner3);
-        Spinner rooms = (Spinner) findViewById(R.id.spinner4);
-        Spinner beds = (Spinner) findViewById(R.id.spinner5);
-        Spinner baths = (Spinner) findViewById(R.id.spinner6);
-        Spinner pet = (Spinner) findViewById(R.id.spinner7);
-        Spinner smoke = (Spinner) findViewById(R.id.spinner8);
-        Spinner rating = (Spinner) findViewById(R.id.spinner9);
-        Spinner price  = (Spinner) findViewById(R.id.spinner10);
+        Spinner guests = (Spinner) findViewById(R.id.spinnerGuests);
+        Spinner rooms = (Spinner) findViewById(R.id.spinnerRooms);
+        Spinner beds = (Spinner) findViewById(R.id.spinnerBeds);
+        Spinner baths = (Spinner) findViewById(R.id.spinnerBaths);
+        Spinner pet = (Spinner) findViewById(R.id.spinnerPet);
+        Spinner smoke = (Spinner) findViewById(R.id.spinnerSmoke);
+        Spinner rating = (Spinner) findViewById(R.id.spinnerRating);
+        Spinner price  = (Spinner) findViewById(R.id.spinnerPrice);
         Spinner rentalType = (Spinner) findViewById(R.id.spinner11);
 
-        ArrayAdapter<String> myAdaptor = new ArrayAdapter<>(CreateAdScreen.this,
+        ArrayAdapter<String> myAdaptor = new ArrayAdapter<>(ScreenCreateAd.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Numbers));
         myAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         guests.setAdapter(myAdaptor);
@@ -109,29 +104,29 @@ public class CreateAdScreen extends AppCompatActivity {
         beds.setAdapter((myAdaptor));
         baths.setAdapter((myAdaptor));
 
-        ArrayAdapter<String> myAdaptor2 = new ArrayAdapter<>(CreateAdScreen.this,
+        ArrayAdapter<String> myAdaptor2 = new ArrayAdapter<>(ScreenCreateAd.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Yes_No));
         myAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         pet.setAdapter(myAdaptor2);
         smoke.setAdapter(myAdaptor2);
 
-        ArrayAdapter<String> myAdaptor3 = new ArrayAdapter<>(CreateAdScreen.this,
+        ArrayAdapter<String> myAdaptor3 = new ArrayAdapter<>(ScreenCreateAd.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Rating));
         myAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         rating.setAdapter(myAdaptor3);
 
-        ArrayAdapter<String> myAdaptor4 = new ArrayAdapter<>(CreateAdScreen.this,
+        ArrayAdapter<String> myAdaptor4 = new ArrayAdapter<>(ScreenCreateAd.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Price));
         myAdaptor4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         price.setAdapter(myAdaptor4);
 
-        ArrayAdapter<String> myAdaptor5 = new ArrayAdapter<>(CreateAdScreen.this,
+        ArrayAdapter<String> myAdaptor5 = new ArrayAdapter<>(ScreenCreateAd.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.RentalType));
         myAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         rentalType.setAdapter(myAdaptor5);
     }
 
     public void displayToast2(View V) {
-        Toast.makeText(CreateAdScreen.this, "Ad has been successfully posted", Toast.LENGTH_SHORT).show();
+        Toast.makeText(ScreenCreateAd.this, "Ad has been successfully posted", Toast.LENGTH_SHORT).show();
     }
 }

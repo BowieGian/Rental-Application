@@ -10,33 +10,31 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
-public class SelectionFilterScreenH extends AppCompatActivity {
+public class SelectionFilterScreenH extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private static final String TAG = "SelectionFilterScreen";
     private TextView mDisplayDate1;
     private DatePickerDialog.OnDateSetListener mDateSetListener1;
     private TextView mDisplayDate2;
     private DatePickerDialog.OnDateSetListener mDateSetListener2;
 
-    public void housesOnClick(View view) {
-        displayHouses();
-    }
-
-    public void displayHouses() {
-        Intent intent = new Intent(this, TotalHousesButtons.class);
-        startActivity(intent);
-    }
+    private Calendar inDay;
+    private Calendar outDay;
+    private int guests;
+    private int rooms;
+    private int beds;
+    private int baths;
+    private boolean pet;
+    private boolean smoke;
+    private int rating;
+    private int price;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,10 +45,10 @@ public class SelectionFilterScreenH extends AppCompatActivity {
         mDisplayDate1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Calendar cal = Calendar.getInstance();
-                int year = cal.get(Calendar.YEAR);
-                int month = cal.get(Calendar.MONTH);
-                int day = cal.get(Calendar.DAY_OF_MONTH);
+                inDay = Calendar.getInstance();
+                int year = inDay.get(Calendar.YEAR);
+                int month = inDay.get(Calendar.MONTH);
+                int day = inDay.get(Calendar.DAY_OF_MONTH);
 
                 DatePickerDialog dialog = new DatePickerDialog(SelectionFilterScreenH.this,
                         android.R.style.Theme_Holo_Light_Dialog_MinWidth, mDateSetListener1,
@@ -75,10 +73,10 @@ public class SelectionFilterScreenH extends AppCompatActivity {
         mDisplayDate2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Calendar cal = Calendar.getInstance();
-                int year = cal.get(Calendar.YEAR);
-                int month = cal.get(Calendar.MONTH);
-                int day = cal.get(Calendar.DAY_OF_MONTH);
+                outDay = Calendar.getInstance();
+                int year = outDay.get(Calendar.YEAR);
+                int month = outDay.get(Calendar.MONTH);
+                int day = outDay.get(Calendar.DAY_OF_MONTH);
 
                 DatePickerDialog dialog = new DatePickerDialog(SelectionFilterScreenH.this,
                         android.R.style.Theme_Holo_Light_Dialog_MinWidth, mDateSetListener2,
@@ -99,37 +97,143 @@ public class SelectionFilterScreenH extends AppCompatActivity {
             }
         };
 
-        Spinner guests = (Spinner) findViewById(R.id.spinner3);
-        Spinner rooms = (Spinner) findViewById(R.id.spinner4);
-        Spinner beds = (Spinner) findViewById(R.id.spinner5);
-        Spinner baths = (Spinner) findViewById(R.id.spinner6);
-        Spinner pet = (Spinner) findViewById(R.id.spinner7);
-        Spinner smoke = (Spinner) findViewById(R.id.spinner8);
-        Spinner rating = (Spinner) findViewById(R.id.spinner9);
-        Spinner price  = (Spinner) findViewById(R.id.spinner10);
+        Spinner spinnerGuests = (Spinner) findViewById(R.id.spinnerGuests);
+        spinnerGuests.setOnItemSelectedListener(this);
+        Spinner spinnerRooms = (Spinner) findViewById(R.id.spinnerRooms);
+        spinnerRooms.setOnItemSelectedListener(this);
+        Spinner spinnerBeds = (Spinner) findViewById(R.id.spinnerBeds);
+        spinnerBeds.setOnItemSelectedListener(this);
+        Spinner spinnerBaths = (Spinner) findViewById(R.id.spinnerBaths);
+        spinnerBaths.setOnItemSelectedListener(this);
+        Spinner spinnerPet = (Spinner) findViewById(R.id.spinnerPet);
+        spinnerPet.setOnItemSelectedListener(this);
+        Spinner spinnerSmoke = (Spinner) findViewById(R.id.spinnerSmoke);
+        spinnerSmoke.setOnItemSelectedListener(this);
+        Spinner spinnerRating = (Spinner) findViewById(R.id.spinnerRating);
+        spinnerRating.setOnItemSelectedListener(this);
+        Spinner spinnerPrice = (Spinner) findViewById(R.id.spinnerPrice);
+        spinnerPrice.setOnItemSelectedListener(this);
 
         ArrayAdapter<String> myAdaptor = new ArrayAdapter<>(SelectionFilterScreenH.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Numbers));
         myAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        guests.setAdapter(myAdaptor);
-        rooms.setAdapter((myAdaptor));
-        beds.setAdapter((myAdaptor));
-        baths.setAdapter((myAdaptor));
+        spinnerGuests.setAdapter(myAdaptor);
+        spinnerRooms.setAdapter((myAdaptor));
+        spinnerBeds.setAdapter((myAdaptor));
+        spinnerBaths.setAdapter((myAdaptor));
 
         ArrayAdapter<String> myAdaptor2 = new ArrayAdapter<>(SelectionFilterScreenH.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Yes_No));
         myAdaptor2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        pet.setAdapter(myAdaptor2);
-        smoke.setAdapter(myAdaptor2);
+        spinnerPet.setAdapter(myAdaptor2);
+        spinnerSmoke.setAdapter(myAdaptor2);
 
         ArrayAdapter<String> myAdaptor3 = new ArrayAdapter<>(SelectionFilterScreenH.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Rating));
         myAdaptor3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        rating.setAdapter(myAdaptor3);
+        spinnerRating.setAdapter(myAdaptor3);
 
         ArrayAdapter<String> myAdaptor4 = new ArrayAdapter<>(SelectionFilterScreenH.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Price));
         myAdaptor4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        price.setAdapter(myAdaptor4);
+        spinnerPrice.setAdapter(myAdaptor4);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String selectedString = parent.getItemAtPosition(position).toString();
+
+        switch (parent.getId()) {
+            case R.id.spinnerGuests:
+                if (selectedString.equals("6+"))
+                    guests = 7;
+                else if (selectedString.equals("Select"))
+                    break;
+                else
+                    guests = Integer.parseInt(selectedString);
+                break;
+            case R.id.spinnerRooms:
+                if (selectedString.equals("6+"))
+                    rooms = 7;
+                else if (selectedString.equals("Select"))
+                    break;
+                else
+                    rooms = Integer.parseInt(selectedString);
+                break;
+            case R.id.spinnerBeds:
+                if (selectedString.equals("6+"))
+                    beds = 7;
+                else if (selectedString.equals("Select"))
+                    break;
+                else
+                    beds = Integer.parseInt(selectedString);
+                break;
+            case R.id.spinnerBaths:
+                if (selectedString.equals("6+"))
+                    baths = 7;
+                else if (selectedString.equals("Select"))
+                    break;
+                else
+                    baths = Integer.parseInt(selectedString);
+                break;
+            case R.id.spinnerPet:
+                if (selectedString.equals("True"))
+                    pet = true;
+                else if (selectedString.equals("False"))
+                    pet = false;
+                break;
+            case R.id.spinnerSmoke:
+                if (selectedString.equals("True"))
+                    smoke = true;
+                else if (selectedString.equals("False"))
+                    smoke = false;
+                break;
+            case R.id.spinnerRating:
+                if (selectedString.equals("1 - 2 stars"))
+                    rating = 1;
+                else if (selectedString.equals("2 - 3 stars"))
+                    rating = 2;
+                else if (selectedString.equals("3 - 4 stars"))
+                    rating = 3;
+                else if (selectedString.equals("4 - 5 stars"))
+                    rating = 4;
+                break;
+            case R.id.spinnerPrice:
+                if (selectedString.equals("$50 - $150"))
+                    price = 1;
+                else if (selectedString.equals("$150 - $250"))
+                    price = 2;
+                else if (selectedString.equals("$250 - $500"))
+                    price = 3;
+                else if (selectedString.equals("$500 +"))
+                    price = 4;
+                break;
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
+    public void housesOnClick(View view) {
+        displayHouses();
+    }
+
+    public void displayHouses() {
+        TextView textLocation = (TextView) findViewById(R.id.location);
+        String location = textLocation.getText().toString();
+
+        Intent intent = new Intent(this, ScreenHouseButtons.class);
+        intent.putExtra("Guests", guests);
+        intent.putExtra("Rooms", rooms);
+        intent.putExtra("Beds", beds);
+        intent.putExtra("Baths", baths);
+        intent.putExtra("Pet", pet);
+        intent.putExtra("Smoke", smoke);
+        intent.putExtra("Rating", rating);
+        intent.putExtra("Price", price);
+        intent.putExtra("Location", location);
+        startActivity(intent);
     }
 }

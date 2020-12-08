@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class PaymentScreen extends AppCompatActivity {
+public class ScreenPayment extends AppCompatActivity {
 
     private Button goBack;
 
@@ -21,7 +21,7 @@ public class PaymentScreen extends AppCompatActivity {
 
         Spinner PaymentType = (Spinner) findViewById(R.id.spinnera);
 
-        ArrayAdapter<String> myAdaptor = new ArrayAdapter<>(PaymentScreen.this,
+        ArrayAdapter<String> myAdaptor = new ArrayAdapter<>(ScreenPayment.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.PaymentType));
         myAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         PaymentType.setAdapter(myAdaptor);
@@ -36,7 +36,7 @@ public class PaymentScreen extends AppCompatActivity {
     }
 
     public void displayToast(View v){
-        Toast.makeText(PaymentScreen.this, "Your payment was been completed", Toast.LENGTH_SHORT).show();
+        Toast.makeText(ScreenPayment.this, "Your payment was been completed", Toast.LENGTH_SHORT).show();
     }
 
     public void goBackToStart() {

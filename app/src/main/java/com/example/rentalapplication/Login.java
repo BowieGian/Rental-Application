@@ -22,7 +22,7 @@ public class Login extends AppCompatActivity {
     private TextView usernameText;
     private TextView passwordText;
     private UserAccount currentUser;
-    private DatabaseReference apartRef;
+    private DatabaseReference houseRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,6 @@ public class Login extends AppCompatActivity {
         signUp();
         rootNode = FirebaseDatabase.getInstance();
         userRef = rootNode.getReference("User");
-        apartRef = rootNode.getReference("Apartment");
         usernameText = (EditText)findViewById(R.id.editTextTextPersonName);
         passwordText = (EditText)findViewById(R.id.editTextTextPassword);
     }
@@ -82,7 +81,7 @@ public class Login extends AppCompatActivity {
     }
 
     public void openNewUserScreen(){
-        Intent intent = new Intent (this, NewUserScreen.class );
+        Intent intent = new Intent (this, ScreenNewUser.class );
         startActivity(intent);
     }
 
