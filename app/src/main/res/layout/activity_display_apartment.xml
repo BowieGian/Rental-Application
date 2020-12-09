@@ -53,7 +53,7 @@
         android:id="@+id/usernameID"
         android:layout_width="137dp"
         android:layout_height="25dp"
-        android:layout_above="@+id/imageView"
+        android:layout_above="@+id/privateRoomImage"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
@@ -78,7 +78,7 @@
         app:layout_constraintVertical_bias="0.052" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/privateRoomImage"
         android:layout_width="293dp"
         android:layout_height="251dp"
         app:srcCompat="@drawable/house0"
@@ -97,7 +97,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.157"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/privateRoomImage"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.316" />
 
@@ -129,7 +129,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.338"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/privateRoomImage"
         app:layout_constraintVertical_bias="0.049"
         tools:ignore="MissingConstraints" />
 
@@ -144,7 +144,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/privateRoomImage"
         app:layout_constraintVertical_bias="0.12"
         tools:ignore="MissingConstraints" />
 
@@ -159,7 +159,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/privateRoomImage"
         app:layout_constraintVertical_bias="0.192"
         tools:ignore="MissingConstraints" />
 
@@ -174,7 +174,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/privateRoomImage"
         app:layout_constraintVertical_bias="0.256"
         tools:ignore="MissingConstraints" />
 
@@ -189,7 +189,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/privateRoomImage"
         app:layout_constraintVertical_bias="0.321"
         tools:ignore="MissingConstraints" />
 
@@ -204,7 +204,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.378"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/privateRoomImage"
         app:layout_constraintVertical_bias="0.386"
         tools:ignore="MissingConstraints" />
 
@@ -219,7 +219,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.378"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/privateRoomImage"
         app:layout_constraintVertical_bias="0.451"
         tools:ignore="MissingConstraints" />
 
@@ -234,7 +234,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.418"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/privateRoomImage"
         app:layout_constraintVertical_bias="0.516"
         tools:ignore="MissingConstraints" />
 
@@ -249,7 +249,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/privateRoomImage"
         app:layout_constraintVertical_bias="0.581"
         tools:ignore="MissingConstraints" />
 
@@ -264,7 +264,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.452"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/privateRoomImage"
         app:layout_constraintVertical_bias="0.672"
         tools:ignore="MissingConstraints" />
 
@@ -279,7 +279,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.452"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/privateRoomImage"
         app:layout_constraintVertical_bias="0.737"
         tools:ignore="MissingConstraints" />
 
@@ -294,7 +294,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.418"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/privateRoomImage"
         app:layout_constraintVertical_bias="0.801"
         tools:ignore="MissingConstraints" />
 
@@ -305,7 +305,7 @@
         android:text="TextView"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintBottom_toTopOf="@+id/privateRoomImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/usernameID"

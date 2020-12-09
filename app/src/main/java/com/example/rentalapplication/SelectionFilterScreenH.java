@@ -25,8 +25,12 @@ public class SelectionFilterScreenH extends AppCompatActivity implements Adapter
     private TextView mDisplayDate2;
     private DatePickerDialog.OnDateSetListener mDateSetListener2;
 
-    private Calendar inDay;
-    private Calendar outDay;
+    private int inYear;
+    private int inMonth;
+    private int inDay;
+    private int outYear;
+    private int outMonth;
+    private int outDay;
     private int guests;
     private int rooms;
     private int beds;
@@ -45,14 +49,14 @@ public class SelectionFilterScreenH extends AppCompatActivity implements Adapter
         mDisplayDate1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                inDay = Calendar.getInstance();
-                int year = inDay.get(Calendar.YEAR);
-                int month = inDay.get(Calendar.MONTH);
-                int day = inDay.get(Calendar.DAY_OF_MONTH);
+                Calendar calendar = Calendar.getInstance();
+                inYear = calendar.get(Calendar.YEAR);
+                inMonth = calendar.get(Calendar.MONTH);
+                inDay = calendar.get(Calendar.DAY_OF_MONTH);
 
                 DatePickerDialog dialog = new DatePickerDialog(SelectionFilterScreenH.this,
                         android.R.style.Theme_Holo_Light_Dialog_MinWidth, mDateSetListener1,
-                        year, month, day);
+                        inYear, inMonth, inDay);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
             }
@@ -73,14 +77,14 @@ public class SelectionFilterScreenH extends AppCompatActivity implements Adapter
         mDisplayDate2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                outDay = Calendar.getInstance();
-                int year = outDay.get(Calendar.YEAR);
-                int month = outDay.get(Calendar.MONTH);
-                int day = outDay.get(Calendar.DAY_OF_MONTH);
+                Calendar calendar = Calendar.getInstance();
+                outYear = calendar.get(Calendar.YEAR);
+                outMonth = calendar.get(Calendar.MONTH);
+                outDay = calendar.get(Calendar.DAY_OF_MONTH);
 
                 DatePickerDialog dialog = new DatePickerDialog(SelectionFilterScreenH.this,
                         android.R.style.Theme_Holo_Light_Dialog_MinWidth, mDateSetListener2,
-                        year, month, day);
+                        outYear, outMonth, outDay);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
             }
@@ -236,16 +240,23 @@ public class SelectionFilterScreenH extends AppCompatActivity implements Adapter
         TextView textLocation = (TextView) findViewById(R.id.location);
         String location = textLocation.getText().toString();
 
-        Intent intent = new Intent(this, ScreenHouseButtons.class);
-        intent.putExtra("Guests", guests);
-        intent.putExtra("Rooms", rooms);
-        intent.putExtra("Beds", beds);
-        intent.putExtra("Baths", baths);
-        intent.putExtra("Pet", pet);
-        intent.putExtra("Smoke", smoke);
-        intent.putExtra("Rating", rating);
-        intent.putExtra("Price", price);
-        intent.putExtra("Location", location);
+        Intent intent = new Intent(this, ScreenRentalList.class);
+        intent.putExtra("rentalType", "House");
+        intent.putExtra("inYear", inYear);
+        intent.putExtra("inMonth", inMonth);
+        intent.putExtra("inDay", inDay);
+        intent.putExtra("outYear", outYear);
+        intent.putExtra("outMonth", outMonth);
+        intent.putExtra("outDay", outDay);
+        intent.putExtra("guests", guests);
+        intent.putExtra("rooms", rooms);
+        intent.putExtra("beds", beds);
+        intent.putExtra("baths", baths);
+        intent.putExtra("pet", pet);
+        intent.putExtra("smoke", smoke);
+        intent.putExtra("rating", rating);
+        intent.putExtra("price", price);
+        intent.putExtra("location", location);
         startActivity(intent);
     }
 }

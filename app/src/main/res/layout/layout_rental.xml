@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LayoutHouse">
+    tools:context=".LayoutRental">
 
     <ImageView
-        android:id="@+id/imageViewHouse"
+        android:id="@+id/imageViewRental"
         android:layout_width="125dp"
         android:layout_height="125dp"
         android:layout_marginLeft="17dp"
@@ -24,7 +24,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginStart="20dp"
         android:text="Price:"
-        app:layout_constraintStart_toEndOf="@+id/imageViewHouse"
+        app:layout_constraintStart_toEndOf="@+id/imageViewRental"
         tools:layout_editor_absoluteY="28dp" />
 
     <TextView

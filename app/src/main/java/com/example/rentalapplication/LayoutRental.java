@@ -15,14 +15,14 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-public class LayoutHouse extends ArrayAdapter {
+public class LayoutRental extends ArrayAdapter {
     private Activity activity;
-    private List<House> houseList;
+    private List<Rental> rentalList;
 
-    public LayoutHouse(Activity activity, List<House> houseList) {
-        super(activity, R.layout.layout_house, houseList);
+    public LayoutRental(Activity activity, List<Rental> rentalList) {
+        super(activity, R.layout.layout_rental, rentalList);
         this.activity = activity;
-        this.houseList = houseList;
+        this.rentalList = rentalList;
     }
 
     @NonNull
@@ -30,16 +30,16 @@ public class LayoutHouse extends ArrayAdapter {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater inflater = activity.getLayoutInflater();
 
-        View listViewItem = inflater.inflate(R.layout.layout_house, null, true);
+        View listViewItem = inflater.inflate(R.layout.layout_rental, null, true);
 
-        ImageView imageViewHouse = (ImageView) listViewItem.findViewById(R.id.imageViewHouse);
+        ImageView imageViewRental = (ImageView) listViewItem.findViewById(R.id.imageViewRental);
         TextView textPrice = (TextView) listViewItem.findViewById(R.id.textViewPrice);
         TextView textRating = (TextView) listViewItem.findViewById(R.id.textViewRating);
-        House house = houseList.get(position);
+        Rental rental = rentalList.get(position);
 
-        Glide.with(activity).load(house.getImageUrl()).into(imageViewHouse);
-        textPrice.setText(Double.toString(house.getPrice()));
-        textRating.setText(Double.toString(house.getRating()));
+        Glide.with(activity).load(rental.getImageUrl()).into(imageViewRental);
+        textPrice.setText(Double.toString(rental.getPrice()));
+        textRating.setText(Double.toString(rental.getRating()));
         return listViewItem;
     }
 }
