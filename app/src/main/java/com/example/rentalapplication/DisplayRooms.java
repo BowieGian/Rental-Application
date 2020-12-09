@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -29,5 +30,10 @@ public class DisplayRooms extends AppCompatActivity {
     private void displayImage() {
         imageView = findViewById(R.id.privateRoomImage);
         Glide.with(this).load(privateRoom.getImageUrl()).into(imageView);
+    }
+
+    public void selectRoomOnClick(View view) {
+        Intent intent = new Intent(DisplayRooms.this, ScreenPayment.class);
+        startActivity(intent);
     }
 }

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -29,5 +30,10 @@ public class DisplayHouses extends AppCompatActivity {
     private void displayImage() {
         imageView = findViewById(R.id.houseImage);
         Glide.with(this).load(house.getImageUrl()).into(imageView);
+    }
+
+    public void selectHouseOnClick(View view) {
+        Intent intent = new Intent(DisplayHouses.this, ScreenPayment.class);
+        startActivity(intent);
     }
 }
