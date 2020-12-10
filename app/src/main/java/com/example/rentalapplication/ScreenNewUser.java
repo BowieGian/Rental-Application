@@ -3,9 +3,11 @@ package com.example.rentalapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 import com.google.firebase.database.DataSnapshot;
@@ -24,6 +26,11 @@ public class ScreenNewUser extends AppCompatActivity {
 
     private FirebaseDatabase rootNode;
     private DatabaseReference userRef;
+
+    public void BackToLogin(){
+        Intent intent = new Intent (this, Login.class ); // intent opens a new window
+        startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,22 +51,28 @@ public class ScreenNewUser extends AppCompatActivity {
         email = emailText.getText().toString();
         password = passwordText.getText().toString();
 
+
         userRef.orderByChild("username").equalTo(username).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                // if the username is not taken
-                if (dataSnapshot.getValue() == null) {
-                    UserAccount newUser = new UserAccount(username, email, password);
-                    userRef.push().setValue(newUser);  // add newUser as a child to the Node User
+                if(username.matches("")||email.matches("")||password.matches("")){
+                    Toast.makeText(ScreenNewUser.this,"Please complete all the required fields!  ", Toast.LENGTH_SHORT).show();
                 }
-                else {
-                    // username is taken
+                else{
+                    // if the username is not taken
+                    if (dataSnapshot.getValue() == null) {
+                        UserAccount newUser = new UserAccount(username, email, password);
+                        userRef.push().setValue(newUser);  // add newUser as a child to the Node User
+                        Toast.makeText(ScreenNewUser.this,"Account created Successfully! ", Toast.LENGTH_SHORT).show();
+                        BackToLogin();
+                    }
+                    else {
+                        Toast.makeText(ScreenNewUser.this,"Please Enter Valid Credentials!  ", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
     }

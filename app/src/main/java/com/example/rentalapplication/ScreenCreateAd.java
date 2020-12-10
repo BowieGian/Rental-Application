@@ -3,6 +3,7 @@ package com.example.rentalapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -27,6 +28,8 @@ public class ScreenCreateAd extends AppCompatActivity implements AdapterView.OnI
     private TextView mDisplayDate1;
     private DatePickerDialog.OnDateSetListener mDateSetListener1;
     private TextView mDisplayDate2;
+    private TextView textViewAdPrice;
+
     private DatePickerDialog.OnDateSetListener mDateSetListener2;
     private FirebaseDatabase rootNode;
 
@@ -118,8 +121,12 @@ public class ScreenCreateAd extends AppCompatActivity implements AdapterView.OnI
         spinnerPet.setOnItemSelectedListener(this);
         Spinner spinnerSmoke = (Spinner) findViewById(R.id.spinnerSmoke);
         spinnerSmoke.setOnItemSelectedListener(this);
-        Spinner spinnerPrice = (Spinner) findViewById(R.id.spinnerPrice);
-        spinnerPrice.setOnItemSelectedListener(this);
+
+
+         textViewAdPrice = (TextView) findViewById(R.id.textViewAdPriceID);
+        //delete this?
+       // textViewAdPrice.setOnItemSelectedListener(this);
+
         Spinner spinnerRentalType = (Spinner) findViewById(R.id.spinnerRentalType);
         spinnerRentalType.setOnItemSelectedListener(this);
 
@@ -137,10 +144,11 @@ public class ScreenCreateAd extends AppCompatActivity implements AdapterView.OnI
         spinnerPet.setAdapter(myAdaptor2);
         spinnerSmoke.setAdapter(myAdaptor2);
 
-        ArrayAdapter<String> myAdaptor4 = new ArrayAdapter<>(ScreenCreateAd.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Price));
-        myAdaptor4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerPrice.setAdapter(myAdaptor4);
+        //delete this?
+        //ArrayAdapter<String> myAdaptor4 = new ArrayAdapter<>(ScreenCreateAd.this,
+          //      android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Price));
+      //  myAdaptor4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+      //  textViewAdPrice.setAdapter(myAdaptor4);
 
         ArrayAdapter<String> myAdaptor5 = new ArrayAdapter<>(ScreenCreateAd.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.RentalType));
@@ -197,21 +205,9 @@ public class ScreenCreateAd extends AppCompatActivity implements AdapterView.OnI
                 else if (selectedString.equals("False"))
                     smoke = false;
                 break;
-            case R.id.spinnerPrice:
-                switch (selectedString) {
-                    case "$50 - $150":
-                        price = 1;
-                        break;
-                    case "$150 - $250":
-                        price = 2;
-                        break;
-                    case "$250 - $500":
-                        price = 3;
-                        break;
-                    case "$500 +":
-                        price = 4;
-                        break;
-                }
+            case R.id.textViewAdPriceID:
+                String temp = textViewAdPrice.getText().toString();
+                price = Integer.parseInt(temp);
                 break;
             case R.id.spinnerRentalType:
                 if (selectedString.equals("Select"))
@@ -227,33 +223,52 @@ public class ScreenCreateAd extends AppCompatActivity implements AdapterView.OnI
 
     }
 
+
     public void postAd(View V) {
         EditText editTextLocation = findViewById(R.id.editTextLocation);
         EditText editTextImageUrl = findViewById(R.id.editTextImageUrl);
         String location = editTextLocation.getText().toString();
         String imageUrl = editTextImageUrl.getText().toString();
         rootNode = FirebaseDatabase.getInstance();
-
-        switch(rentalType) {
-            case "Apartment":
-                Apartment apartment = new Apartment(inYear, inMonth, inDay, outYear, outMonth, outDay,
-                        guests, rooms, beds, baths, pet, smoke, location, 0, price, imageUrl);
-                DatabaseReference apartRef = rootNode.getReference("Apartment");
-                apartRef.push().setValue(apartment);
-                break;
-            case "House":
-                House house = new House(inYear, inMonth, inDay, outYear, outMonth, outDay,
-                        guests, rooms, beds, baths, pet, smoke, location, 0, price, imageUrl);
-                DatabaseReference houseRef = rootNode.getReference("House");
-                houseRef.push().setValue(house);
-                break;
-            case "Room":
-                PrivateRoom privateRoom = new PrivateRoom(inYear, inMonth, inDay, outYear, outMonth, outDay,
-                        guests, beds, baths, pet, smoke, location, 0, price, imageUrl);
-                DatabaseReference pRoomRef = rootNode.getReference("PrivateRoom");
-                pRoomRef.push().setValue(privateRoom);
-                break;
+        if(imageUrl.matches("")||location.matches("")){
+            Toast.makeText(ScreenCreateAd.this, "Please enter Valid image URL, Location! ", Toast.LENGTH_SHORT).show();
         }
-        Toast.makeText(ScreenCreateAd.this, "Ad has been successfully posted", Toast.LENGTH_SHORT).show();
+        else{
+            switch(rentalType) {
+                case "Apartment":
+                    if(price==0){ Toast.makeText(ScreenCreateAd.this, "Please enter Valid Price! ", Toast.LENGTH_SHORT).show(); }
+                    else{
+                        Apartment apartment = new Apartment(inYear, inMonth, inDay, outYear, outMonth, outDay,
+                                guests, rooms, beds, baths, pet, smoke, location, 0, price, imageUrl);
+                        DatabaseReference apartRef = rootNode.getReference("Apartment");
+                        apartRef.push().setValue(apartment);
+                        Toast.makeText(ScreenCreateAd.this, "Ad has been successfully posted", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+                case "House":
+                    if(price==0){ Toast.makeText(ScreenCreateAd.this, "Please enter Valid Price! ", Toast.LENGTH_SHORT).show();}
+                    else{
+                        House house = new House(inYear, inMonth, inDay, outYear, outMonth, outDay,
+                                guests, rooms, beds, baths, pet, smoke, location, 0, price, imageUrl);
+                        DatabaseReference houseRef = rootNode.getReference("House");
+                        houseRef.push().setValue(house);
+                        Toast.makeText(ScreenCreateAd.this, "Ad has been successfully posted", Toast.LENGTH_SHORT).show();
+                    }
+
+                    break;
+                case "Room":
+                    if(price==0){ Toast.makeText(ScreenCreateAd.this, "Please enter Valid Price! ", Toast.LENGTH_SHORT).show();}
+                    else{
+                        PrivateRoom privateRoom = new PrivateRoom(inYear, inMonth, inDay, outYear, outMonth, outDay,
+                                guests, beds, baths, pet, smoke, location, 0, price, imageUrl);
+                        DatabaseReference pRoomRef = rootNode.getReference("PrivateRoom");
+                        pRoomRef.push().setValue(privateRoom);
+                        Toast.makeText(ScreenCreateAd.this, "Ad has been successfully posted", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+            }
+
+        }
+
     }
 }
