@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -200,19 +201,26 @@ public class SelectionFilterScreenAP extends AppCompatActivity implements Adapte
         TextView textLocation = (TextView) findViewById(R.id.location);
         String location = textLocation.getText().toString();
 
-        Intent intent = new Intent(this, ScreenRentalList.class);
-        intent.putExtra("rentalType", "Apartment");
-        intent.putExtra("inDate", inDate);
-        intent.putExtra("outDate", outDate);
-        intent.putExtra("guests", guests);
-        intent.putExtra("rooms", rooms);
-        intent.putExtra("beds", beds);
-        intent.putExtra("baths", baths);
-        intent.putExtra("pet", pet);
-        intent.putExtra("smoke", smoke);
-        intent.putExtra("rating", rating);
-        intent.putExtra("price", price);
-        intent.putExtra("location", location);
-        startActivity(intent);
+        if(location.matches("")){// check for empty location
+            Toast.makeText(this,"Please Enter a Valid Location!  ", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Intent intent = new Intent(this, ScreenRentalList.class);
+            intent.putExtra("rentalType", "Apartment");
+            intent.putExtra("inDate", inDate);
+            intent.putExtra("outDate", outDate);
+            intent.putExtra("guests", guests);
+            intent.putExtra("rooms", rooms);
+            intent.putExtra("beds", beds);
+            intent.putExtra("baths", baths);
+            intent.putExtra("pet", pet);
+            intent.putExtra("smoke", smoke);
+            intent.putExtra("rating", rating);
+            intent.putExtra("price", price);
+            intent.putExtra("location", location);
+            startActivity(intent);
+        }
+
+
     }
 }

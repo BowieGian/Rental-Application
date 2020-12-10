@@ -39,36 +39,41 @@ public class Login extends AppCompatActivity {
         //execute selectOption() only if the login is valid otherwise display error
         String username = usernameText.getText().toString();
         final String password = passwordText.getText().toString();
-
-        userRef.orderByChild("username").equalTo(username).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.getValue() == null) {
-                    invalidCredentials();
-                    return;
-                }
-
-                for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
-                    currentUser = userSnapshot.getValue(UserAccount.class);
-
-                    if (currentUser == null) {
+        if(username.equals("")||password.equals("")){
+            Toast.makeText(Login.this,"Invalid credentials", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            userRef.orderByChild("username").equalTo(username).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.getValue() == null) {
                         invalidCredentials();
                         return;
                     }
 
-                    if (currentUser.getPassword().equals(password)) {
-                        selectOption();
-                        return;
+                    for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
+                        currentUser = userSnapshot.getValue(UserAccount.class);
+
+                        if (currentUser == null) {
+                            invalidCredentials();
+                            return;
+                        }
+
+                        if (currentUser.getPassword().equals(password)) {
+                            selectOption();
+                            return;
+                        }
                     }
+                    invalidCredentials();
                 }
-                invalidCredentials();
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            }
-        });
+                }
+            });
+        }
+
     }
 
     private void invalidCredentials() {
