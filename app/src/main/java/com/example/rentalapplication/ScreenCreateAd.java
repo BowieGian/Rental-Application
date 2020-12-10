@@ -45,7 +45,7 @@ public class ScreenCreateAd extends AppCompatActivity implements AdapterView.OnI
     private int baths;
     private boolean pet;
     private boolean smoke;
-    private int price;
+    private int price=0;
     private String rentalType;
 
     @Override
@@ -121,9 +121,10 @@ public class ScreenCreateAd extends AppCompatActivity implements AdapterView.OnI
         spinnerPet.setOnItemSelectedListener(this);
         Spinner spinnerSmoke = (Spinner) findViewById(R.id.spinnerSmoke);
         spinnerSmoke.setOnItemSelectedListener(this);
+        textViewAdPrice = (TextView) findViewById(R.id.textViewAdPriceID);
 
 
-         textViewAdPrice = (TextView) findViewById(R.id.textViewAdPriceID);
+
         //delete this?
        // textViewAdPrice.setOnItemSelectedListener(this);
 
@@ -227,18 +228,21 @@ public class ScreenCreateAd extends AppCompatActivity implements AdapterView.OnI
     public void postAd(View V) {
         EditText editTextLocation = findViewById(R.id.editTextLocation);
         EditText editTextImageUrl = findViewById(R.id.editTextImageUrl);
+        TextView textViewPrice = findViewById(R.id.textViewPrice);
         String location = editTextLocation.getText().toString();
         String imageUrl = editTextImageUrl.getText().toString();
         rootNode = FirebaseDatabase.getInstance();
-        String temp = textViewAdPrice.getText().toString();
+
+        String temp = textViewPrice.getText().toString();
         price = Integer.parseInt(temp);
+
         if(imageUrl.matches("")||location.matches("")){
             Toast.makeText(ScreenCreateAd.this, "Please enter Valid image URL, Location! ", Toast.LENGTH_SHORT).show();
         }
         else{
             switch(rentalType) {
                 case "Apartment":
-                    if(price==0){ Toast.makeText(ScreenCreateAd.this, "Please enter Valid Price! ", Toast.LENGTH_SHORT).show(); }
+                    if(price<=0){ Toast.makeText(ScreenCreateAd.this, "Please enter Valid Price! ", Toast.LENGTH_SHORT).show(); }
                     else{
                         Apartment apartment = new Apartment(inYear, inMonth, inDay, outYear, outMonth, outDay,
                                 guests, rooms, beds, baths, pet, smoke, location, 0, price, imageUrl);
@@ -248,7 +252,7 @@ public class ScreenCreateAd extends AppCompatActivity implements AdapterView.OnI
                     }
                     break;
                 case "House":
-                    if(price==0){ Toast.makeText(ScreenCreateAd.this, "Please enter Valid Price! ", Toast.LENGTH_SHORT).show();}
+                    if(price<=0){ Toast.makeText(ScreenCreateAd.this, "Please enter Valid Price! ", Toast.LENGTH_SHORT).show();}
                     else{
                         House house = new House(inYear, inMonth, inDay, outYear, outMonth, outDay,
                                 guests, rooms, beds, baths, pet, smoke, location, 0, price, imageUrl);
@@ -259,7 +263,7 @@ public class ScreenCreateAd extends AppCompatActivity implements AdapterView.OnI
 
                     break;
                 case "Room":
-                    if(price==0){ Toast.makeText(ScreenCreateAd.this, "Please enter Valid Price! ", Toast.LENGTH_SHORT).show();}
+                    if(price<=0){ Toast.makeText(ScreenCreateAd.this, "Please enter Valid Price! ", Toast.LENGTH_SHORT).show();}
                     else{
                         PrivateRoom privateRoom = new PrivateRoom(inYear, inMonth, inDay, outYear, outMonth, outDay,
                                 guests, beds, baths, pet, smoke, location, 0, price, imageUrl);
