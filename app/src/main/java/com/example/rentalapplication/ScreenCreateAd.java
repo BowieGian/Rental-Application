@@ -230,6 +230,8 @@ public class ScreenCreateAd extends AppCompatActivity implements AdapterView.OnI
         String location = editTextLocation.getText().toString();
         String imageUrl = editTextImageUrl.getText().toString();
         rootNode = FirebaseDatabase.getInstance();
+        String temp = textViewAdPrice.getText().toString();
+        price = Integer.parseInt(temp);
         if(imageUrl.matches("")||location.matches("")){
             Toast.makeText(ScreenCreateAd.this, "Please enter Valid image URL, Location! ", Toast.LENGTH_SHORT).show();
         }
