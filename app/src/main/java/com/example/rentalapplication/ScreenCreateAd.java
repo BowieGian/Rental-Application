@@ -30,12 +30,8 @@ public class ScreenCreateAd extends AppCompatActivity implements AdapterView.OnI
     private DatePickerDialog.OnDateSetListener mDateSetListener2;
     private FirebaseDatabase rootNode;
 
-    private int inYear;
-    private int inMonth;
-    private int inDay;
-    private int outYear;
-    private int outMonth;
-    private int outDay;
+    private String inDate;
+    private String outDate;
     private int guests;
     private int rooms;
     private int beds;
@@ -55,13 +51,13 @@ public class ScreenCreateAd extends AppCompatActivity implements AdapterView.OnI
             @Override
             public void onClick(View view) {
                 Calendar calendar = Calendar.getInstance();
-                inYear = calendar.get(Calendar.YEAR);
-                inMonth = calendar.get(Calendar.MONTH);
-                inDay = calendar.get(Calendar.DAY_OF_MONTH);
+                int year = calendar.get(Calendar.YEAR);
+                int month = calendar.get(Calendar.MONTH);
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
 
                 DatePickerDialog dialog = new DatePickerDialog(ScreenCreateAd.this,
                         android.R.style.Theme_Holo_Light_Dialog_MinWidth, mDateSetListener1,
-                        inYear, inMonth, inDay);
+                        year, month, day);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
             }
@@ -73,8 +69,8 @@ public class ScreenCreateAd extends AppCompatActivity implements AdapterView.OnI
                 month = month + 1;
                 Log.d(TAG, "onDateSet: mm/dd/yyyy: " + month + "/" + day + "/" + year);
 
-                String date = month + "/" + day + "/" + year;
-                mDisplayDate1.setText(date);
+                inDate = month + "/" + day + "/" + year;
+                mDisplayDate1.setText(inDate);
             }
         };
 
@@ -83,13 +79,13 @@ public class ScreenCreateAd extends AppCompatActivity implements AdapterView.OnI
             @Override
             public void onClick(View view) {
                 Calendar calendar = Calendar.getInstance();
-                outYear = calendar.get(Calendar.YEAR);
-                outMonth = calendar.get(Calendar.MONTH);
-                outDay = calendar.get(Calendar.DAY_OF_MONTH);
+                int year = calendar.get(Calendar.YEAR);
+                int month = calendar.get(Calendar.MONTH);
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
 
                 DatePickerDialog dialog = new DatePickerDialog(ScreenCreateAd.this,
                         android.R.style.Theme_Holo_Light_Dialog_MinWidth, mDateSetListener2,
-                        outYear, outMonth, outDay);
+                        year, month, day);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
             }
@@ -101,8 +97,8 @@ public class ScreenCreateAd extends AppCompatActivity implements AdapterView.OnI
                 month = month + 1;
                 Log.d(TAG, "onDateSet: mm/dd/yyyy: " + month + "/" + day + "/" + year);
 
-                String date = month + "/" + day + "/" + year;
-                mDisplayDate2.setText(date);
+                outDate = month + "/" + day + "/" + year;
+                mDisplayDate2.setText(outDate);
             }
         };
 
@@ -233,25 +229,32 @@ public class ScreenCreateAd extends AppCompatActivity implements AdapterView.OnI
         String location = editTextLocation.getText().toString();
         String imageUrl = editTextImageUrl.getText().toString();
         rootNode = FirebaseDatabase.getInstance();
+        DatabaseReference pushRef;
 
         switch(rentalType) {
             case "Apartment":
-                Apartment apartment = new Apartment(inYear, inMonth, inDay, outYear, outMonth, outDay,
+                Apartment apartment = new Apartment(inDate, outDate,
                         guests, rooms, beds, baths, pet, smoke, location, 0, price, imageUrl);
                 DatabaseReference apartRef = rootNode.getReference("Apartment");
-                apartRef.push().setValue(apartment);
+                pushRef = apartRef.push();
+                apartment.setKey(pushRef.getKey());
+                pushRef.setValue(apartment);
                 break;
             case "House":
-                House house = new House(inYear, inMonth, inDay, outYear, outMonth, outDay,
+                House house = new House(inDate, outDate,
                         guests, rooms, beds, baths, pet, smoke, location, 0, price, imageUrl);
                 DatabaseReference houseRef = rootNode.getReference("House");
-                houseRef.push().setValue(house);
+                pushRef = houseRef.push();
+                house.setKey(pushRef.getKey());
+                pushRef.setValue(house);
                 break;
             case "Room":
-                PrivateRoom privateRoom = new PrivateRoom(inYear, inMonth, inDay, outYear, outMonth, outDay,
+                PrivateRoom privateRoom = new PrivateRoom(inDate, outDate,
                         guests, beds, baths, pet, smoke, location, 0, price, imageUrl);
                 DatabaseReference pRoomRef = rootNode.getReference("PrivateRoom");
-                pRoomRef.push().setValue(privateRoom);
+                pushRef = pRoomRef.push();
+                privateRoom.setKey(pushRef.getKey());
+                pushRef.setValue(privateRoom);
                 break;
         }
         Toast.makeText(ScreenCreateAd.this, "Ad has been successfully posted", Toast.LENGTH_SHORT).show();

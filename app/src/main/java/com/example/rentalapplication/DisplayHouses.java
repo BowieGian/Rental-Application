@@ -34,6 +34,8 @@ public class DisplayHouses extends AppCompatActivity {
 
     public void selectHouseOnClick(View view) {
         Intent intent = new Intent(DisplayHouses.this, ScreenPayment.class);
+        intent.putExtra("key", house.getKey());
+        intent.putExtra("rentalType", "House");
         startActivity(intent);
     }
 }

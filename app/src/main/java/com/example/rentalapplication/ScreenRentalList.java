@@ -27,29 +27,30 @@ public class ScreenRentalList extends AppCompatActivity {
     List<Rental> rentalList;
 
     @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_rental_list);
+        rootNode = FirebaseDatabase.getInstance();
+
+        rentalList = new ArrayList<>();
+    }
+
+    @Override
     protected void onStart() {
         super.onStart();
 
-        Bundle extras = getIntent().getExtras();
+        final Bundle extras = getIntent().getExtras();
         rentalType = extras.getString("rentalType");
-        int inYear = extras.getInt("inYear");
-        int inMonth = extras.getInt("inMonth");
-        int inDay = extras.getInt("inDay");
-        int outYear = extras.getInt("outYear");
-        int outMonth = extras.getInt("outMonth");
-        int outDay = extras.getInt("outDay");
-        int guests,  rooms;
-        if (rentalType != "Room") {
-            guests = extras.getInt("guests");
-            rooms = extras.getInt("rooms");
-        }
-        int beds = extras.getInt("beds");
-        int baths = extras.getInt("baths");
-        boolean pet = extras.getBoolean("pet");
-        boolean smoke = extras.getBoolean("smoke");
-        int rating = extras.getInt("rating");
-        final int price = extras.getInt("price");
-        String location = extras.getString("location");
+        final String inDate = extras.getString("inDate");
+        final String outDate = extras.getString("outDate");
+
+        final String beds = extras.getString("beds");
+        final String baths = extras.getString("baths");
+        final String pet = extras.getString("pet");
+        final String smoke = extras.getString("smoke");
+        final String rating = extras.getString("rating");
+        final String price = extras.getString("price");
+        final String location = extras.getString("location");
 
         listViewRentals = (ListView) findViewById(R.id.listViewHouses);
         listViewRentals.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
@@ -89,18 +90,26 @@ public class ScreenRentalList extends AppCompatActivity {
                 rentalList.clear();
 
                 for (DataSnapshot rentalSnapshot : dataSnapshot.getChildren()) {
+                    String guests, rooms;
                     switch (rentalType) {
                         case "Apartment":
+                            guests = extras.getString("guests");
+                            rooms = extras.getString("rooms");
                             Apartment apartment = rentalSnapshot.getValue(Apartment.class);
-                            rentalList.add(apartment);
+                            if (compareApartment(apartment, location, inDate, outDate, guests, rooms, beds, baths, pet, smoke, rating, price))
+                                rentalList.add(apartment);
                             break;
                         case "House":
+                            guests = extras.getString("guests");
+                            rooms = extras.getString("rooms");
                             House house = rentalSnapshot.getValue(House.class);
-                            rentalList.add(house);
+                            if (compareHouse(house, location, inDate, outDate, guests, rooms, beds, baths, pet, smoke, rating, price))
+                                rentalList.add(house);
                             break;
                         case "PrivateRoom":
                             PrivateRoom privateRoom = rentalSnapshot.getValue(PrivateRoom.class);
-                            rentalList.add(privateRoom);
+                            if (comparePrivateRoom(privateRoom, location, inDate, outDate, beds, baths, pet, smoke, rating, price))
+                                rentalList.add(privateRoom);
                     }
                 }
 
@@ -115,12 +124,203 @@ public class ScreenRentalList extends AppCompatActivity {
         });
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rental_list);
-        rootNode = FirebaseDatabase.getInstance();
+    private boolean checkRentalInt(int number, String spinnerInput) {
+        if (spinnerInput.equals("Select"))
+            return true;
+        else if (spinnerInput.equals("6+") && number < 6)
+            return false;
+        else
+            return number == Integer.parseInt(spinnerInput);
+    }
 
-        rentalList = new ArrayList<>();
+    private boolean compareApartment(Apartment apartment, String location, String inDate, String outDate,
+                                     String numGuests, String numRooms, String numBeds, String numBaths,
+                                     String petFriendly, String smokeFree,
+                                     String inputRating, String inputPrice) {
+        if (!location.equals("") && !location.equals(apartment.getLocation()))
+            return false;
+        if (!inDate.equals("Select") && !inDate.equals(apartment.getInDate()))
+            return false;
+        if (!outDate.equals("Select") && !outDate.equals(apartment.getOutDate()))
+            return false;
+        if (!checkRentalInt(apartment.getNumGuests(), numGuests))
+            return false;
+        if (!checkRentalInt(apartment.getNumRooms(), numRooms))
+            return false;
+        if (!checkRentalInt(apartment.getNumBeds(), numBeds))
+            return false;
+        if (!checkRentalInt(apartment.getNumBaths(), numBaths))
+            return false;
+        if (!petFriendly.equals("Select") && Boolean.getBoolean(petFriendly) != apartment.isPetFriendly())
+            return false;
+        if (!smokeFree.equals("Select") && Boolean.getBoolean(smokeFree) != apartment.isSmokeFree())
+            return false;
+
+        double rating = apartment.getRating();
+        switch (inputRating) {
+            case "1 - 2 stars":
+                if (rating < 1 || rating > 2)
+                    return false;
+                break;
+            case "2 - 3 stars":
+                if (rating < 2 || rating > 3)
+                    return false;
+                break;
+            case "3 - 4 stars":
+                if (rating < 3 || rating > 4)
+                    return false;
+                break;
+            case "4 - 5 stars":
+                if (rating < 4 || rating > 5)
+                    return false;
+                break;
+        }
+
+        double price = apartment.getPrice();
+        switch (inputPrice) {
+            case "$50 - $150":
+                if (price < 50.0 || price > 150.0)
+                    return false;
+                break;
+            case "$150 - $250":
+                if (price < 150.0 || price > 250.0)
+                    return false;
+                break;
+            case "$250 - $500":
+                if (price < 250.0 || price > 500.0)
+                    return false;
+                break;
+            case "$500 +":
+                if (price < 500.0)
+                    return false;
+                break;
+        }
+        return true;
+    }
+
+    private boolean compareHouse(House house, String location, String inDate, String outDate,
+                                     String numGuests, String numRooms, String numBeds, String numBaths,
+                                     String petFriendly, String smokeFree,
+                                     String inputRating, String inputPrice) {
+        if (!location.equals("") && !location.equals(house.getLocation()))
+            return false;
+        if (!inDate.equals("Select") && !inDate.equals(house.getInDate()))
+            return false;
+        if (!outDate.equals("Select") && !outDate.equals(house.getOutDate()))
+            return false;
+        if (!checkRentalInt(house.getNumGuests(), numGuests))
+            return false;
+        if (!checkRentalInt(house.getNumRooms(), numRooms))
+            return false;
+        if (!checkRentalInt(house.getNumBeds(), numBeds))
+            return false;
+        if (!checkRentalInt(house.getNumBaths(), numBaths))
+            return false;
+        if (!petFriendly.equals("Select") && Boolean.getBoolean(petFriendly) != house.isPetFriendly())
+            return false;
+        if (!smokeFree.equals("Select") && Boolean.getBoolean(smokeFree) != house.isSmokeFree())
+            return false;
+
+        double rating = house.getRating();
+        switch (inputRating) {
+            case "1 - 2 stars":
+                if (rating < 1 || rating > 2)
+                    return false;
+                break;
+            case "2 - 3 stars":
+                if (rating < 2 || rating > 3)
+                    return false;
+                break;
+            case "3 - 4 stars":
+                if (rating < 3 || rating > 4)
+                    return false;
+                break;
+            case "4 - 5 stars":
+                if (rating < 4 || rating > 5)
+                    return false;
+                break;
+        }
+
+        double price = house.getPrice();
+        switch (inputPrice) {
+            case "$50 - $150":
+                if (price < 50.0 || price > 150.0)
+                    return false;
+                break;
+            case "$150 - $250":
+                if (price < 150.0 || price > 250.0)
+                    return false;
+                break;
+            case "$250 - $500":
+                if (price < 250.0 || price > 500.0)
+                    return false;
+                break;
+            case "$500 +":
+                if (price < 500.0)
+                    return false;
+                break;
+        }
+        return true;
+    }
+
+    private boolean comparePrivateRoom(PrivateRoom privateRoom, String location, String inDate, String outDate,
+                                     String numBeds, String numBaths,
+                                     String petFriendly, String smokeFree,
+                                     String inputRating, String inputPrice) {
+        if (!location.equals("") && !location.equals(privateRoom.getLocation()))
+            return false;
+        if (!inDate.equals("Select") && !inDate.equals(privateRoom.getInDate()))
+            return false;
+        if (!outDate.equals("Select") && !outDate.equals(privateRoom.getOutDate()))
+            return false;
+        if (!checkRentalInt(privateRoom.getNumBeds(), numBeds))
+            return false;
+        if (!checkRentalInt(privateRoom.getNumBaths(), numBaths))
+            return false;
+        if (!petFriendly.equals("Select") && Boolean.getBoolean(petFriendly) != privateRoom.isPetFriendly())
+            return false;
+        if (!smokeFree.equals("Select") && Boolean.getBoolean(smokeFree) != privateRoom.isSmokeFree())
+            return false;
+
+        double rating = privateRoom.getRating();
+        switch (inputRating) {
+            case "1 - 2 stars":
+                if (rating < 1 || rating > 2)
+                    return false;
+                break;
+            case "2 - 3 stars":
+                if (rating < 2 || rating > 3)
+                    return false;
+                break;
+            case "3 - 4 stars":
+                if (rating < 3 || rating > 4)
+                    return false;
+                break;
+            case "4 - 5 stars":
+                if (rating < 4 || rating > 5)
+                    return false;
+                break;
+        }
+
+        double price = privateRoom.getPrice();
+        switch (inputPrice) {
+            case "$50 - $150":
+                if (price < 50.0 || price > 150.0)
+                    return false;
+                break;
+            case "$150 - $250":
+                if (price < 150.0 || price > 250.0)
+                    return false;
+                break;
+            case "$250 - $500":
+                if (price < 250.0 || price > 500.0)
+                    return false;
+                break;
+            case "$500 +":
+                if (price < 500.0)
+                    return false;
+                break;
+        }
+        return true;
     }
 }

@@ -1,15 +1,11 @@
 package com.example.rentalapplication;
 
 import java.io.Serializable;
-import java.util.Calendar;
 
 public class Rental implements Serializable {
-    private int inYear;
-    private int inMonth;
-    private int inDay;
-    private int outYear;
-    private int outMonth;
-    private int outDay;
+    private String key;
+    private String inDate;
+    private String outDate;
 
     private boolean petFriendly;
     private boolean smokeFree;
@@ -17,23 +13,17 @@ public class Rental implements Serializable {
     private double rating;
     private double price;
 
-    private int sellerID;
     private String imageUrl;
 
     public Rental() {
 
     }
 
-    public Rental(int inYear, int inMonth, int inDay,
-                  int outYear, int outMonth, int outDay,
+    public Rental(String inDate, String outDate,
                   boolean petFriendly, boolean smokeFree, String location,
                   double rating, double price, String imageUrl) {
-        this.inYear = inYear;
-        this.inMonth = inMonth;
-        this.inDay = inDay;
-        this.outYear = outYear;
-        this.outMonth = outMonth;
-        this.outDay = outDay;
+        this.inDate = inDate;
+        this.outDate = outDate;
         this.petFriendly = petFriendly;
         this.smokeFree = smokeFree;
         this.location = location;
@@ -42,60 +32,28 @@ public class Rental implements Serializable {
         this.imageUrl = imageUrl;
     }
 
-    public int getInYear() {
-        return inYear;
+    public String getKey() {
+        return key;
     }
 
-    public void setInYear(int inYear) {
-        this.inYear = inYear;
+    public void setKey(String key) {
+        this.key = key;
     }
 
-    public int getInMonth() {
-        return inMonth;
+    public String getInDate() {
+        return inDate;
     }
 
-    public void setInMonth(int inMonth) {
-        this.inMonth = inMonth;
+    public void setInDate(String inDate) {
+        this.inDate = inDate;
     }
 
-    public int getInDay() {
-        return inDay;
+    public String getOutDate() {
+        return outDate;
     }
 
-    public void setInDay(int inDay) {
-        this.inDay = inDay;
-    }
-
-    public int getOutYear() {
-        return outYear;
-    }
-
-    public void setOutYear(int outYear) {
-        this.outYear = outYear;
-    }
-
-    public int getOutMonth() {
-        return outMonth;
-    }
-
-    public void setOutMonth(int outMonth) {
-        this.outMonth = outMonth;
-    }
-
-    public int getOutDay() {
-        return outDay;
-    }
-
-    public void setOutDay(int outDay) {
-        this.outDay = outDay;
-    }
-
-    public int getSellerID() {
-        return sellerID;
-    }
-
-    public void setSellerID(int sellerID) {
-        this.sellerID = sellerID;
+    public void setOutDate(String outDate) {
+        this.outDate = outDate;
     }
 
     public String getLocation() {

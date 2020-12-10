@@ -34,6 +34,8 @@ public class DisplayApartment extends AppCompatActivity {
 
     public void selectApartmentOnClick(View view) {
         Intent intent = new Intent(DisplayApartment.this, ScreenPayment.class);
+        intent.putExtra("key", apartment.getKey());
+        intent.putExtra("rentalType", "Apartment");
         startActivity(intent);
     }
 }

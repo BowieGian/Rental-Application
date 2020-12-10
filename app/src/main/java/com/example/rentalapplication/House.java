@@ -13,12 +13,11 @@ public class House extends Rental implements Serializable {
 
     }
 
-    public House(int inYear, int inMonth, int inDay,
-                 int outYear, int outMonth, int outDay,
+    public House(String inDate, String outDate,
                      int numGuests, int numRooms, int numBeds, int numBaths,
                      boolean petFriendly, boolean smokeFree, String location,
                      double rating, double price, String imageUrl) {
-        super(inYear, inMonth, inDay, outYear, outMonth, outDay,
+        super(inDate, outDate,
                 petFriendly, smokeFree, location, rating, price, imageUrl);
         this.numGuests = numGuests;
         this.numRooms = numRooms;

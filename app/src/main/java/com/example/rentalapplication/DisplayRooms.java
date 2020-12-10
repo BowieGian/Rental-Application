@@ -34,6 +34,8 @@ public class DisplayRooms extends AppCompatActivity {
 
     public void selectRoomOnClick(View view) {
         Intent intent = new Intent(DisplayRooms.this, ScreenPayment.class);
+        intent.putExtra("key", privateRoom.getKey());
+        intent.putExtra("rentalType", "PrivateRoom");
         startActivity(intent);
     }
 }
