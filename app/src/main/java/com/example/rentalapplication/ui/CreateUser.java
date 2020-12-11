@@ -26,7 +26,6 @@ public class CreateUser extends AppCompatActivity {
     private String email;
     private String password;
 
-    private FirebaseDatabase rootNode;
     private DatabaseReference userRef;
 
     public void BackToLogin(){
@@ -39,11 +38,11 @@ public class CreateUser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_create_user);
-        usernameText = (EditText)findViewById(R.id.textUsername);
-        emailText = (EditText)findViewById(R.id.textEmail);
-        passwordText = (EditText)findViewById(R.id.textPassword);
+        usernameText = findViewById(R.id.textUsername);
+        emailText = findViewById(R.id.textEmail);
+        passwordText = findViewById(R.id.textPassword);
 
-        rootNode = FirebaseDatabase.getInstance(); // get the root node
+        FirebaseDatabase rootNode = FirebaseDatabase.getInstance(); // get the root node
         userRef = rootNode.getReference("User"); // get the child node named User
     }
 

@@ -18,31 +18,15 @@ public class RentOrPost extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rent_or_post);
-
-        Rent = (Button) findViewById(R.id.buttonHouse);
-        Rent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openSelectionScreen();
-            }
-        });
-
-        Ad = (Button) findViewById(R.id.buttonApartment);
-        Ad.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openCreateAdScreen();
-            }
-        });
     }
 
-    public void openSelectionScreen() {
-        Intent intenta = new Intent(this, FilterSelect.class);
-        startActivity(intenta);
+    public void rentScreen(View view) {
+        Intent intent = new Intent(this, FilterSelect.class);
+        startActivity(intent);
     }
 
-    public void openCreateAdScreen() {
-        Intent intentb = new Intent(this, CreateAd.class);
-        startActivity(intentb);
+    public void createAdScreen(View view) {
+        Intent intent = new Intent(this, CreateAd.class);
+        startActivity(intent);
     }
 }

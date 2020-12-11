@@ -31,7 +31,7 @@ public class DisplayRoom extends AppCompatActivity {
 
         TextView textDescription = findViewById(R.id.textDescription);
         TextView textID = findViewById(R.id.textRentalID);
-        TextView textLocation = findViewById(R.id.textLocation);
+        TextView textLocation = findViewById(R.id.textRentalList);
         TextView textBeds = findViewById(R.id.textBeds);
         TextView textBaths = findViewById(R.id.textBaths);
         TextView textSmokeFree = findViewById(R.id.textSmokeFree);

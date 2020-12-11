@@ -62,7 +62,6 @@
         android:id="@+id/textDescription"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Location:\nNumber of beds:\nNumber of baths:\nSmoke free:\nPet friendly:\nRating average:\nPrice per night:"
         android:textColor="@android:color/white"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -73,7 +72,7 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textLocation"
+        android:id="@+id/textRentalList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="80dp"

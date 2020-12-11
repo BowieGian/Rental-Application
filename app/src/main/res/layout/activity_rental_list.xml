@@ -8,11 +8,11 @@
 
 
     <TextView
-        android:id="@+id/textLocation"
+        android:id="@+id/textRentalList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Select the House to view details! "
+        android:text="@string/select_a_rental_to_view_details"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,7 +26,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textLocation" />
+        app:layout_constraintTop_toBottomOf="@+id/textRentalList" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

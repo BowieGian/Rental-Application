@@ -31,7 +31,7 @@ public class DisplayHouse extends AppCompatActivity {
 
         TextView textDescription = findViewById(R.id.textDescription);
         TextView textID = findViewById(R.id.textRentalID);
-        TextView textLocation = findViewById(R.id.textLocation);
+        TextView textLocation = findViewById(R.id.textRentalList);
         TextView textGuests = findViewById(R.id.textGuests);
         TextView textRooms = findViewById(R.id.textRooms);
         TextView textBeds = findViewById(R.id.textBeds);
