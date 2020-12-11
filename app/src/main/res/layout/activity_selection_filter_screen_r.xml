@@ -177,16 +177,16 @@
 
     <TextView
         android:id="@+id/tvDate2"
-        android:layout_width="70dp"
+        android:layout_width="100dp"
         android:layout_height="25dp"
         android:layout_marginTop="12dp"
         android:background="@android:color/white"
-        android:text="   Select"
+        android:text="       Select"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.724"
+        app:layout_constraintHorizontal_bias="0.752"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -261,16 +261,16 @@
 
     <TextView
         android:id="@+id/tvDate"
-        android:layout_width="70dp"
+        android:layout_width="100dp"
         android:layout_height="25dp"
         android:layout_marginTop="12dp"
         android:background="@android:color/white"
-        android:text="   Select"
+        android:text="       Select"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.254"
+        app:layout_constraintHorizontal_bias="0.228"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
