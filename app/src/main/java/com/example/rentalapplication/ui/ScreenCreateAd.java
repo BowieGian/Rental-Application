@@ -1,9 +1,8 @@
-package com.example.rentalapplication;
+package com.example.rentalapplication.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -18,6 +17,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.rentalapplication.R;
+import com.example.rentalapplication.data.Apartment;
+import com.example.rentalapplication.data.House;
+import com.example.rentalapplication.data.PrivateRoom;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 

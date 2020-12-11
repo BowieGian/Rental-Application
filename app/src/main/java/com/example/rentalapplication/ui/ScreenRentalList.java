@@ -1,4 +1,4 @@
-package com.example.rentalapplication;
+package com.example.rentalapplication.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +9,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.rentalapplication.R;
+import com.example.rentalapplication.data.Apartment;
+import com.example.rentalapplication.data.House;
+import com.example.rentalapplication.data.PrivateRoom;
+import com.example.rentalapplication.data.Rental;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

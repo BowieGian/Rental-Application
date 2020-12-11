@@ -1,4 +1,4 @@
-package com.example.rentalapplication;
+package com.example.rentalapplication.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.example.rentalapplication.R;
+import com.example.rentalapplication.data.House;
 
 public class DisplayHouses extends AppCompatActivity {
     private ImageView imageView;

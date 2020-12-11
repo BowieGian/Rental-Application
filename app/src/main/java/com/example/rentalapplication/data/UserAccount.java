@@ -1,4 +1,4 @@
-package com.example.rentalapplication;
+package com.example.rentalapplication.data;
 
 import com.google.firebase.database.DatabaseReference;
 

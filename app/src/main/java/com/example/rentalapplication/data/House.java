@@ -1,19 +1,18 @@
-package com.example.rentalapplication;
+package com.example.rentalapplication.data;
 
 import java.io.Serializable;
-import java.util.Calendar;
 
-public class Apartment extends Rental implements Serializable {
+public class House extends Rental implements Serializable {
     private int numGuests;
     private int numRooms;
     private int numBeds;
     private int numBaths;
 
-    public Apartment() {
+    public House() {
 
     }
 
-    public Apartment(String inDate, String outDate,
+    public House(String inDate, String outDate,
                      int numGuests, int numRooms, int numBeds, int numBaths,
                      boolean petFriendly, boolean smokeFree, String location,
                      double rating, double price, String imageUrl) {
@@ -51,7 +50,7 @@ public class Apartment extends Rental implements Serializable {
         return numBaths;
     }
 
-    public boolean setNumBathrooms(int numBathrooms) {
+    public boolean setNumBaths(int numBathrooms) {
         if (numBathrooms < 1)
             return false;
         this.numBaths = numBathrooms;

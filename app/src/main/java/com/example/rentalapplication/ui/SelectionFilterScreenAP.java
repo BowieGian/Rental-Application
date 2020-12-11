@@ -1,4 +1,4 @@
-package com.example.rentalapplication;
+package com.example.rentalapplication.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +16,8 @@ import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.rentalapplication.R;
 
 import java.util.Calendar;
 

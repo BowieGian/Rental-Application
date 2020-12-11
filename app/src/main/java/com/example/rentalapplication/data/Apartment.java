@@ -1,26 +1,38 @@
-package com.example.rentalapplication;
+package com.example.rentalapplication.data;
 
 import java.io.Serializable;
-import java.util.Calendar;
 
-public class PrivateRoom extends Rental implements Serializable {
+public class Apartment extends Rental implements Serializable {
     private int numGuests;
+    private int numRooms;
     private int numBeds;
     private int numBaths;
 
-    public PrivateRoom() {
+    public Apartment() {
 
     }
 
-    public PrivateRoom(String inDate, String outDate,
-                     int numGuests, int numBeds, int numBaths,
+    public Apartment(String inDate, String outDate,
+                     int numGuests, int numRooms, int numBeds, int numBaths,
                      boolean petFriendly, boolean smokeFree, String location,
                      double rating, double price, String imageUrl) {
         super(inDate, outDate,
                 petFriendly, smokeFree, location, rating, price, imageUrl);
         this.numGuests = numGuests;
+        this.numRooms = numRooms;
         this.numBeds = numBeds;
         this.numBaths = numBaths;
+    }
+
+    public int getNumRooms() {
+        return numRooms;
+    }
+
+    public boolean setNumRooms(int numRooms) {
+        if (numRooms < 1)
+            return false;
+        this.numRooms = numRooms;
+        return true;
     }
 
     public int getNumGuests() {

@@ -1,4 +1,4 @@
-package com.example.rentalapplication;
+package com.example.rentalapplication.ui;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.rentalapplication.R;
+import com.example.rentalapplication.data.Rental;
 
 import java.util.List;
 
