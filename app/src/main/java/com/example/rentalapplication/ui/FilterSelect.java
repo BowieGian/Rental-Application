@@ -9,7 +9,7 @@ import android.widget.Button;
 
 import com.example.rentalapplication.R;
 
-public class SelectionScreen extends AppCompatActivity {
+public class FilterSelect extends AppCompatActivity {
     private String userID;
 
 
@@ -53,17 +53,17 @@ public class SelectionScreen extends AppCompatActivity {
 
     //////Siavash
     public void displayHouses() {
-        Intent intent = new Intent(this, SelectionFilterScreenH.class);
+        Intent intent = new Intent(this, FilterHouse.class);
         startActivity(intent);
     }
 
     public void displayApartments() {
-        Intent intent = new Intent(this, SelectionFilterScreenAP.class);
+        Intent intent = new Intent(this, FilterApartment.class);
         startActivity(intent);
     }
 
     public void displayRooms() {
-        Intent intent = new Intent(this, SelectionFilterScreenR.class);
+        Intent intent = new Intent(this, FilterRoom.class);
         startActivity(intent);
     }
 }

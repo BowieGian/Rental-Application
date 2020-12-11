@@ -23,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ScreenRentalList extends AppCompatActivity {
+public class RentalList extends AppCompatActivity {
     private FirebaseDatabase rootNode;
     private DatabaseReference reference;
     private String rentalType;
@@ -67,19 +67,19 @@ public class ScreenRentalList extends AppCompatActivity {
                 switch (rentalType) {
                     case "Apartment":
                         Apartment apartment = (Apartment) parent.getItemAtPosition(position);
-                        intent = new Intent(ScreenRentalList.this, DisplayApartment.class);
+                        intent = new Intent(RentalList.this, DisplayApartment.class);
                         intent.putExtra("Apartment", apartment);
                         startActivity(intent);
                         break;
                     case "House":
                         House house = (House) parent.getItemAtPosition(position);
-                        intent = new Intent(ScreenRentalList.this, DisplayHouses.class);
+                        intent = new Intent(RentalList.this, DisplayHouse.class);
                         intent.putExtra("House", house);
                         startActivity(intent);
                         break;
                     case "PrivateRoom":
                         PrivateRoom privateRoom = (PrivateRoom) parent.getItemAtPosition(position);
-                        intent = new Intent(ScreenRentalList.this, DisplayRooms.class);
+                        intent = new Intent(RentalList.this, DisplayRoom.class);
                         intent.putExtra("PrivateRoom", privateRoom);
                         startActivity(intent);
                         break;
@@ -118,7 +118,7 @@ public class ScreenRentalList extends AppCompatActivity {
                     }
                 }
 
-                LayoutRental adapter = new LayoutRental(ScreenRentalList.this, rentalList);
+                RentalLayout adapter = new RentalLayout(RentalList.this, rentalList);
                 listViewRentals.setAdapter(adapter);
             }
 

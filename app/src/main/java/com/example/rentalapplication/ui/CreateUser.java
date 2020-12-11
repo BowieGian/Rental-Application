@@ -18,7 +18,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class ScreenNewUser extends AppCompatActivity {
+public class CreateUser extends AppCompatActivity {
     private EditText usernameText;
     private EditText emailText;
     private EditText passwordText;
@@ -58,18 +58,18 @@ public class ScreenNewUser extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(username.matches("")||email.matches("")||password.matches("")){
-                    Toast.makeText(ScreenNewUser.this,"Please complete all the required fields!  ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateUser.this,"Please complete all the required fields!  ", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     // if the username is not taken
                     if (dataSnapshot.getValue() == null) {
                         UserAccount newUser = new UserAccount(username, email, password);
                         userRef.push().setValue(newUser);  // add newUser as a child to the Node User
-                        Toast.makeText(ScreenNewUser.this,"Account created Successfully! ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CreateUser.this,"Account created Successfully! ", Toast.LENGTH_SHORT).show();
                         BackToLogin();
                     }
                     else {
-                        Toast.makeText(ScreenNewUser.this,"Please Enter Valid Credentials!  ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CreateUser.this,"Please Enter Valid Credentials!  ", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

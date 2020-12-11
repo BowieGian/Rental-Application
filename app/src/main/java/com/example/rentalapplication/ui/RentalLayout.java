@@ -17,11 +17,11 @@ import com.example.rentalapplication.data.Rental;
 
 import java.util.List;
 
-public class LayoutRental extends ArrayAdapter {
+public class RentalLayout extends ArrayAdapter {
     private Activity activity;
     private List<Rental> rentalList;
 
-    public LayoutRental(Activity activity, List<Rental> rentalList) {
+    public RentalLayout(Activity activity, List<Rental> rentalList) {
         super(activity, R.layout.layout_rental, rentalList);
         this.activity = activity;
         this.rentalList = rentalList;

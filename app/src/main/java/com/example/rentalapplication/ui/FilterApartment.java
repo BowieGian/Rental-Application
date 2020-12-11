@@ -3,11 +3,11 @@ package com.example.rentalapplication.ui;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
-import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -21,8 +21,8 @@ import com.example.rentalapplication.R;
 
 import java.util.Calendar;
 
-public class SelectionFilterScreenH extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    private static final String TAG = "SelectionFilterScreen";
+public class FilterApartment extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+    private static final String TAG = "FilterApartment";
     private TextView mDisplayDate1;
     private DatePickerDialog.OnDateSetListener mDateSetListener1;
     private TextView mDisplayDate2;
@@ -42,7 +42,7 @@ public class SelectionFilterScreenH extends AppCompatActivity implements Adapter
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_selection_filter_screen_h);
+        setContentView(R.layout.activity_selection_filter_screen_a_p);
 
         mDisplayDate1 = (TextView) findViewById(R.id.tvDate);
         mDisplayDate1.setOnClickListener(new View.OnClickListener() {
@@ -53,7 +53,7 @@ public class SelectionFilterScreenH extends AppCompatActivity implements Adapter
                 int month = calendar.get(Calendar.MONTH);
                 int day = calendar.get(Calendar.DAY_OF_MONTH);
 
-                DatePickerDialog dialog = new DatePickerDialog(SelectionFilterScreenH.this,
+                DatePickerDialog dialog = new DatePickerDialog(FilterApartment.this,
                         android.R.style.Theme_Holo_Light_Dialog_MinWidth, mDateSetListener1,
                         year, month, day);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -72,6 +72,7 @@ public class SelectionFilterScreenH extends AppCompatActivity implements Adapter
             }
         };
 
+
         mDisplayDate2 = (TextView) findViewById(R.id.tvDate2);
         mDisplayDate2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,7 +82,7 @@ public class SelectionFilterScreenH extends AppCompatActivity implements Adapter
                 int month = calendar.get(Calendar.MONTH);
                 int day = calendar.get(Calendar.DAY_OF_MONTH);
 
-                DatePickerDialog dialog = new DatePickerDialog(SelectionFilterScreenH.this,
+                DatePickerDialog dialog = new DatePickerDialog(FilterApartment.this,
                         android.R.style.Theme_Holo_Light_Dialog_MinWidth, mDateSetListener2,
                         year, month, day);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -117,7 +118,7 @@ public class SelectionFilterScreenH extends AppCompatActivity implements Adapter
         Spinner spinnerPrice = (Spinner) findViewById(R.id.spinnerPrice);
         spinnerPrice.setOnItemSelectedListener(this);
 
-        ArrayAdapter<String> myAdaptor = new ArrayAdapter<>(SelectionFilterScreenH.this,
+        ArrayAdapter<String> myAdaptor = new ArrayAdapter<>(FilterApartment.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Numbers));
         myAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerGuests.setAdapter(myAdaptor);
@@ -125,20 +126,20 @@ public class SelectionFilterScreenH extends AppCompatActivity implements Adapter
         spinnerBeds.setAdapter((myAdaptor));
         spinnerBaths.setAdapter((myAdaptor));
 
-        ArrayAdapter<String> myAdaptor2 = new ArrayAdapter<>(SelectionFilterScreenH.this,
+        ArrayAdapter<String> myAdaptor2 = new ArrayAdapter<>(FilterApartment.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Yes_No));
-        myAdaptor2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        myAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerPet.setAdapter(myAdaptor2);
         spinnerSmoke.setAdapter(myAdaptor2);
 
-        ArrayAdapter<String> myAdaptor3 = new ArrayAdapter<>(SelectionFilterScreenH.this,
+        ArrayAdapter<String> myAdaptor3 = new ArrayAdapter<>(FilterApartment.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Rating));
-        myAdaptor3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        myAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerRating.setAdapter(myAdaptor3);
 
-        ArrayAdapter<String> myAdaptor4 = new ArrayAdapter<>(SelectionFilterScreenH.this,
+        ArrayAdapter<String> myAdaptor4 = new ArrayAdapter<>(FilterApartment.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Price));
-        myAdaptor4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        myAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerPrice.setAdapter(myAdaptor4);
     }
 
@@ -194,19 +195,20 @@ public class SelectionFilterScreenH extends AppCompatActivity implements Adapter
 
     }
 
-    public void housesOnClick(View view) {
-        displayHouses();
+    public void apartOnClick(View view) {
+        displayAparts();
     }
 
-    public void displayHouses() {
+    public void displayAparts() {
         TextView textLocation = (TextView) findViewById(R.id.location);
         String location = textLocation.getText().toString();
+
         if(location.matches("")){// check for empty location
             Toast.makeText(this,"Please Enter a Valid Location!  ", Toast.LENGTH_SHORT).show();
         }
         else{
-            Intent intent = new Intent(this, ScreenRentalList.class);
-            intent.putExtra("rentalType", "House");
+            Intent intent = new Intent(this, RentalList.class);
+            intent.putExtra("rentalType", "Apartment");
             intent.putExtra("inDate", inDate);
             intent.putExtra("outDate", outDate);
             intent.putExtra("guests", guests);

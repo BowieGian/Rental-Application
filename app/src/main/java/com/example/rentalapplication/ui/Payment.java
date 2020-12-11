@@ -14,7 +14,7 @@ import com.example.rentalapplication.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class ScreenPayment extends AppCompatActivity {
+public class Payment extends AppCompatActivity {
     private FirebaseDatabase rootNode;
     private DatabaseReference reference;
     private String rentalType;
@@ -29,7 +29,7 @@ public class ScreenPayment extends AppCompatActivity {
 
         Spinner PaymentType = (Spinner) findViewById(R.id.spinnera);
 
-        ArrayAdapter<String> myAdaptor = new ArrayAdapter<>(ScreenPayment.this,
+        ArrayAdapter<String> myAdaptor = new ArrayAdapter<>(Payment.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.PaymentType));
         myAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         PaymentType.setAdapter(myAdaptor);
@@ -55,11 +55,11 @@ public class ScreenPayment extends AppCompatActivity {
     public void displayToast(View v) {
         reference = rootNode.getReference(rentalType);
         reference.child(key).removeValue();
-        Toast.makeText(ScreenPayment.this, "Your payment was been completed", Toast.LENGTH_SHORT).show();
+        Toast.makeText(Payment.this, "Your payment was been completed", Toast.LENGTH_SHORT).show();
     }
 
     public void goBackToStart() {
-        Intent intent = new Intent(this, UserType.class);
+        Intent intent = new Intent(this, RentOrPost.class);
         startActivity(intent);
     }
 }

@@ -9,35 +9,35 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.example.rentalapplication.R;
-import com.example.rentalapplication.data.PrivateRoom;
+import com.example.rentalapplication.data.House;
 
-public class DisplayRooms extends AppCompatActivity {
+public class DisplayHouse extends AppCompatActivity {
     private ImageView imageView;
-    private PrivateRoom privateRoom;
+    private House house;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_rooms);
+        setContentView(R.layout.activity_display_houses);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         Intent intent = getIntent();
-        privateRoom = (PrivateRoom) intent.getSerializableExtra("PrivateRoom");
+        house = (House) intent.getSerializableExtra("House");
         displayImage();
     }
 
     private void displayImage() {
-        imageView = findViewById(R.id.privateRoomImage);
-        Glide.with(this).load(privateRoom.getImageUrl()).into(imageView);
+        imageView = findViewById(R.id.houseImage);
+        Glide.with(this).load(house.getImageUrl()).into(imageView);
     }
 
-    public void selectRoomOnClick(View view) {
-        Intent intent = new Intent(DisplayRooms.this, ScreenPayment.class);
-        intent.putExtra("key", privateRoom.getKey());
-        intent.putExtra("rentalType", "PrivateRoom");
+    public void selectHouseOnClick(View view) {
+        Intent intent = new Intent(DisplayHouse.this, Payment.class);
+        intent.putExtra("key", house.getKey());
+        intent.putExtra("rentalType", "House");
         startActivity(intent);
     }
 }

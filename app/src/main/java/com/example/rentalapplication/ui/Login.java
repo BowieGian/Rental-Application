@@ -83,12 +83,12 @@ public class Login extends AppCompatActivity {
     }
 
     public void selectOption(){
-        Intent intent = new Intent (Login.this, UserType.class ); // intent opens a new window
+        Intent intent = new Intent (Login.this, RentOrPost.class ); // intent opens a new window
         startActivity(intent);
     }
 
     public void openNewUserScreen(){
-        Intent intent = new Intent (this, ScreenNewUser.class );
+        Intent intent = new Intent (this, CreateUser.class );
         startActivity(intent);
     }
 

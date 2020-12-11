@@ -26,8 +26,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Calendar;
 
-public class ScreenCreateAd extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
-    private static final String TAG = "ScreenCreateAd";
+public class CreateAd extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+    private static final String TAG = "CreateAd";
     private TextView mDisplayDate1;
     private DatePickerDialog.OnDateSetListener mDateSetListener1;
     private TextView mDisplayDate2;
@@ -61,7 +61,7 @@ public class ScreenCreateAd extends AppCompatActivity implements AdapterView.OnI
                 int month = calendar.get(Calendar.MONTH);
                 int day = calendar.get(Calendar.DAY_OF_MONTH);
 
-                DatePickerDialog dialog = new DatePickerDialog(ScreenCreateAd.this,
+                DatePickerDialog dialog = new DatePickerDialog(CreateAd.this,
                         android.R.style.Theme_Holo_Light_Dialog_MinWidth, mDateSetListener1,
                         year, month, day);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -89,7 +89,7 @@ public class ScreenCreateAd extends AppCompatActivity implements AdapterView.OnI
                 int month = calendar.get(Calendar.MONTH);
                 int day = calendar.get(Calendar.DAY_OF_MONTH);
 
-                DatePickerDialog dialog = new DatePickerDialog(ScreenCreateAd.this,
+                DatePickerDialog dialog = new DatePickerDialog(CreateAd.this,
                         android.R.style.Theme_Holo_Light_Dialog_MinWidth, mDateSetListener2,
                         year, month, day);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -125,7 +125,7 @@ public class ScreenCreateAd extends AppCompatActivity implements AdapterView.OnI
         Spinner spinnerRentalType = (Spinner) findViewById(R.id.spinnerRentalType);
         spinnerRentalType.setOnItemSelectedListener(this);
 
-        ArrayAdapter<String> myAdaptor = new ArrayAdapter<>(ScreenCreateAd.this,
+        ArrayAdapter<String> myAdaptor = new ArrayAdapter<>(CreateAd.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Numbers));
         myAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerGuests.setAdapter(myAdaptor);
@@ -133,13 +133,13 @@ public class ScreenCreateAd extends AppCompatActivity implements AdapterView.OnI
         spinnerBeds.setAdapter((myAdaptor));
         spinnerBaths.setAdapter((myAdaptor));
 
-        ArrayAdapter<String> myAdaptor2 = new ArrayAdapter<>(ScreenCreateAd.this,
+        ArrayAdapter<String> myAdaptor2 = new ArrayAdapter<>(CreateAd.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Yes_No));
         myAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerPet.setAdapter(myAdaptor2);
         spinnerSmoke.setAdapter(myAdaptor2);
 
-        ArrayAdapter<String> myAdaptor5 = new ArrayAdapter<>(ScreenCreateAd.this,
+        ArrayAdapter<String> myAdaptor5 = new ArrayAdapter<>(CreateAd.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.RentalType));
         myAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerRentalType.setAdapter(myAdaptor5);
@@ -221,12 +221,12 @@ public class ScreenCreateAd extends AppCompatActivity implements AdapterView.OnI
         price = Integer.parseInt(temp);
 
         if(imageUrl.matches("")||location.matches("")){
-            Toast.makeText(ScreenCreateAd.this, "Please enter Valid image URL, Location! ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(CreateAd.this, "Please enter Valid image URL, Location! ", Toast.LENGTH_SHORT).show();
         }
         else{
             switch(rentalType) {
                 case "Apartment":
-                    if(price<=0){ Toast.makeText(ScreenCreateAd.this, "Please enter Valid Price! ", Toast.LENGTH_SHORT).show(); }
+                    if(price<=0){ Toast.makeText(CreateAd.this, "Please enter Valid Price! ", Toast.LENGTH_SHORT).show(); }
                     else{
                         Apartment apartment = new Apartment(inDate, outDate,
                                 guests, rooms, beds, baths, pet, smoke, location, 0, price, imageUrl);
@@ -234,11 +234,11 @@ public class ScreenCreateAd extends AppCompatActivity implements AdapterView.OnI
                         pushRef = apartRef.push();
                         apartment.setKey(pushRef.getKey());
                         pushRef.setValue(apartment);
-                        Toast.makeText(ScreenCreateAd.this, "Ad has been successfully posted", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CreateAd.this, "Ad has been successfully posted", Toast.LENGTH_SHORT).show();
                     }
                     break;
                 case "House":
-                    if(price<=0){ Toast.makeText(ScreenCreateAd.this, "Please enter Valid Price! ", Toast.LENGTH_SHORT).show();}
+                    if(price<=0){ Toast.makeText(CreateAd.this, "Please enter Valid Price! ", Toast.LENGTH_SHORT).show();}
                     else{
                         House house = new House(inDate, outDate,
                                 guests, rooms, beds, baths, pet, smoke, location, 0, price, imageUrl);
@@ -246,12 +246,12 @@ public class ScreenCreateAd extends AppCompatActivity implements AdapterView.OnI
                         pushRef = houseRef.push();
                         house.setKey(pushRef.getKey());
                         pushRef.setValue(house);
-                        Toast.makeText(ScreenCreateAd.this, "Ad has been successfully posted", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CreateAd.this, "Ad has been successfully posted", Toast.LENGTH_SHORT).show();
                     }
 
                     break;
                 case "Room":
-                    if(price<=0){ Toast.makeText(ScreenCreateAd.this, "Please enter Valid Price! ", Toast.LENGTH_SHORT).show();}
+                    if(price<=0){ Toast.makeText(CreateAd.this, "Please enter Valid Price! ", Toast.LENGTH_SHORT).show();}
                     else{
                         PrivateRoom privateRoom = new PrivateRoom(inDate, outDate,
                                 guests, beds, baths, pet, smoke, location, 0, price, imageUrl);
@@ -259,7 +259,7 @@ public class ScreenCreateAd extends AppCompatActivity implements AdapterView.OnI
                         pushRef = pRoomRef.push();
                         privateRoom.setKey(pushRef.getKey());
                         pushRef.setValue(privateRoom);
-                        Toast.makeText(ScreenCreateAd.this, "Ad has been successfully posted", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CreateAd.this, "Ad has been successfully posted", Toast.LENGTH_SHORT).show();
                     }
                     break;
             }

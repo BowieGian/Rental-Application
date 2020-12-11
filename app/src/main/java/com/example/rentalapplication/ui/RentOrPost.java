@@ -9,7 +9,7 @@ import android.widget.Button;
 
 import com.example.rentalapplication.R;
 
-public class UserType extends AppCompatActivity {
+public class RentOrPost extends AppCompatActivity {
 
     private Button Rent;
     private Button Ad;
@@ -37,12 +37,12 @@ public class UserType extends AppCompatActivity {
     }
 
     public void openSelectionScreen() {
-        Intent intenta = new Intent(this, SelectionScreen.class);
+        Intent intenta = new Intent(this, FilterSelect.class);
         startActivity(intenta);
     }
 
     public void openCreateAdScreen() {
-        Intent intentb = new Intent(this, ScreenCreateAd.class);
+        Intent intentb = new Intent(this, CreateAd.class);
         startActivity(intentb);
     }
 }

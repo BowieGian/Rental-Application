@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:alpha="0.9"
-    tools:context=".ui.SelectionScreen">
+    tools:context=".ui.FilterSelect">
 
     <ImageView
         android:id="@+id/imageView2"
