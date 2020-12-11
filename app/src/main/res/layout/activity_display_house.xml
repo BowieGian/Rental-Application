@@ -6,149 +6,206 @@
     android:layout_height="match_parent"
     tools:context=".ui.DisplayHouse">
 
-
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+    <ImageView
+        android:id="@+id/imageBackground"
+        android:layout_width="457dp"
+        android:layout_height="754dp"
+        android:contentDescription="@string/background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/base"
+        tools:ignore="MissingConstraints" />
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/textTitleId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/house_id"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/imageView8"
-                android:layout_width="match_parent"
-                android:layout_height="753dp"
-                app:srcCompat="@drawable/base"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="-20dp"
-                tools:layout_editor_absoluteY="-20dp" />
+    <TextView
+        android:id="@+id/textRentalID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textTitleId"
+        app:layout_constraintStart_toEndOf="@+id/textTitleId"
+        app:layout_constraintTop_toTopOf="@+id/textTitleId"
+        tools:ignore="MissingConstraints" />
 
-            <EditText
-                android:id="@+id/imageID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="129dp"
-                android:layout_marginRight="129dp"
-                android:layout_marginBottom="680dp"
-                android:background="@null"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Available Houses"
-                android:textColor="@android:color/white"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.12"
-                app:layout_constraintStart_toStartOf="parent" />
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="293dp"
+        android:layout_height="251dp"
+        android:layout_marginTop="24dp"
+        android:contentDescription="@string/apartment_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textTitleId"
+        app:srcCompat="@drawable/house0"
+        tools:ignore="MissingConstraints" />
 
-            <EditText
-                android:id="@+id/usernameID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/houseImage"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginEnd="170dp"
-                android:layout_marginRight="170dp"
-                android:layout_marginBottom="14dp"
-                android:background="@null"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="House ID:"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
-                android:textStyle="bold|italic"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.091"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageID"
-                app:layout_constraintVertical_bias="0.052" />
+    <TextView
+        android:id="@+id/textDescription"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSelect"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image"
+        tools:ignore="MissingConstraints" />
 
-            <ImageView
-                android:id="@+id/houseImage"
-                android:layout_width="293dp"
-                android:layout_height="241dp"
-                android:layout_above="@+id/textView"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginStart="62dp"
-                android:layout_marginLeft="62dp"
-                android:layout_marginEnd="55dp"
-                android:layout_marginRight="55dp"
-                android:layout_marginBottom="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.263"
-                app:srcCompat="@drawable/house0" />
+    <TextView
+        android:id="@+id/textLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="2dp"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/textDescription"
+        app:layout_constraintTop_toTopOf="@+id/textDescription"
+        tools:ignore="MissingConstraints" />
 
-            <Button
-                android:id="@+id/SelectHousebuttonID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/imageView8"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginBottom="39dp"
-                android:layout_marginEnd="128dp"
-                android:layout_marginLeft="128dp"
-                android:layout_marginRight="128dp"
-                android:layout_marginStart="128dp"
-                android:onClick="selectHouseOnClick"
-                android:text="Select this house"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView8"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+    <TextView
+        android:id="@+id/textGuests"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="152dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="24dp"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/textDescription"
+        app:layout_constraintTop_toTopOf="@+id/textDescription"
+        tools:ignore="MissingConstraints" />
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="267dp"
-                android:layout_alignBottom="@+id/imageView8"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginStart="23dp"
-                android:layout_marginLeft="23dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="89dp"
-                android:text="Location: \nNumber of guests: \nNumber of rooms: \nNumber of beds:
-        \nNumber of baths: \nSmoke free: \nPet friendly: \nWIFI available: \nParking available:
-        \nRating average: \nPrice per night: \nHost contact:
-        "
-                android:textColor="@android:color/white"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/SelectHousebuttonID"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/houseImage" />
+    <TextView
+        android:id="@+id/textRooms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="152dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="44dp"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/textDescription"
+        app:layout_constraintTop_toTopOf="@+id/textDescription"
+        tools:ignore="MissingConstraints" />
 
-        </RelativeLayout>
+    <TextView
+        android:id="@+id/textBeds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="136dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="66dp"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/textDescription"
+        app:layout_constraintTop_toTopOf="@+id/textDescription"
+        tools:ignore="MissingConstraints" />
 
-    </ScrollView>
+    <TextView
+        android:id="@+id/textBaths"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="140dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="87dp"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/textDescription"
+        app:layout_constraintTop_toTopOf="@+id/textDescription"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textSmokeFree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="107dp"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/textDescription"
+        app:layout_constraintTop_toTopOf="@+id/textDescription"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textPetFriendly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="128dp"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/textDescription"
+        app:layout_constraintTop_toTopOf="@+id/textDescription"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="128dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="149dp"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/textDescription"
+        app:layout_constraintTop_toTopOf="@+id/textDescription"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="124dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="170dp"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/textDescription"
+        app:layout_constraintTop_toTopOf="@+id/textDescription"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/buttonSelect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageBackground"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="39dp"
+        android:layout_marginEnd="128dp"
+        android:layout_marginLeft="128dp"
+        android:layout_marginRight="128dp"
+        android:layout_marginStart="128dp"
+        android:onClick="selectHouse"
+        android:text="@string/select_this_house"
+        app:layout_constraintBottom_toBottomOf="@+id/imageBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

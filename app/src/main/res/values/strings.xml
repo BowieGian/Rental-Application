@@ -1,5 +1,14 @@
 <resources>
     <string name="app_name">rentalApplication</string>
+    <string name="background">Background</string>
+    <string name="available_apartments">Available Apartments</string>
+    <string name="apartment_id">Apartment ID:</string>
+    <string name="apartment_image">Apartment Image</string>
+    <string name="select_this_apartment">Select this apartment</string>
+    <string name="house_id">House ID:</string>
+    <string name="select_this_room">Select this room</string>
+    <string name="room_id">Room ID:</string>
+    <string name="select_this_house">Select this house</string>
 
     <string-array name="Numbers">
         <item>Select</item>

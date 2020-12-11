@@ -39,9 +39,9 @@ public class CreateUser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_create_user);
-        usernameText = (EditText)findViewById(R.id.UsernameID);
-        emailText = (EditText)findViewById(R.id.EmailID);
-        passwordText = (EditText)findViewById(R.id.PasswordID);
+        usernameText = (EditText)findViewById(R.id.textUsername);
+        emailText = (EditText)findViewById(R.id.textEmail);
+        passwordText = (EditText)findViewById(R.id.textPassword);
 
         rootNode = FirebaseDatabase.getInstance(); // get the root node
         userRef = rootNode.getReference("User"); // get the child node named User

@@ -19,7 +19,7 @@ public class RentOrPost extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rent_or_post);
 
-        Rent = (Button) findViewById(R.id.HouseID);
+        Rent = (Button) findViewById(R.id.buttonHouse);
         Rent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -27,7 +27,7 @@ public class RentOrPost extends AppCompatActivity {
             }
         });
 
-        Ad = (Button) findViewById(R.id.AptID);
+        Ad = (Button) findViewById(R.id.buttonApartment);
         Ad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

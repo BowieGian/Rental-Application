@@ -10,59 +10,27 @@ import android.widget.Button;
 import com.example.rentalapplication.R;
 
 public class FilterSelect extends AppCompatActivity {
-    private String userID;
-
-
-    ////Siavash
     private Button house;
     private Button apartment;
     private Button room;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filter_select);
-        userID = getIntent().getDataString();
-
-        /////Siavash
-        house = (Button) findViewById(R.id.HouseID);
-        house.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                displayHouses();
-            }
-        });
-
-        apartment = (Button) findViewById(R.id.AptID);
-        apartment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                displayApartments();
-            }
-        });
-
-        room = (Button) findViewById(R.id.PrivateRoomID);
-        room.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                displayRooms();
-            }
-        });
     }
 
-    //////Siavash
-    public void displayHouses() {
+    public void displayHouses(View view) {
         Intent intent = new Intent(this, FilterHouse.class);
         startActivity(intent);
     }
 
-    public void displayApartments() {
+    public void displayApartments(View view) {
         Intent intent = new Intent(this, FilterApartment.class);
         startActivity(intent);
     }
 
-    public void displayRooms() {
+    public void displayPrivateRooms(View view) {
         Intent intent = new Intent(this, FilterRoom.class);
         startActivity(intent);
     }

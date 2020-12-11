@@ -6,18 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".ui.DisplayApartment">
 
-    <!--    <ScrollView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent">-->
-
-<!--        <RelativeLayout-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content">-->
-
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/imageBackground"
         android:layout_width="457dp"
         android:layout_height="754dp"
+        android:contentDescription="@string/background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,297 +19,193 @@
         app:srcCompat="@drawable/base"
         tools:ignore="MissingConstraints" />
 
-    <EditText
-        android:id="@+id/imageID"
+    <TextView
+        android:id="@+id/textTitleId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="129dp"
-        android:layout_marginRight="129dp"
-        android:layout_marginBottom="680dp"
-        android:background="@null"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Available Apartments"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/apartment_id"
         android:textColor="@android:color/white"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.12"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/usernameID"
-        android:layout_width="137dp"
-        android:layout_height="25dp"
-        android:layout_above="@+id/privateRoomImage"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginEnd="170dp"
-        android:layout_marginRight="170dp"
-        android:layout_marginBottom="14dp"
-        android:background="@null"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Apartment ID:"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.091"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageID"
-        app:layout_constraintVertical_bias="0.052" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textRentalID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textTitleId"
+        app:layout_constraintStart_toEndOf="@+id/textTitleId"
+        app:layout_constraintTop_toTopOf="@+id/textTitleId"
+        tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/privateRoomImage"
+        android:id="@+id/image"
         android:layout_width="293dp"
         android:layout_height="251dp"
-        app:srcCompat="@drawable/house0"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="152dp" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="83dp"
-        android:layout_height="250dp"
-        android:background="@android:color/white"
-        android:text="\n\n   Click\n    for\n  more\n photos"
-        android:textSize="23dp"
-        android:textStyle="bold|italic"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="24dp"
+        android:contentDescription="@string/apartment_image"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.157"
-        app:layout_constraintStart_toEndOf="@+id/privateRoomImage"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.316" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textTitleId"
+        app:srcCompat="@drawable/apartment0"
+        tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView16"
-        android:layout_width="167dp"
+        android:id="@+id/textDescription"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Location: \nNumber of guests: \nNumber of rooms: \nNumber of beds:
-        \nNumber of baths: \nSmoke free: \nPet friendly: \nWIFI available: \nParking available:
-        \nRating average: \nPrice per night: \nHost contact:
-        "
         android:textColor="@android:color/white"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSelect"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.106"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="418dp" />
+        app:layout_constraintTop_toBottomOf="@+id/image"
+        tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/textLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:layout_marginLeft="80dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="2dp"
         android:textColor="@android:color/white"
         android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.338"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/privateRoomImage"
-        app:layout_constraintVertical_bias="0.049"
+        app:layout_constraintStart_toStartOf="@+id/textDescription"
+        app:layout_constraintTop_toTopOf="@+id/textDescription"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/textGuests"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:layout_marginLeft="152dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="24dp"
         android:textColor="@android:color/white"
         android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/privateRoomImage"
-        app:layout_constraintVertical_bias="0.12"
+        app:layout_constraintStart_toStartOf="@+id/textDescription"
+        app:layout_constraintTop_toTopOf="@+id/textDescription"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/textRooms"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:layout_marginLeft="152dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="44dp"
         android:textColor="@android:color/white"
         android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/privateRoomImage"
-        app:layout_constraintVertical_bias="0.192"
+        app:layout_constraintStart_toStartOf="@+id/textDescription"
+        app:layout_constraintTop_toTopOf="@+id/textDescription"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView20"
+        android:id="@+id/textBeds"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:layout_marginLeft="136dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="66dp"
         android:textColor="@android:color/white"
         android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/privateRoomImage"
-        app:layout_constraintVertical_bias="0.256"
+        app:layout_constraintStart_toStartOf="@+id/textDescription"
+        app:layout_constraintTop_toTopOf="@+id/textDescription"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView21"
+        android:id="@+id/textBaths"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:layout_marginLeft="140dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="87dp"
         android:textColor="@android:color/white"
         android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/privateRoomImage"
-        app:layout_constraintVertical_bias="0.321"
+        app:layout_constraintStart_toStartOf="@+id/textDescription"
+        app:layout_constraintTop_toTopOf="@+id/textDescription"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView22"
+        android:id="@+id/textSmokeFree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:layout_marginLeft="100dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="107dp"
         android:textColor="@android:color/white"
         android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.378"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/privateRoomImage"
-        app:layout_constraintVertical_bias="0.386"
+        app:layout_constraintStart_toStartOf="@+id/textDescription"
+        app:layout_constraintTop_toTopOf="@+id/textDescription"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView23"
+        android:id="@+id/textPetFriendly"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:layout_marginLeft="100dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="128dp"
         android:textColor="@android:color/white"
         android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.378"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/privateRoomImage"
-        app:layout_constraintVertical_bias="0.451"
+        app:layout_constraintStart_toStartOf="@+id/textDescription"
+        app:layout_constraintTop_toTopOf="@+id/textDescription"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView24"
+        android:id="@+id/textRating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:layout_marginLeft="128dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="149dp"
         android:textColor="@android:color/white"
         android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.418"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/privateRoomImage"
-        app:layout_constraintVertical_bias="0.516"
+        app:layout_constraintStart_toStartOf="@+id/textDescription"
+        app:layout_constraintTop_toTopOf="@+id/textDescription"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView25"
+        android:id="@+id/textPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:layout_marginLeft="124dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="170dp"
         android:textColor="@android:color/white"
         android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/privateRoomImage"
-        app:layout_constraintVertical_bias="0.581"
+        app:layout_constraintStart_toStartOf="@+id/textDescription"
+        app:layout_constraintTop_toTopOf="@+id/textDescription"
         tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/textView26"
+    <Button
+        android:id="@+id/buttonSelect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textColor="@android:color/white"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_alignBottom="@+id/imageBackground"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="39dp"
+        android:layout_marginEnd="128dp"
+        android:layout_marginLeft="128dp"
+        android:layout_marginRight="128dp"
+        android:layout_marginStart="128dp"
+        android:onClick="selectApartment"
+        android:text="@string/select_this_apartment"
+        app:layout_constraintBottom_toBottomOf="@+id/imageBackground"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.452"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/privateRoomImage"
-        app:layout_constraintVertical_bias="0.672"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/textView27"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textColor="@android:color/white"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.452"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/privateRoomImage"
-        app:layout_constraintVertical_bias="0.737"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/textView28"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textColor="@android:color/white"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.418"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/privateRoomImage"
-        app:layout_constraintVertical_bias="0.801"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/textView29"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/privateRoomImage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/usernameID"
-        app:layout_constraintTop_toBottomOf="@+id/imageID"
-        app:layout_constraintVertical_bias="0.441"
-        tools:ignore="MissingConstraints" />
-    />
-
-
-    <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
-
-<!--    </ScrollView>-->
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

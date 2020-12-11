@@ -254,7 +254,7 @@ public class CreateAd extends AppCompatActivity implements AdapterView.OnItemSel
                     if(price<=0){ Toast.makeText(CreateAd.this, "Please enter Valid Price! ", Toast.LENGTH_SHORT).show();}
                     else{
                         PrivateRoom privateRoom = new PrivateRoom(inDate, outDate,
-                                guests, beds, baths, pet, smoke, location, 0, price, imageUrl);
+                                beds, baths, pet, smoke, location, 0, price, imageUrl);
                         DatabaseReference pRoomRef = rootNode.getReference("PrivateRoom");
                         pushRef = pRoomRef.push();
                         privateRoom.setKey(pushRef.getKey());
