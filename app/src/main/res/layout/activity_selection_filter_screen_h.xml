@@ -58,22 +58,22 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.127" />
 
+
     <TextView
         android:id="@+id/tvDate"
-        android:layout_width="70dp"
+        android:layout_width="100dp"
         android:layout_height="25dp"
         android:background="@android:color/white"
-        android:text="   Select"
+        android:text="       Select"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.254"
+        app:layout_constraintHorizontal_bias="0.221"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.262" />
-
+        app:layout_constraintVertical_bias="0.239" />
 
     <TextView
         android:id="@+id/textView7"
@@ -275,19 +275,19 @@
 
     <TextView
         android:id="@+id/tvDate2"
-        android:layout_width="70dp"
+        android:layout_width="100dp"
         android:layout_height="25dp"
         android:background="@android:color/white"
-        android:text="   Select"
+        android:text="       Select"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.713"
+        app:layout_constraintHorizontal_bias="0.742"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.256" />
+        app:layout_constraintVertical_bias="0.253" />
 
     <TextView
         android:id="@+id/textView3"
