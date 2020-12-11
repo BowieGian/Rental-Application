@@ -22,7 +22,7 @@ import com.example.rentalapplication.R;
 import java.util.Calendar;
 
 public class FilterHouse extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    private static final String TAG = "SelectionFilterScreen";
+    private static final String TAG = "FilterHouse";
     private TextView mDisplayDate1;
     private DatePickerDialog.OnDateSetListener mDateSetListener1;
     private TextView mDisplayDate2;
@@ -42,7 +42,7 @@ public class FilterHouse extends AppCompatActivity implements AdapterView.OnItem
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_selection_filter_screen_h);
+        setContentView(R.layout.activity_filter_house);
 
         mDisplayDate1 = (TextView) findViewById(R.id.tvDate);
         mDisplayDate1.setOnClickListener(new View.OnClickListener() {

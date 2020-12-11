@@ -118,7 +118,7 @@ public class RentalList extends AppCompatActivity {
                     }
                 }
 
-                RentalLayout adapter = new RentalLayout(RentalList.this, rentalList);
+                LayoutRental adapter = new LayoutRental(RentalList.this, rentalList);
                 listViewRentals.setAdapter(adapter);
             }
 

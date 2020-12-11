@@ -24,7 +24,7 @@ public class Payment extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_payment_screen);
+        setContentView(R.layout.activity_payment);
         rootNode = FirebaseDatabase.getInstance();
 
         Spinner PaymentType = (Spinner) findViewById(R.id.spinnera);

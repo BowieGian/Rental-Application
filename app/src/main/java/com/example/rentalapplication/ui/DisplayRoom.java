@@ -18,7 +18,7 @@ public class DisplayRoom extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_rooms);
+        setContentView(R.layout.activity_display_room);
     }
 
     @Override

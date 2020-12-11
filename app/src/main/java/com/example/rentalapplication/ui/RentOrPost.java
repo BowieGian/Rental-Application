@@ -17,7 +17,7 @@ public class RentOrPost extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_type);
+        setContentView(R.layout.activity_rent_or_post);
 
         Rent = (Button) findViewById(R.id.HouseID);
         Rent.setOnClickListener(new View.OnClickListener() {

@@ -22,7 +22,7 @@ public class FilterSelect extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_selection_screen);
+        setContentView(R.layout.activity_filter_select);
         userID = getIntent().getDataString();
 
         /////Siavash

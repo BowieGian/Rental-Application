@@ -38,7 +38,7 @@ public class CreateUser extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_new_user_screen);
+        setContentView(R.layout.activity_create_user);
         usernameText = (EditText)findViewById(R.id.UsernameID);
         emailText = (EditText)findViewById(R.id.EmailID);
         passwordText = (EditText)findViewById(R.id.PasswordID);
