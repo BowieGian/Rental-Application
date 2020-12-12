@@ -52,6 +52,8 @@ public class CreateAd extends AppCompatActivity implements AdapterView.OnItemSel
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_ad);
 
+        //This is the Calendar part of the UI which allows the user to
+        //pick their arrival date using the Calendar like option
         mDisplayDate1 = (TextView) findViewById(R.id.tvDate);
         mDisplayDate1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +71,7 @@ public class CreateAd extends AppCompatActivity implements AdapterView.OnItemSel
             }
         });
 
+        //Action listener for the button so it opens up the Calendar view
         mDateSetListener1 = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
@@ -80,6 +83,8 @@ public class CreateAd extends AppCompatActivity implements AdapterView.OnItemSel
             }
         };
 
+        //This is the Calendar part of the UI which allows the user to
+        //pick their departure date using the Calendar like option
         mDisplayDate2 = (TextView) findViewById(R.id.tvDate2);
         mDisplayDate2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,6 +102,7 @@ public class CreateAd extends AppCompatActivity implements AdapterView.OnItemSel
             }
         });
 
+        //Action listener for the button so it opens up the Calendar view
         mDateSetListener2 = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
@@ -108,6 +114,9 @@ public class CreateAd extends AppCompatActivity implements AdapterView.OnItemSel
             }
         };
 
+
+        //Adding all the Spinners for the drop down menus so the user can enter
+        //the data easier since most of them are predefine
         Spinner spinnerGuests = (Spinner) findViewById(R.id.spinnerGuests);
         spinnerGuests.setOnItemSelectedListener(this);
         Spinner spinnerRooms = (Spinner) findViewById(R.id.spinnerRooms);
@@ -121,10 +130,10 @@ public class CreateAd extends AppCompatActivity implements AdapterView.OnItemSel
         Spinner spinnerSmoke = (Spinner) findViewById(R.id.spinnerSmoke);
         spinnerSmoke.setOnItemSelectedListener(this);
         textViewAdPrice = (TextView) findViewById(R.id.textViewAdPriceID);
-
         Spinner spinnerRentalType = (Spinner) findViewById(R.id.spinnerRentalType);
         spinnerRentalType.setOnItemSelectedListener(this);
 
+        //Passing the correct array define for each spinner based on their data input
         ArrayAdapter<String> myAdaptor = new ArrayAdapter<>(CreateAd.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Numbers));
         myAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -133,12 +142,14 @@ public class CreateAd extends AppCompatActivity implements AdapterView.OnItemSel
         spinnerBeds.setAdapter((myAdaptor));
         spinnerBaths.setAdapter((myAdaptor));
 
+        //Passing the correct array define for each spinner based on their data input
         ArrayAdapter<String> myAdaptor2 = new ArrayAdapter<>(CreateAd.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Yes_No));
         myAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerPet.setAdapter(myAdaptor2);
         spinnerSmoke.setAdapter(myAdaptor2);
 
+        //Passing the correct array define for each spinner based on their data input
         ArrayAdapter<String> myAdaptor5 = new ArrayAdapter<>(CreateAd.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.RentalType));
         myAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -263,8 +274,6 @@ public class CreateAd extends AppCompatActivity implements AdapterView.OnItemSel
                     }
                     break;
             }
-
         }
-
     }
 }

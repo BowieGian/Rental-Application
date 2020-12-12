@@ -23,6 +23,7 @@ public class DisplayHouse extends AppCompatActivity {
     }
 
     @Override
+    //These are mainly the components on the UI screen
     protected void onStart() {
         super.onStart();
         Intent intent = getIntent();
@@ -60,9 +61,11 @@ public class DisplayHouse extends AppCompatActivity {
         else
             petFriendly = "No";
 
+        //Type casting string
         String rating = String.valueOf(house.getRating());
         String price = String.valueOf(house.getPrice());
 
+        //Setting the text fields based on the user's input
         textDescription.setText(description);
         textID.setText(id);
         textLocation.setText(location);
@@ -76,11 +79,13 @@ public class DisplayHouse extends AppCompatActivity {
         textPrice.setText(price);
     }
 
+    //Function that displays image URLs of the house
     private void displayImage() {
         imageView = findViewById(R.id.image);
         Glide.with(this).load(house.getImageUrl()).into(imageView);
     }
 
+    //View more information about the selected ad
     public void selectHouse(View view) {
         Intent intent = new Intent(DisplayHouse.this, Payment.class);
         intent.putExtra("key", house.getKey());

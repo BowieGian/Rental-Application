@@ -42,6 +42,8 @@ public class FilterRoom extends AppCompatActivity implements AdapterView.OnItemS
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filter_room);
 
+        //This is the Calendar part of the UI which allows the user to
+        //pick their arrival date using the Calendar like option
         mDisplayDate1 = (TextView) findViewById(R.id.tvDate);
         mDisplayDate1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +61,7 @@ public class FilterRoom extends AppCompatActivity implements AdapterView.OnItemS
             }
         });
 
+        //Action listener for the button so it opens up the Calendar view
         mDateSetListener1 = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
@@ -70,7 +73,8 @@ public class FilterRoom extends AppCompatActivity implements AdapterView.OnItemS
             }
         };
 
-
+        //This is the Calendar part of the UI which allows the user to
+        //pick their checkout date using the Calendar like option
         mDisplayDate2 = (TextView) findViewById(R.id.tvDate2);
         mDisplayDate2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +92,7 @@ public class FilterRoom extends AppCompatActivity implements AdapterView.OnItemS
             }
         });
 
+        //Action listener for the button so it opens up the Calendar view
         mDateSetListener2 = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
@@ -99,6 +104,8 @@ public class FilterRoom extends AppCompatActivity implements AdapterView.OnItemS
             }
         };
 
+        //Adding all the Spinners for the drop down menus so the user can enter
+        //the data easier since most of them are predefine
         Spinner spinnerBeds = (Spinner) findViewById(R.id.spinnerBeds);
         spinnerBeds.setOnItemSelectedListener(this);
         Spinner spinnerBaths = (Spinner) findViewById(R.id.spinnerBaths);
@@ -112,23 +119,27 @@ public class FilterRoom extends AppCompatActivity implements AdapterView.OnItemS
         Spinner spinnerPrice = (Spinner) findViewById(R.id.spinnerPrice);
         spinnerPrice.setOnItemSelectedListener(this);
 
+        //Passing the correct array define for each spinner based on their data input
         ArrayAdapter<String> myAdaptor = new ArrayAdapter<>(FilterRoom.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Numbers));
         myAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerBeds.setAdapter((myAdaptor));
         spinnerBaths.setAdapter((myAdaptor));
 
+        //Passing the correct array define for each spinner based on their data input
         ArrayAdapter<String> myAdaptor2 = new ArrayAdapter<>(FilterRoom.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Yes_No));
         myAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerPet.setAdapter(myAdaptor2);
         spinnerSmoke.setAdapter(myAdaptor2);
 
+        //Passing the correct array define for each spinner based on their data input
         ArrayAdapter<String> myAdaptor3 = new ArrayAdapter<>(FilterRoom.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Rating));
         myAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerRating.setAdapter(myAdaptor3);
 
+        //Passing the correct array define for each spinner based on their data input
         ArrayAdapter<String> myAdaptor4 = new ArrayAdapter<>(FilterRoom.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Price));
         myAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -137,6 +148,7 @@ public class FilterRoom extends AppCompatActivity implements AdapterView.OnItemS
 
     @Override
     protected void onStart() {
+        //Defining some parameters to store the users data from the spinners
         super.onStart();
         inDate = "Select";
         outDate = "Select";
@@ -152,6 +164,7 @@ public class FilterRoom extends AppCompatActivity implements AdapterView.OnItemS
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String selectedString = parent.getItemAtPosition(position).toString();
 
+        //Getting the user inputs from the spinners and store them
         switch (parent.getId()) {
             case R.id.spinnerBeds:
                 beds = selectedString;
@@ -187,9 +200,12 @@ public class FilterRoom extends AppCompatActivity implements AdapterView.OnItemS
         TextView textLocation = (TextView) findViewById(R.id.location);
         String location = textLocation.getText().toString();
 
+        //Case of invalid location:
         if(location.matches("")){// check for empty location
             Toast.makeText(this,"Please Enter a Valid Location!  ", Toast.LENGTH_SHORT).show();
         }
+
+        //The case that everything have been entered correctly:
         else{
             Intent intent = new Intent(this, RentalList.class);
             intent.putExtra("rentalType", "PrivateRoom");
@@ -204,7 +220,5 @@ public class FilterRoom extends AppCompatActivity implements AdapterView.OnItemS
             intent.putExtra("location", location);
             startActivity(intent);
         }
-
-
     }
 }

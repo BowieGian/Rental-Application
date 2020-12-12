@@ -22,6 +22,7 @@ public class Payment extends AppCompatActivity {
     private Button goBack;
 
     @Override
+    //UI components
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
@@ -52,12 +53,14 @@ public class Payment extends AppCompatActivity {
         rentalType = extras.getString("rentalType");
     }
 
+    //Displays a toast message when the payment is successfull
     public void displayToast(View v) {
         reference = rootNode.getReference(rentalType);
         reference.child(key).removeValue();
         Toast.makeText(Payment.this, "Your payment was been completed", Toast.LENGTH_SHORT).show();
     }
 
+    //Once the payment is done, it takes the ysers to the main screen
     public void goBackToStart() {
         Intent intent = new Intent(this, RentOrPost.class);
         startActivity(intent);

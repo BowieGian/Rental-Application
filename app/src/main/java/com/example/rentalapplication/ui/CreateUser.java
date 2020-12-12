@@ -55,18 +55,21 @@ public class CreateUser extends AppCompatActivity {
 
         userRef.orderByChild("username").equalTo(username).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
+            //Looking after different scenario cases in the Create User screen
+            //User needs to fill all the fields
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(username.matches("")||email.matches("")||password.matches("")){
                     Toast.makeText(CreateUser.this,"Please complete all the required fields!  ", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    // if the username is not taken
+                    //if the username is not taken
                     if (dataSnapshot.getValue() == null) {
                         UserAccount newUser = new UserAccount(username, email, password);
                         userRef.push().setValue(newUser);  // add newUser as a child to the Node User
                         Toast.makeText(CreateUser.this,"Account created Successfully! ", Toast.LENGTH_SHORT).show();
                         BackToLogin();
                     }
+                    //if the entered credentials are not valid
                     else {
                         Toast.makeText(CreateUser.this,"Please Enter Valid Credentials!  ", Toast.LENGTH_SHORT).show();
                     }
