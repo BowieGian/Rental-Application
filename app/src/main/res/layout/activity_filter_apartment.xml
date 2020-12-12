@@ -341,7 +341,7 @@
         app:layout_constraintVertical_bias="0.119" />
 
     <Button
-        android:id="@+id/buttonLogin"
+        android:id="@+id/buttonSearch"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:background="@android:drawable/editbox_dropdown_light_frame"
