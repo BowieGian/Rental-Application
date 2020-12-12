@@ -25,7 +25,6 @@ import java.util.List;
 
 public class RentalList extends AppCompatActivity {
     private FirebaseDatabase rootNode;
-    private DatabaseReference reference;
     private String rentalType;
 
     ListView listViewRentals;
@@ -88,7 +87,7 @@ public class RentalList extends AppCompatActivity {
         });
 
 
-        reference = rootNode.getReference(rentalType);
+        DatabaseReference reference = rootNode.getReference(rentalType);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

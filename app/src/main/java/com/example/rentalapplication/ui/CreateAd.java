@@ -31,20 +31,17 @@ public class CreateAd extends AppCompatActivity implements AdapterView.OnItemSel
     private TextView mDisplayDate1;
     private DatePickerDialog.OnDateSetListener mDateSetListener1;
     private TextView mDisplayDate2;
-    private TextView textViewAdPrice;
 
     private DatePickerDialog.OnDateSetListener mDateSetListener2;
-    private FirebaseDatabase rootNode;
 
-    private String inDate;
-    private String outDate;
-    private int guests;
-    private int rooms;
-    private int beds;
-    private int baths;
-    private boolean pet;
-    private boolean smoke;
-    private int price = 0;
+    private String inDate = "Select";
+    private String outDate = "Select";
+    private int guests = -1;
+    private int rooms = -1;
+    private int beds = -1;
+    private int baths = -1;
+    private boolean pet = true;
+    private boolean smoke = true;
     private String rentalType;
 
     @Override
@@ -120,7 +117,7 @@ public class CreateAd extends AppCompatActivity implements AdapterView.OnItemSel
         spinnerPet.setOnItemSelectedListener(this);
         Spinner spinnerSmoke = (Spinner) findViewById(R.id.spinnerSmoke);
         spinnerSmoke.setOnItemSelectedListener(this);
-        textViewAdPrice = (TextView) findViewById(R.id.textViewAdPriceID);
+        TextView textViewAdPrice = (TextView) findViewById(R.id.textViewPrice);
 
         Spinner spinnerRentalType = (Spinner) findViewById(R.id.spinnerRentalType);
         spinnerRentalType.setOnItemSelectedListener(this);
@@ -153,52 +150,57 @@ public class CreateAd extends AppCompatActivity implements AdapterView.OnItemSel
             case R.id.spinnerGuests:
                 if (selectedString.equals("6+"))
                     guests = 7;
-                else if (selectedString.equals("Select"))
+                else if (selectedString.equals("Select")) {
+                    guests = -1;
                     break;
+                }
                 else
                     guests = Integer.parseInt(selectedString);
                 break;
             case R.id.spinnerRooms:
                 if (selectedString.equals("6+"))
                     rooms = 7;
-                else if (selectedString.equals("Select"))
+                else if (selectedString.equals("Select")) {
+                    rooms = -1;
                     break;
+                }
                 else
                     rooms = Integer.parseInt(selectedString);
                 break;
             case R.id.spinnerBeds:
                 if (selectedString.equals("6+"))
                     beds = 7;
-                else if (selectedString.equals("Select"))
+                else if (selectedString.equals("Select")) {
+                    beds = -1;
                     break;
+                }
                 else
                     beds = Integer.parseInt(selectedString);
                 break;
             case R.id.spinnerBaths:
                 if (selectedString.equals("6+"))
                     baths = 7;
-                else if (selectedString.equals("Select"))
+                else if (selectedString.equals("Select")) {
+                    baths = -1;
                     break;
+                }
                 else
                     baths = Integer.parseInt(selectedString);
                 break;
             case R.id.spinnerPet:
-                if (selectedString.equals("True"))
+                if (selectedString.equals("Yes"))
                     pet = true;
-                else if (selectedString.equals("False"))
+                else if (selectedString.equals("No"))
                     pet = false;
                 break;
             case R.id.spinnerSmoke:
-                if (selectedString.equals("True"))
+                if (selectedString.equals("Yes"))
                     smoke = true;
-                else if (selectedString.equals("False"))
+                else if (selectedString.equals("No"))
                     smoke = false;
                 break;
             case R.id.spinnerRentalType:
-                if (selectedString.equals("Select"))
-                    break;
-                else
-                    rentalType = selectedString;
+                rentalType = selectedString;
                 break;
         }
     }
@@ -211,56 +213,61 @@ public class CreateAd extends AppCompatActivity implements AdapterView.OnItemSel
     public void postAd(View V) {
         EditText editTextLocation = findViewById(R.id.editTextLocation);
         EditText editTextImageUrl = findViewById(R.id.editTextImageUrl);
-        TextView textViewPrice = findViewById(R.id.textViewPrice);
+        EditText textViewPrice = findViewById(R.id.textViewPrice);
         String location = editTextLocation.getText().toString();
         String imageUrl = editTextImageUrl.getText().toString();
-        rootNode = FirebaseDatabase.getInstance();
+        FirebaseDatabase rootNode = FirebaseDatabase.getInstance();
         DatabaseReference pushRef;
 
         String temp = textViewPrice.getText().toString();
-        price = Integer.parseInt(temp);
+        int price;
+        if (temp.equals(""))
+            price = -1;
+        else
+            price = Integer.parseInt(temp);
 
-        if(imageUrl.matches("")||location.matches("")){
-            Toast.makeText(CreateAd.this, "Please enter Valid image URL, Location! ", Toast.LENGTH_SHORT).show();
-        }
-        else{
+        if (rentalType.equals("Select"))
+            Toast.makeText(CreateAd.this, "Please select the rental type! ", Toast.LENGTH_SHORT).show();
+        else if (imageUrl.matches("")||location.matches(""))
+            Toast.makeText(CreateAd.this, "Please enter Valid image URL or Location! ", Toast.LENGTH_SHORT).show();
+        else if (guests < 0)
+            Toast.makeText(CreateAd.this, "Please select the number of guests! ", Toast.LENGTH_SHORT).show();
+        else if (rooms < 0)
+            Toast.makeText(CreateAd.this, "Please select the number of rooms! ", Toast.LENGTH_SHORT).show();
+        else if (beds < 0)
+            Toast.makeText(CreateAd.this, "Please select the number of beds! ", Toast.LENGTH_SHORT).show();
+        else if (baths < 0)
+            Toast.makeText(CreateAd.this, "Please select the number of baths! ", Toast.LENGTH_SHORT).show();
+        else if (price <= 0)
+            Toast.makeText(CreateAd.this, "Please enter Valid Price! ", Toast.LENGTH_SHORT).show();
+        else {
             switch(rentalType) {
                 case "Apartment":
-                    if(price<=0){ Toast.makeText(CreateAd.this, "Please enter Valid Price! ", Toast.LENGTH_SHORT).show(); }
-                    else{
-                        Apartment apartment = new Apartment(inDate, outDate,
-                                guests, rooms, beds, baths, pet, smoke, location, 0, price, imageUrl);
-                        DatabaseReference apartRef = rootNode.getReference("Apartment");
-                        pushRef = apartRef.push();
-                        apartment.setKey(pushRef.getKey());
-                        pushRef.setValue(apartment);
-                        Toast.makeText(CreateAd.this, "Ad has been successfully posted", Toast.LENGTH_SHORT).show();
-                    }
+                    Apartment apartment = new Apartment(inDate, outDate,
+                            guests, rooms, beds, baths, pet, smoke, location, 0, price, imageUrl);
+                    DatabaseReference apartRef = rootNode.getReference("Apartment");
+                    pushRef = apartRef.push();
+                    apartment.setKey(pushRef.getKey());
+                    pushRef.setValue(apartment);
+                    Toast.makeText(CreateAd.this, "Ad has been successfully posted", Toast.LENGTH_SHORT).show();
                     break;
                 case "House":
-                    if(price<=0){ Toast.makeText(CreateAd.this, "Please enter Valid Price! ", Toast.LENGTH_SHORT).show();}
-                    else{
-                        House house = new House(inDate, outDate,
-                                guests, rooms, beds, baths, pet, smoke, location, 0, price, imageUrl);
-                        DatabaseReference houseRef = rootNode.getReference("House");
-                        pushRef = houseRef.push();
-                        house.setKey(pushRef.getKey());
-                        pushRef.setValue(house);
-                        Toast.makeText(CreateAd.this, "Ad has been successfully posted", Toast.LENGTH_SHORT).show();
-                    }
-
+                    House house = new House(inDate, outDate,
+                            guests, rooms, beds, baths, pet, smoke, location, 0, price, imageUrl);
+                    DatabaseReference houseRef = rootNode.getReference("House");
+                    pushRef = houseRef.push();
+                    house.setKey(pushRef.getKey());
+                    pushRef.setValue(house);
+                    Toast.makeText(CreateAd.this, "Ad has been successfully posted", Toast.LENGTH_SHORT).show();
                     break;
                 case "Room":
-                    if(price<=0){ Toast.makeText(CreateAd.this, "Please enter Valid Price! ", Toast.LENGTH_SHORT).show();}
-                    else{
-                        PrivateRoom privateRoom = new PrivateRoom(inDate, outDate,
-                                beds, baths, pet, smoke, location, 0, price, imageUrl);
-                        DatabaseReference pRoomRef = rootNode.getReference("PrivateRoom");
-                        pushRef = pRoomRef.push();
-                        privateRoom.setKey(pushRef.getKey());
-                        pushRef.setValue(privateRoom);
-                        Toast.makeText(CreateAd.this, "Ad has been successfully posted", Toast.LENGTH_SHORT).show();
-                    }
+                    PrivateRoom privateRoom = new PrivateRoom(inDate, outDate,
+                            beds, baths, pet, smoke, location, 0, price, imageUrl);
+                    DatabaseReference pRoomRef = rootNode.getReference("PrivateRoom");
+                    pushRef = pRoomRef.push();
+                    privateRoom.setKey(pushRef.getKey());
+                    pushRef.setValue(privateRoom);
+                    Toast.makeText(CreateAd.this, "Ad has been successfully posted", Toast.LENGTH_SHORT).show();
                     break;
             }
 
