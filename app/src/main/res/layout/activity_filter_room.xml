@@ -62,10 +62,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/imageBackground"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.21"
+        app:layout_constraintHorizontal_bias="0.233"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.602" />
+        app:layout_constraintVertical_bias="0.601" />
 
     <TextView
         android:id="@+id/textView2"
@@ -92,14 +92,14 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView13"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.264"
+        app:layout_constraintHorizontal_bias="0.28"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.704" />
+        app:layout_constraintVertical_bias="0.701" />
 
     <Spinner
         android:id="@+id/spinnerBeds"
-        android:layout_width="55dp"
+        android:layout_width="80dp"
         android:layout_height="25dp"
         android:alpha="0.8"
         android:background="@android:color/white"
@@ -120,14 +120,14 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/imageBackground"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.203"
+        app:layout_constraintHorizontal_bias="0.238"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.432" />
+        app:layout_constraintVertical_bias="0.431" />
 
     <Spinner
         android:id="@+id/spinnerPet"
-        android:layout_width="55dp"
+        android:layout_width="80dp"
         android:layout_height="25dp"
         android:alpha="0.8"
         android:background="@android:color/white"
@@ -140,7 +140,7 @@
 
     <Spinner
         android:id="@+id/spinnerRating"
-        android:layout_width="55dp"
+        android:layout_width="80dp"
         android:layout_height="25dp"
         android:alpha="0.8"
         android:background="@android:color/white"
@@ -161,10 +161,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/imageBackground"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.745"
+        app:layout_constraintHorizontal_bias="0.789"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.602" />
+        app:layout_constraintVertical_bias="0.601" />
 
     <TextView
         android:id="@+id/textView3"
@@ -207,14 +207,14 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/imageBackground"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.712"
+        app:layout_constraintHorizontal_bias="0.731"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.281" />
+        app:layout_constraintVertical_bias="0.28" />
 
     <Spinner
         android:id="@+id/spinnerBaths"
-        android:layout_width="55dp"
+        android:layout_width="80dp"
         android:layout_height="25dp"
         android:alpha="0.8"
         android:background="@android:color/white"
@@ -235,14 +235,14 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/imageBackground"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.742"
+        app:layout_constraintHorizontal_bias="0.755"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.432" />
+        app:layout_constraintVertical_bias="0.431" />
 
     <Spinner
         android:id="@+id/spinnerSmoke"
-        android:layout_width="55dp"
+        android:layout_width="80dp"
         android:layout_height="25dp"
         android:alpha="0.8"
         android:background="@android:color/white"
@@ -255,7 +255,7 @@
 
     <Spinner
         android:id="@+id/spinnerPrice"
-        android:layout_width="55dp"
+        android:layout_width="80dp"
         android:layout_height="25dp"
         android:alpha="0.8"
         android:background="@android:color/white"
