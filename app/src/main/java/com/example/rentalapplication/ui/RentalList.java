@@ -43,6 +43,7 @@ public class RentalList extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
+        // get all the filter details from the previous activity
         final Bundle extras = getIntent().getExtras();
         rentalType = extras.getString("rentalType");
         final String inDate = extras.getString("inDate");
@@ -59,6 +60,8 @@ public class RentalList extends AppCompatActivity {
         listViewRentals = (ListView) findViewById(R.id.listViewHouses);
         listViewRentals.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
+        // listen for a click in the ListView and then pass the Rental
+        // to the correct Display class
         listViewRentals.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -86,7 +89,7 @@ public class RentalList extends AppCompatActivity {
             }
         });
 
-
+// put the Rental into the ArrayList if it matches the filter
         DatabaseReference reference = rootNode.getReference(rentalType);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -128,6 +131,8 @@ public class RentalList extends AppCompatActivity {
         });
     }
 
+    // checks if the user didn't select anything and ignores the filter (return true)
+    // if the user selected one, return true if the number matches the string
     private boolean checkRentalInt(int number, String spinnerInput) {
         if (spinnerInput.equals("Select"))
             return true;
@@ -137,6 +142,8 @@ public class RentalList extends AppCompatActivity {
             return number == Integer.parseInt(spinnerInput);
     }
 
+    // returns true if the Apartment matches the filters
+    // if the filter is "Select", ignore that filter
     private boolean compareApartment(Apartment apartment, String location, String inDate, String outDate,
                                      String numGuests, String numRooms, String numBeds, String numBaths,
                                      String petFriendly, String smokeFree,
@@ -202,6 +209,8 @@ public class RentalList extends AppCompatActivity {
         return true;
     }
 
+    // returns true if the House matches the filters
+    // if the filter is "Select", ignore that filter
     private boolean compareHouse(House house, String location, String inDate, String outDate,
                                      String numGuests, String numRooms, String numBeds, String numBaths,
                                      String petFriendly, String smokeFree,
@@ -267,6 +276,8 @@ public class RentalList extends AppCompatActivity {
         return true;
     }
 
+    // returns true if the PrivateRoom matches the filters
+    // if the filter is "Select", ignore that filter
     private boolean comparePrivateRoom(PrivateRoom privateRoom, String location, String inDate, String outDate,
                                      String numBeds, String numBaths,
                                      String petFriendly, String smokeFree,

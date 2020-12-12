@@ -20,16 +20,19 @@ public class FilterSelect extends AppCompatActivity {
         setContentView(R.layout.activity_filter_select);
     }
 
+    //Linking to the Display Houses screen once users taps on the button
     public void displayHouses(View view) {
         Intent intent = new Intent(this, FilterHouse.class);
         startActivity(intent);
     }
 
+    //Linking to the Display Apartments screen once users taps on the button
     public void displayApartments(View view) {
         Intent intent = new Intent(this, FilterApartment.class);
         startActivity(intent);
     }
 
+    //Linking to the Display Rooms screen once users taps on the button
     public void displayPrivateRooms(View view) {
         Intent intent = new Intent(this, FilterRoom.class);
         startActivity(intent);

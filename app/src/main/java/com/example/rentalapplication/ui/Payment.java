@@ -22,6 +22,7 @@ public class Payment extends AppCompatActivity {
     private Button goBack;
 
     @Override
+    //UI components
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
@@ -33,14 +34,6 @@ public class Payment extends AppCompatActivity {
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.PaymentType));
         myAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         PaymentType.setAdapter(myAdaptor);
-
-        goBack = (Button) findViewById(R.id.button3);
-        goBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                goBackToStart();
-            }
-        });
     }
 
     @Override
@@ -52,14 +45,22 @@ public class Payment extends AppCompatActivity {
         rentalType = extras.getString("rentalType");
     }
 
+    //Displays a toast message when the payment is successful
     public void displayToast(View v) {
         reference = rootNode.getReference(rentalType);
         reference.child(key).removeValue();
         Toast.makeText(Payment.this, "Your payment was been completed", Toast.LENGTH_SHORT).show();
     }
 
-    public void goBackToStart() {
+    //Once the payment is done, it takes the users to the main screen
+    public void goBackToStart(View view) {
         Intent intent = new Intent(this, RentOrPost.class);
+        startActivity(intent);
+    }
+
+    //The user can log out if they are done
+    public void logOut(View view) {
+        Intent intent = new Intent(this, Login.class);
         startActivity(intent);
     }
 }

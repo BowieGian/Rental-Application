@@ -56,11 +56,13 @@ public class Login extends AppCompatActivity {
                     for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
                         currentUser = userSnapshot.getValue(UserAccount.class);
 
+                        //Case of empty username
                         if (currentUser == null) {
                             invalidCredentials();
                             return;
                         }
 
+                        //Matching the username with the password
                         if (currentUser.getPassword().equals(password)) {
                             selectOption();
                             return;
@@ -75,18 +77,20 @@ public class Login extends AppCompatActivity {
                 }
             });
         }
-
     }
 
+    //Case of invalid login credentials
     private void invalidCredentials() {
         Toast.makeText(Login.this,"Invalid credentials", Toast.LENGTH_SHORT).show();
     }
+
 
     public void selectOption(){
         Intent intent = new Intent (Login.this, RentOrPost.class ); // intent opens a new window
         startActivity(intent);
     }
 
+    //Linking to the Create new user screen
     public void openNewUserScreen(){
         Intent intent = new Intent (this, CreateUser.class );
         startActivity(intent);
@@ -94,7 +98,6 @@ public class Login extends AppCompatActivity {
 
     public void signUp(){
         TextView tv = (TextView)findViewById(R.id.NewUserID);
-
         tv.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 openNewUserScreen();
