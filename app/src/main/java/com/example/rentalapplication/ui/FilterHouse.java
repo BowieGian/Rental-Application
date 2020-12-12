@@ -126,7 +126,7 @@ public class FilterHouse extends AppCompatActivity implements AdapterView.OnItem
         spinnerBaths.setAdapter((myAdaptor));
 
         ArrayAdapter<String> myAdaptor2 = new ArrayAdapter<>(FilterHouse.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Yes_No));
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Select_Yes_No));
         myAdaptor2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerPet.setAdapter(myAdaptor2);
         spinnerSmoke.setAdapter(myAdaptor2);

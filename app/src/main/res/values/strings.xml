@@ -68,8 +68,13 @@
         <item>6+</item>
     </string-array>
 
-    <string-array name="Yes_No">
+    <string-array name="Select_Yes_No">
         <item>Select</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="Yes_No">
         <item>Yes</item>
         <item>No</item>
     </string-array>

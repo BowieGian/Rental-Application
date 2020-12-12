@@ -21,7 +21,7 @@
         app:srcCompat="@drawable/base" />
 
     <Button
-        android:id="@+id/buttonHouse"
+        android:id="@+id/buttonRent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:alpha="0.9"
@@ -40,7 +40,7 @@
         app:layout_constraintVertical_bias="0.155" />
 
     <Button
-        android:id="@+id/buttonApartment"
+        android:id="@+id/buttonPostAnAd"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="136dp"

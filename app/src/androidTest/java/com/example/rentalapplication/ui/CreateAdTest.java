@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
+import static androidx.test.espresso.Espresso.closeSoftKeyboard;
 import static androidx.test.espresso.Espresso.onData;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
@@ -22,14 +23,17 @@ import static org.hamcrest.Matchers.is;
 
 import com.example.rentalapplication.R;
 
+import androidx.test.espresso.Espresso;
+import androidx.test.espresso.ViewAction;
+import androidx.test.espresso.action.ViewActions;
 import androidx.test.espresso.contrib.PickerActions;
 import androidx.test.espresso.intent.Intents;
 import androidx.test.rule.ActivityTestRule;
 
-public class FilterHouseTest {
+public class CreateAdTest {
     @Rule
-    public ActivityTestRule<FilterHouse> activityTestRule
-            = new ActivityTestRule<>(FilterHouse.class);
+    public ActivityTestRule<CreateAd> activityTestRule
+            = new ActivityTestRule<>(CreateAd.class);
 
     @Before
     public void setUp() {
@@ -37,30 +41,9 @@ public class FilterHouseTest {
     }
 
     @Test
-    public void successfulFilter() {
-        onView(withId(R.id.location))
-                .perform(typeText("Vancouver"));
-
-        onView(withId(R.id.tvDate)).perform(click());
-        onView(withClassName(Matchers.equalTo(DatePicker.class.getName())))
-                .perform(PickerActions.setDate(2020, 12, 11));
-        onView(withId(android.R.id.button1)).perform(click());
-
-        onView(withId(R.id.tvDate2)).perform(click());
-        onView(withClassName(Matchers.equalTo(DatePicker.class.getName())))
-                .perform(PickerActions.setDate(2020, 12, 12));
-        onView(withId(android.R.id.button1)).perform(click());
-
-        onView(withId(R.id.buttonSearch)).perform(click());
-
-        activityTestRule.launchActivity(new Intent());
-        intended(hasComponent(RentalList.class.getName()));
-    }
-
-    @Test
-    public void fullSuccessfulFilter() {
-        onView(withId(R.id.location))
-                .perform(typeText("Vancouver"));
+    public void successfulCreateAd() {
+        onView(withId(R.id.spinnerRentalType)).perform(click());
+        onData(is("House")).perform(click());
 
         onView(withId(R.id.tvDate)).perform(click());
         onView(withClassName(Matchers.equalTo(DatePicker.class.getName())))
@@ -76,10 +59,34 @@ public class FilterHouseTest {
                 .perform(click());
         onData(is("1")).perform(click());
 
-        onView(withId(R.id.buttonSearch)).perform(click());
+        onView(withId(R.id.spinnerRooms))
+                .perform(click());
+        onData(is("2")).perform(click());
 
-        activityTestRule.launchActivity(new Intent());
-        intended(hasComponent(RentalList.class.getName()));
+        onView(withId(R.id.spinnerBeds))
+                .perform(click());
+        onData(is("1")).perform(click());
+
+        onView(withId(R.id.spinnerBaths))
+                .perform(click());
+        onData(is("1")).perform(click());
+
+        onView(withId(R.id.spinnerPet))
+                .perform(click());
+        onData(is("No")).perform(click());
+
+        onView(withId(R.id.spinnerSmoke))
+                .perform(click());
+        onData(is("No")).perform(click());
+
+        onView(withId(R.id.editTextLocation)).perform(typeText("Vancouver"));
+
+        onView(withId(R.id.textViewPrice)).perform(typeText("234"));
+
+        onView(withId(R.id.editTextImageUrl))
+                .perform(typeText("https://www.vreb.radarhill.net/img/properties/856/078/1.jpg"), ViewActions.closeSoftKeyboard());
+
+        onView(withId(R.id.SubmitButtonID)).perform(click());
     }
 
     @After
