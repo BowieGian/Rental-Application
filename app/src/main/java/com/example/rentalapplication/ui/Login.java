@@ -33,8 +33,8 @@ public class Login extends AppCompatActivity {
         signUp();
         rootNode = FirebaseDatabase.getInstance();
         userRef = rootNode.getReference("User");
-        usernameText = (EditText)findViewById(R.id.editTextTextPersonName);
-        passwordText = (EditText)findViewById(R.id.editTextTextPassword);
+        usernameText = (EditText)findViewById(R.id.textUsername);
+        passwordText = (EditText)findViewById(R.id.textPassword);
     }
 
     public void loginOnClick(View view){

@@ -47,7 +47,7 @@
         app:layout_constraintVertical_bias="0.071" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:drawable/editbox_dropdown_light_frame"
@@ -61,7 +61,7 @@
         app:layout_constraintVertical_bias="0.727" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/textUsername"
         android:layout_width="210dp"
         android:layout_height="33dp"
         android:alpha="0.8"
@@ -95,7 +95,7 @@
         app:layout_constraintVertical_bias="0.328" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/textPassword"
         android:layout_width="210dp"
         android:layout_height="33dp"
         android:alpha="0.8"
