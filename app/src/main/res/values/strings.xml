@@ -1,3 +1,112 @@
 <resources>
-    <string name="app_name">rentalApplication</string>
+    <string name="app_name">Rental Application</string>
+    <string name="background">Background</string>
+    <string name="available_apartments">Available Apartments</string>
+    <string name="apartment_id">Apartment ID:</string>
+    <string name="apartment_image">Apartment Image</string>
+    <string name="select_this_apartment">Select this apartment</string>
+    <string name="house_id">House ID:</string>
+    <string name="select_this_room">Select this room</string>
+    <string name="room_id">Room ID:</string>
+    <string name="select_this_house">Select this house</string>
+    <string name="location">Location</string>
+    <string name="submit">Submit</string>
+    <string name="rooms">Rooms</string>
+    <string name="price">Price</string>
+    <string name="pet_friendly">Pet Friendly</string>
+    <string name="smoke_free">Smoke Free</string>
+    <string name="image_url">Image URL:</string>
+    <string name="baths">Baths</string>
+    <string name="beds">Beds</string>
+    <string name="guests">Guests</string>
+    <string name="select">Select</string>
+    <string name="end_date">End Date</string>
+    <string name="this_is_a">This is a</string>
+    <string name="available_date">Available Date</string>
+    <string name="paste_url">Paste Url</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="create_a_new_account">Create a new account</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="enter_the_location">Enter the location:</string>
+    <string name="check_in_date">Check In Date</string>
+    <string name="check_out_date">Check Out Date</string>
+    <string name="price_range">Price Range</string>
+    <string name="rating_range">Rating Range</string>
+    <string name="house">House</string>
+    <string name="apartment">Apartment</string>
+    <string name="privateroom">Private Room</string>
+    <string name="login">Login</string>
+    <string name="don_t_have_an_account_sign_up">Don\'t have an account? Sign up</string>
+    <string name="please_complete_your_reservation">Please complete your reservation</string>
+    <string name="select_your_payment_method">Select your payment method:</string>
+    <string name="enter_your_card_number">Enter your card number</string>
+    <string name="cardholder_s_full_name">Cardholder\'s full name</string>
+    <string name="expiry_date">Expiry date</string>
+    <string name="reserve_my_booking_now">Reserve my booking now</string>
+    <string name="another_booking">Another booking</string>
+    <string name="log_out">Log out</string>
+    <string name="cvv_code">CVV code</string>
+    <string name="card_number">Card Number</string>
+    <string name="full_name">Full Name</string>
+    <string name="i_want_to">I want to.....</string>
+    <string name="rent">Rent</string>
+    <string name="post_an_ad">Post an ad</string>
+    <string name="select_a_rental_to_view_details">Select a Rental to view details!</string>
+    <string name="rental">Rental</string>
+    <string name="price_colon">Price:</string>
+    <string name="rating_colon">Rating:</string>
+
+    <string-array name="Numbers">
+        <item>Select</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6+</item>
+    </string-array>
+
+    <string-array name="Select_Yes_No">
+        <item>Select</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="Yes_No">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="Rating">
+        <item>Select</item>
+        <item>1 – 2 stars</item>
+        <item>2 – 3 stars</item>
+        <item>3 – 4 stars</item>
+        <item>4 – 5 stars</item>
+    </string-array>
+
+    <string-array name="Price">
+        <item>Select</item>
+        <item>$50 - $150</item>
+        <item>$150 - $250</item>
+        <item>$250 - $500</item>
+        <item>$500 +</item>
+    </string-array>
+
+    <string-array name="RentalType">
+        <item>Select</item>
+        <item>House</item>
+        <item>Apartment</item>
+        <item>Room</item>
+    </string-array>
+
+    <string-array name="PaymentType">
+        <item>Select</item>
+        <item>Visa</item>
+        <item>Mastercard</item>
+        <item>American Express</item>
+    </string-array>
+
 </resources>

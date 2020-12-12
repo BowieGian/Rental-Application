@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.DisplayRoom">
+
+    <ImageView
+        android:id="@+id/imageBackground"
+        android:layout_width="457dp"
+        android:layout_height="754dp"
+        android:contentDescription="@string/background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/base"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textTitleId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/room_id"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textRentalID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textTitleId"
+        app:layout_constraintStart_toEndOf="@+id/textTitleId"
+        app:layout_constraintTop_toTopOf="@+id/textTitleId"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="293dp"
+        android:layout_height="251dp"
+        android:layout_marginTop="24dp"
+        android:contentDescription="@string/apartment_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textTitleId"
+        app:srcCompat="@drawable/house0"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textDescription"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSelect"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textRentalList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="2dp"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/textDescription"
+        app:layout_constraintTop_toTopOf="@+id/textDescription"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textBeds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="136dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="24dp"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/textDescription"
+        app:layout_constraintTop_toTopOf="@+id/textDescription"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textBaths"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="140dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="44dp"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/textDescription"
+        app:layout_constraintTop_toTopOf="@+id/textDescription"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textSmokeFree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="66dp"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/textDescription"
+        app:layout_constraintTop_toTopOf="@+id/textDescription"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textPetFriendly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="87dp"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/textDescription"
+        app:layout_constraintTop_toTopOf="@+id/textDescription"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="128dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="107dp"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/textDescription"
+        app:layout_constraintTop_toTopOf="@+id/textDescription"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="124dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="128dp"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/textDescription"
+        app:layout_constraintTop_toTopOf="@+id/textDescription"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/buttonSelect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageBackground"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="39dp"
+        android:layout_marginEnd="128dp"
+        android:layout_marginLeft="128dp"
+        android:layout_marginRight="128dp"
+        android:layout_marginStart="128dp"
+        android:onClick="selectPrivateRoom"
+        android:text="@string/select_this_room"
+        app:layout_constraintBottom_toBottomOf="@+id/imageBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

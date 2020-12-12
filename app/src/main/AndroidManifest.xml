@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.rentalapplication">
-    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -10,10 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DisplayHouses"></activity>
-        <activity android:name=".SelectionScreen" />
-        <activity android:name=".NewUserScreen" />
-        <activity android:name=".Login">
+        <activity android:name=".ui.CreateAd" />
+        <activity android:name=".ui.CreateUser" />
+        <activity android:name=".ui.DisplayApartment" />
+        <activity android:name=".ui.DisplayHouse" />
+        <activity android:name=".ui.DisplayRoom" />
+        <activity android:name=".ui.FilterApartment" />
+        <activity android:name=".ui.FilterHouse" />
+        <activity android:name=".ui.FilterRoom" />
+        <activity android:name=".ui.FilterSelect" />
+        <activity android:name=".ui.Payment" />
+        <activity android:name=".ui.RentalList" />
+        <activity android:name=".ui.RentOrPost" />
+        <activity android:name=".ui.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,5 +29,7 @@
             </intent-filter>
         </activity>
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
