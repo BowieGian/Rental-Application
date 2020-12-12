@@ -10,6 +10,7 @@ import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.intent.Intents.intended;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.intent.matcher.IntentMatchers.toPackage;
 import com.example.rentalapplication.R;
 
 import androidx.test.espresso.ViewAction;
@@ -34,6 +35,6 @@ public class LoginTest {
         closeSoftKeyboard();
 
         onView(withId(R.id.buttonLogin)).perform(click());
-        intended(toPackage());
+        intended(toPackage("com.example.rentalapplication/.ui.RentOrPost"));
     }
 }
